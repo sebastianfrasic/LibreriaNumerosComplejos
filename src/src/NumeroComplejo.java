@@ -22,7 +22,7 @@ public class NumeroComplejo {
 	}
 	
 	
-
+	
 	public NumeroComplejo(double modulo, double fase, boolean estaEnPolar) {
 		this.modulo = modulo;
 		this.fase = fase;
@@ -137,13 +137,9 @@ public class NumeroComplejo {
 		if (getClass() != obj.getClass())
 			return false;
 		NumeroComplejo other = (NumeroComplejo) obj;
-		if (Double.doubleToLongBits(fase) != Double.doubleToLongBits(other.fase))
+		if (parteImaginaria != other.parteImaginaria)
 			return false;
-		if (Double.doubleToLongBits(modulo) != Double.doubleToLongBits(other.modulo))
-			return false;
-		if (Double.doubleToLongBits(parteImaginaria) != Double.doubleToLongBits(other.parteImaginaria))
-			return false;
-		if (Double.doubleToLongBits(parteReal) != Double.doubleToLongBits(other.parteReal))
+		if (parteReal != other.parteReal)
 			return false;
 		return true;
 	}
@@ -155,14 +151,10 @@ public class NumeroComplejo {
 		String resultado;
 		if(parteReal == 0) {
 			resultado = "(" + parteImaginaria + "i)";
-		}
-		
-		if(parteImaginaria == 0) {
+		}else if(parteImaginaria == 0) {
 			resultado = "(" + parteReal + ")";
-		}
-		
-		else{
-			resultado = "(" + parteReal + ", " + parteImaginaria + "i)";
+		}else {
+			resultado = "(" + parteReal + " + " + parteImaginaria + "i)";
 		}
 		
 		return resultado;
