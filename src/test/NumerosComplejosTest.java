@@ -108,15 +108,33 @@ class NumerosComplejosTest {
 		
 		ArrayList<Double> polar = new ArrayList<Double>();
 	    polar.add(5.0);
-	    polar.add(-0.6435011087932844);
+	    polar.add(-36.86989764584402);
 	    
 	    
 	    System.out.println("Prueba de pasar de cartesiano a polar un numero complejo: ");
-		System.out.println(polar + "\n");
+		System.out.println(numero1.cartesianoAPolar() + "\n");
 	    
 	    assertEquals(polar, numero1.cartesianoAPolar());
-		
+	    
+	}
 	
+	@Test
+	public void deberiaCambiarDePolarACartesiano() {
+	
+		NumeroComplejo numero1 = new NumeroComplejo(4,-3, true);  
+		
+		
+		
+		ArrayList<Double> cartesiano = new ArrayList<Double>();
+		cartesiano.add(-4);
+		cartesiano.add(0);
+	    
+	    
+	    System.out.println("Prueba de pasar de cartesiano a polar un numero complejo: ");
+		System.out.println(numero1.cartesianoAPolar() + "\n");
+	    
+	    assertEquals(polar, numero1.cartesianoAPolar());
+	    
 	}
 	
 }

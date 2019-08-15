@@ -8,8 +8,6 @@ public class NumeroComplejo {
 	private double parteImaginaria;
 	private double modulo;
 	private double fase;
-	private NumeroComplejo conjugado;
-	
 	
 	/**
 	 * Constructor de un numero complejo
@@ -61,7 +59,7 @@ public class NumeroComplejo {
 
 
 	public double getFase() {
-		this.fase = Math.atan(parteImaginaria/parteReal);
+		this.fase = Math.toDegrees(Math.atan(parteImaginaria/parteReal));
 		return fase;
 	}
 
