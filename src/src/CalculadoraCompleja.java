@@ -32,7 +32,7 @@ public class CalculadoraCompleja {
 	}
 	
 	
-    public NumeroComplejo productoDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
+	public NumeroComplejo productoDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
     	
         double parteReal = (a.getParteReal()*b.getParteReal()) - (a.getParteImaginaria()*b.getParteImaginaria());
         double parteImaginaria = (a.getParteReal()*b.getParteImaginaria()) + (a.getParteImaginaria()*b.getParteReal());
@@ -41,13 +41,7 @@ public class CalculadoraCompleja {
     }
     
     
-    /**
-     * Divide dos numeros complejos en su representacion cartesiana. Teniendo en cuenta la formula del libro.
-     * @param a
-     * @param b
-     * @return
-     */
-    public NumeroComplejo divisionDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
+	public NumeroComplejo divisionDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
     	
     	double dividendo = (Math.pow(b.getParteReal(),2) + Math.pow(b.getParteImaginaria(),2));
     	
@@ -59,12 +53,12 @@ public class CalculadoraCompleja {
     }
     
     
-    public double modulo(NumeroComplejo a){
+	public double modulo(NumeroComplejo a){
     	return a.getModulo();
     }
     
     
-    public NumeroComplejo conjugado(NumeroComplejo a){
+	public NumeroComplejo conjugado(NumeroComplejo a){
     	return a.getConjugado();
     }
 	
