@@ -24,6 +24,7 @@ public class NumeroComplejo {
 	public NumeroComplejo(double modulo, double fase, boolean estaEnPolar) {
 		this.modulo = modulo;
 		this.fase = fase;
+		
 	}
 	
 	
@@ -47,7 +48,7 @@ public class NumeroComplejo {
 
 
 	public double getModulo() {
-		this.modulo = Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) );
+		this.modulo = Math.round(Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) ));
 		return modulo;
 	}
 
@@ -59,7 +60,11 @@ public class NumeroComplejo {
 
 
 	public double getFase() {
-		this.fase = Math.toDegrees(Math.atan(parteImaginaria/parteReal));
+		this.fase = Math.round(Math.toDegrees(Math.atan(parteImaginaria/parteReal)));
+		return fase;
+	}
+	
+	public double getFase(boolean enPolar) {
 		return fase;
 	}
 
@@ -75,11 +80,11 @@ public class NumeroComplejo {
 	}
 	
 	
-	public ArrayList<Double> cartesianoAPolar(){
-	       ArrayList<Double> polar = new ArrayList<Double>();
+	public ArrayList<Integer> cartesianoAPolar(){
+	       ArrayList<Integer> polar = new ArrayList<Integer>();
 	       
-	       polar.add(this.getModulo());
-	       polar.add(this.getFase());
+	       polar.add((int) this.getModulo());
+	       polar.add((int) this.getFase());
 	       
 	       return polar;
 	    }
@@ -87,24 +92,26 @@ public class NumeroComplejo {
 	
 	
 	
-	private double cambiarParteReal() {
-		double real = modulo * Math.cos(fase);
+	private int cambiarParteReal() {
+		int real = (int) Math.round((modulo * Math.cos(Math.toRadians(fase))));
 		return real;
 	}
 	
-	private double cambiarParteImaginaria() {
-		double i = modulo * Math.sin(fase);
+	private int cambiarParteImaginaria() {
+		int i = (int) Math.round((modulo * Math.sin(Math.toRadians(fase))));
+		//System.out.println(Math.sin(Math.toRadians(fase)));
 		return i;
 	}
 	
-	public ArrayList<Double> polarACartesiano(){
-	       ArrayList<Double> cartesiano = new ArrayList<Double>();
+	public ArrayList<Integer> polarACartesiano(){
+	       ArrayList<Integer> cartesiano = new ArrayList<Integer>();
 	       
 	       cartesiano.add(this.cambiarParteReal());
 	       cartesiano.add(this.cambiarParteImaginaria());
 	       
+	       
 	       return cartesiano;
-	    }
+	}
 	
 
 

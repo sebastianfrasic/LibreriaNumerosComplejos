@@ -106,34 +106,66 @@ class NumerosComplejosTest {
 		
 		
 		
-		ArrayList<Double> polar = new ArrayList<Double>();
-	    polar.add(5.0);
-	    polar.add(-36.86989764584402);
+		ArrayList<Integer> polar = new ArrayList<Integer>();
+	    polar.add(5);
+	    polar.add(-37);
 	    
 	    
-	    System.out.println("Prueba de pasar de cartesiano a polar un numero complejo: ");
+	    System.out.println("Prueba de pasar de cartesiano a polar: ");
 		System.out.println(numero1.cartesianoAPolar() + "\n");
 	    
 	    assertEquals(polar, numero1.cartesianoAPolar());
 	    
 	}
 	
+	
 	@Test
 	public void deberiaCambiarDePolarACartesiano() {
 	
-		NumeroComplejo numero1 = new NumeroComplejo(4,-3, true);  
+		NumeroComplejo numero1 = new NumeroComplejo(78,5, true);  
 		
 		
 		
-		ArrayList<Double> cartesiano = new ArrayList<Double>();
-		cartesiano.add(-4);
-		cartesiano.add(0);
+		ArrayList<Integer> cartesiano = new ArrayList<Integer>();
+		cartesiano.add(78);
+		cartesiano.add(7);
 	    
 	    
-	    System.out.println("Prueba de pasar de cartesiano a polar un numero complejo: ");
-		System.out.println(numero1.cartesianoAPolar() + "\n");
+	    System.out.println("Prueba de pasar de polar a cartesiano: ");
+		System.out.println(numero1.polarACartesiano() + "\n");
 	    
-	    assertEquals(polar, numero1.cartesianoAPolar());
+	    assertEquals(cartesiano, numero1.polarACartesiano());
+	    
+	}
+	
+	
+	@Test
+	public void deberiaRetornarLaFase() {
+	
+		NumeroComplejo numero1 = new NumeroComplejo(78,5);  
+		
+		
+		
+		int fase = 4;
+	    
+	    
+	    System.out.println("Prueba de retornar la fase de un numero complejo: ");
+		System.out.println(numero1.getFase() + "\n");
+	    
+	    assertEquals(fase, numero1.getFase());
+	    
+	}
+	
+	@Test
+	public void deberiaRetornarLaFaseEstandoEnFormaPolar() {
+	
+		NumeroComplejo numero1 = new NumeroComplejo(78, 5, true);  
+		
+		
+		int fase = 5;
+
+		System.out.println("Prueba de retornar la fase de un numero complejo, estando en forma polar: \n"+numero1.getFase(true) + "\n");
+	    assertEquals(fase, numero1.getFase(true));
 	    
 	}
 	
