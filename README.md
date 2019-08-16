@@ -21,7 +21,7 @@ La librería debe soporta las siguientes operaciones entre números complejos:
 ### Pasos de Descarga y uso de pruebas:
 
 Clona el Repositorio con la siguiente direccion en el terminal usando el comando:
-´´´ git clone https://github.com/sebastianfrasic/LibreriaNumerosComplejos.git ´´´
+``` git clone https://github.com/sebastianfrasic/LibreriaNumerosComplejos.git ```
 
 Luego, se debe abrir la carpeta clonada con algun IDE de Java, como **Eclipse**, **NetBeans** o **Intellij IDEA**.
 
