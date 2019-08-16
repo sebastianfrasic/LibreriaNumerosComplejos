@@ -1,4 +1,4 @@
-package src;
+package main.java;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class NumeroComplejo {
 	private double fase;
 	
 	/**
-	 * Constructor de un numero complejo
+	 * Constructor de un numero complejo en su forma cartesiana
 	 * @param parteReal Parte real del numero complejo
 	 * @param parteImaginaria Parte imaginaria del numero complejo
 	 */
@@ -20,15 +20,17 @@ public class NumeroComplejo {
 	}
 	
 	
-	
+	/**
+	 * Constructor de un numero complejo en su forma polar
+	 * @param modulo Modulo del numero complejo (Longitud del vector)
+	 * @param fase Fase del numero complejo (Angulo formado por el vector)
+	 * @param estaEnPolar true si el numero complejo está en forma polar, false si no
+	 */
 	public NumeroComplejo(double modulo, double fase, boolean estaEnPolar) {
 		this.modulo = modulo;
 		this.fase = fase;
 		
 	}
-	
-	
-	
 	
 	public double getParteReal() {
 		return parteReal;
@@ -58,7 +60,6 @@ public class NumeroComplejo {
 	}
 	
 
-
 	public double getFase() {
 		this.fase = Math.round(Math.toDegrees(Math.atan(parteImaginaria/parteReal)));
 		return fase;
@@ -87,9 +88,7 @@ public class NumeroComplejo {
 	       polar.add((int) this.getFase());
 	       
 	       return polar;
-	    }
-	
-	
+	}
 	
 	
 	private int cambiarParteReal() {
@@ -97,11 +96,13 @@ public class NumeroComplejo {
 		return real;
 	}
 	
+	
 	private int cambiarParteImaginaria() {
 		int i = (int) Math.round((modulo * Math.sin(Math.toRadians(fase))));
 		//System.out.println(Math.sin(Math.toRadians(fase)));
 		return i;
 	}
+	
 	
 	public ArrayList<Integer> polarACartesiano(){
 	       ArrayList<Integer> cartesiano = new ArrayList<Integer>();
@@ -109,13 +110,10 @@ public class NumeroComplejo {
 	       cartesiano.add(this.cambiarParteReal());
 	       cartesiano.add(this.cambiarParteImaginaria());
 	       
-	       
 	       return cartesiano;
 	}
 	
-
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

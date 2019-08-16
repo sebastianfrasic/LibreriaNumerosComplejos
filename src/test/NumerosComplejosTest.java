@@ -2,13 +2,11 @@ package test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
-
-import src.*;
+import main.java.*;
 import org.junit.jupiter.api.Test;
 
-class NumerosComplejosTest {
+public class NumerosComplejosTest {
 	
 	CalculadoraCompleja calculadora = CalculadoraCompleja.getCalculadoraCompleja();
 	
