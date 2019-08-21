@@ -1,4 +1,4 @@
-package main.java;
+package main.java.numerosComplejos;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class NumeroComplejo {
 	 * Constructor de un numero complejo en su forma polar
 	 * @param modulo Modulo del numero complejo (Longitud del vector)
 	 * @param fase Fase del numero complejo (Angulo formado por el vector)
-	 * @param estaEnPolar true si el numero complejo está en forma polar, false si no
+	 * @param estaEnPolar true si el numero complejo estï¿½ en forma polar, false si no
 	 */
 	public NumeroComplejo(double modulo, double fase, boolean estaEnPolar) {
 		this.modulo = modulo;
@@ -49,18 +49,18 @@ public class NumeroComplejo {
 	}
 
 
-	public double getModulo() {
+	public double getModulo(){
 		this.modulo = Math.round(Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) ));
 		return modulo;
 	}
 
 
-	public void setModulo(double modulo) {
+	public void setModulo(double modulo){
 		this.modulo = modulo;
 	}
 	
 
-	public double getFase() {
+	public double getFase(){
 		this.fase = Math.round(Math.toDegrees(Math.atan(parteImaginaria/parteReal)));
 		return fase;
 	}

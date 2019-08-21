@@ -1,15 +1,18 @@
 package test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import main.java.*;
+import main.java.numerosComplejos.*;
+
+
+
 import org.junit.jupiter.api.Test;
+
 
 public class NumerosComplejosTest {
 	
-	CalculadoraCompleja calculadora = CalculadoraCompleja.getCalculadoraCompleja();
-	
+
 
 	@Test
 	public void deberianSumarseDosNumerosComplejos() {
@@ -19,11 +22,9 @@ public class NumerosComplejosTest {
 		
 		NumeroComplejo suma = new NumeroComplejo(5, 5);
 		
-		System.out.println("Prueba de la suma de 2 numeros complejos: ");
-		System.out.println(numero1 + " + " + numero2 + " = "+ suma + "\n");
-		assertEquals(suma, calculadora.sumaDeNumerosComplejos(numero1, numero2));
-		
-
+		//System.out.println("Prueba de la suma de 2 numeros complejos: ");
+		//System.out.println(numero1 + " + " + numero2 + " = "+ suma + "\n");
+		assertEquals(suma, CalculadoraNumerosComplejos.sumaDeNumerosComplejos(numero1, numero2));
 	}
 	
 	
@@ -36,10 +37,10 @@ public class NumerosComplejosTest {
 		NumeroComplejo resta = new NumeroComplejo(-1, 1);
 		
 		
-		System.out.println("Prueba de la resta de 2 numeros complejos: ");
-		System.out.println(numero1 + " - " + numero2 + " = "+ resta + "\n");
+		//System.out.println("Prueba de la resta de 2 numeros complejos: ");
+		//System.out.println(numero1 + " - " + numero2 + " = "+ resta + "\n");
 		
-		assertEquals(resta, calculadora.restaDeNumerosComplejos(numero1, numero2));
+		assertEquals(resta, CalculadoraNumerosComplejos.restaDeNumerosComplejos(numero1, numero2));
 	}
 	
 	
@@ -51,10 +52,10 @@ public class NumerosComplejosTest {
 		
 		NumeroComplejo multiplicacion = new NumeroComplejo(34, 12);
 		
-		System.out.println("Prueba del producto de 2 numeros complejos: ");
-		System.out.println(numero1 + " * " + numero2 + " = "+ multiplicacion + "\n");
+		//System.out.println("Prueba del producto de 2 numeros complejos: ");
+		//System.out.println(numero1 + " * " + numero2 + " = "+ multiplicacion + "\n");
 		
-		assertEquals(multiplicacion, calculadora.productoDeNumerosComplejos(numero1, numero2));
+		assertEquals(multiplicacion, CalculadoraNumerosComplejos.productoDeNumerosComplejos(numero1, numero2));
 	}
 	
 
@@ -66,10 +67,28 @@ public class NumerosComplejosTest {
 		
 		NumeroComplejo division = new NumeroComplejo((double) -1/5, (double)-7/5);
 		
-		System.out.println("Prueba de la division de 2 numeros complejos: ");
-		System.out.println(numero1 + " / " + numero2 + " = "+ division + "\n");
+		//System.out.println("Prueba de la division de 2 numeros complejos: ");
+		//System.out.println(numero1 + " / " + numero2 + " = "+ division + "\n");
 		
-		assertEquals(division, calculadora.divisionDeNumerosComplejos(numero1, numero2));
+		try {
+			assertEquals(division, CalculadoraNumerosComplejos.divisionDeNumerosComplejos(numero1, numero2));
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	@Test
+	public void noDeberianDividirseDosNumerosComplejos() {
+		
+		NumeroComplejo numero1 = new NumeroComplejo(-3, -1);
+		NumeroComplejo numero2 = new NumeroComplejo(0, 0);
+		
+		try {
+			CalculadoraNumerosComplejos.divisionDeNumerosComplejos(numero1, numero2);
+		} catch (ComplexException e) {
+			assertEquals(e.getMessage(),(ComplexException.DIVISION_POR_CERO));
+		}
 		
 	}
 
@@ -78,10 +97,10 @@ public class NumerosComplejosTest {
 		
 		NumeroComplejo numero1 = new NumeroComplejo(-3, 4);
 		
-		System.out.println("Prueba del modulo de un numero complejo: ");
-		System.out.println(calculadora.modulo(numero1) + "\n");
+		//System.out.println("Prueba del modulo de un numero complejo: ");
+		//System.out.println(CalculadoraCompleja.modulo(numero1) + "\n");
 		
-		assertEquals(5.0, calculadora.modulo(numero1));
+		assertEquals(5.0, CalculadoraNumerosComplejos.modulo(numero1));
 		
 	}
 	
@@ -90,10 +109,10 @@ public class NumerosComplejosTest {
 	
 		NumeroComplejo numero1 = new NumeroComplejo(4,-3);  
 		
-		System.out.println("Prueba del conjugado de un numero complejo: ");
-		System.out.println(calculadora.conjugado(numero1) + "\n");
+		//System.out.println("Prueba del conjugado de un numero complejo: ");
+		//System.out.println(CalculadoraCompleja.conjugado(numero1) + "\n");
 		
-        assertEquals(new NumeroComplejo(4.0, -3.0), numero1.getConjugado()); 
+        assertEquals(new NumeroComplejo(4.0, 3.0), numero1.getConjugado()); 
 	
 	}
 	
@@ -109,8 +128,8 @@ public class NumerosComplejosTest {
 	    polar.add(-37);
 	    
 	    
-	    System.out.println("Prueba de pasar de cartesiano a polar: ");
-		System.out.println(numero1.cartesianoAPolar() + "\n");
+	    //System.out.println("Prueba de pasar de cartesiano a polar: ");
+		//System.out.println(numero1.cartesianoAPolar() + "\n");
 	    
 	    assertEquals(polar, numero1.cartesianoAPolar());
 	    
@@ -129,8 +148,8 @@ public class NumerosComplejosTest {
 		cartesiano.add(7);
 	    
 	    
-	    System.out.println("Prueba de pasar de polar a cartesiano: ");
-		System.out.println(numero1.polarACartesiano() + "\n");
+	    //System.out.println("Prueba de pasar de polar a cartesiano: ");
+		//System.out.println(numero1.polarACartesiano() + "\n");
 	    
 	    assertEquals(cartesiano, numero1.polarACartesiano());
 	    
@@ -147,8 +166,8 @@ public class NumerosComplejosTest {
 		int fase = 4;
 	    
 	    
-	    System.out.println("Prueba de retornar la fase de un numero complejo: ");
-		System.out.println(numero1.getFase() + "\n");
+	    //System.out.println("Prueba de retornar la fase de un numero complejo: ");
+		//System.out.println(numero1.getFase() + "\n");
 	    
 	    assertEquals(fase, numero1.getFase());
 	    
@@ -162,7 +181,7 @@ public class NumerosComplejosTest {
 		
 		int fase = 5;
 
-		System.out.println("Prueba de retornar la fase de un numero complejo, estando en forma polar: \n"+numero1.getFase(true) + "\n");
+		//System.out.println("Prueba de retornar la fase de un numero complejo, estando en forma polar: \n"+numero1.getFase(true) + "\n");
 	    assertEquals(fase, numero1.getFase(true));
 	    
 	}

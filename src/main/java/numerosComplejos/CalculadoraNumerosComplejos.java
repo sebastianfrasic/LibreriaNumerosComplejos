@@ -1,22 +1,24 @@
-package main.java;
+package main.java.numerosComplejos;
 
-public class CalculadoraCompleja {
+import main.java.ComplexException;
+
+public class CalculadoraNumerosComplejos {
 	
-	private static CalculadoraCompleja calculadora = null;
+	private static CalculadoraNumerosComplejos calculadora = null;
 	
-	private CalculadoraCompleja() {
+	private CalculadoraNumerosComplejos() {
 		
 	}
 	
 	
 	/**
 	 * 
-	 * @return Una unica instancia de la calculadora compleja
+	 * @return Una unica instancia de la calculadora de numeros complejos
 	 */
-	public static CalculadoraCompleja getCalculadoraCompleja() {
+	public static CalculadoraNumerosComplejos getCalculadoraCompleja() {
 		
 		if(calculadora == null) {
-			calculadora = new CalculadoraCompleja();
+			calculadora = new CalculadoraNumerosComplejos();
 		}
 		
 		return calculadora;
@@ -28,7 +30,7 @@ public class CalculadoraCompleja {
 	 * @param b Segundo numero complejo
 	 * @return La suma entre dos numeros complejos
 	 */
-	public NumeroComplejo sumaDeNumerosComplejos(NumeroComplejo a, NumeroComplejo b) {
+	public static NumeroComplejo sumaDeNumerosComplejos(NumeroComplejo a, NumeroComplejo b) {
 		
 		return new NumeroComplejo(a.getParteReal() + b.getParteReal(), a.getParteImaginaria() + b.getParteImaginaria());
 		
@@ -40,7 +42,7 @@ public class CalculadoraCompleja {
 	 * @param b Segundo numero complejo
 	 * @return La resta entre dos numeros complejos
 	 */
-	public NumeroComplejo restaDeNumerosComplejos(NumeroComplejo a, NumeroComplejo b) {
+	public static NumeroComplejo restaDeNumerosComplejos(NumeroComplejo a, NumeroComplejo b) {
 		
 		return new NumeroComplejo(a.getParteReal() - b.getParteReal(), a.getParteImaginaria() - b.getParteImaginaria());
 		
@@ -53,7 +55,7 @@ public class CalculadoraCompleja {
 	 * @param b Segundo numero complejo
 	 * @return El producto entre dos numeros complejos
 	 */
-	public NumeroComplejo productoDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
+	public static NumeroComplejo productoDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
     	
         double parteReal = (a.getParteReal()*b.getParteReal()) - (a.getParteImaginaria()*b.getParteImaginaria());
         double parteImaginaria = (a.getParteReal()*b.getParteImaginaria()) + (a.getParteImaginaria()*b.getParteReal());
@@ -66,23 +68,29 @@ public class CalculadoraCompleja {
 	 * @param a Primer numero complejo
 	 * @param b Segundo numero complejo
 	 * @return La division entre dos numeros complejos
+	 * @throws ComplexException si se divide por cero
 	 */
-	public NumeroComplejo divisionDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
+	public static NumeroComplejo divisionDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b) throws ComplexException{
+		
+		if(b.getParteReal() == 0 && b.getParteImaginaria() == 0) {
+			throw new ComplexException(ComplexException.DIVISION_POR_CERO);
+		}else {
+	    	double dividendo = (Math.pow(b.getParteReal(),2) + Math.pow(b.getParteImaginaria(),2));
+	    	
+	        double parteA =  (a.getParteReal() * b.getParteReal()) + (a.getParteImaginaria() * b.getParteImaginaria()) ;
+	        double parteB = (a.getParteImaginaria() * b.getParteReal()) - (a.getParteReal()*b.getParteImaginaria());
+	        
+	        return new NumeroComplejo(parteA/dividendo, parteB/dividendo);
+		}
     	
-    	double dividendo = (Math.pow(b.getParteReal(),2) + Math.pow(b.getParteImaginaria(),2));
-    	
-        double parteA =  (a.getParteReal() * b.getParteReal()) + (a.getParteImaginaria() * b.getParteImaginaria()) ;
-        double parteB = (a.getParteImaginaria() * b.getParteReal()) - (a.getParteReal()*b.getParteImaginaria());
-        
-   
-        return new NumeroComplejo(parteA/dividendo, parteB/dividendo);
+
     }
     
     /**
      * @param a Numero complejo a calcular su modulo
      * @return El modulo del numero complejo dado
      */
-	public double modulo(NumeroComplejo a){
+	public static double modulo(NumeroComplejo a){
     	return a.getModulo();
     }
     
@@ -91,7 +99,7 @@ public class CalculadoraCompleja {
      * @param a Numero complejo a calcular su conjugado
      * @return El conjugado del numero complejo dado
      */
-	public NumeroComplejo conjugado(NumeroComplejo a){
+	public static NumeroComplejo conjugado(NumeroComplejo a){
     	return a.getConjugado();
     }
 	
