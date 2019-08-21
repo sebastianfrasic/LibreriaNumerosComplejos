@@ -47,3 +47,8 @@ Luego, se debe abrir la carpeta clonada con algun IDE de Java, como **Eclipse**,
 
 Para ejecutar la librería se deben ejecutar los tests, los cuales son pruebas unitarias de cada una de las funcionalidades de la librería.
 Dichos tests, están en el paquete __**src/test**__
+
+### Recomendaciones:
+
+* Recuerda leer la documentación de los métodos.
+* Con cualquier inquietud, puedes escribirme a mi correo electrónico: juansebastianfrasica@hotmail.com
