@@ -6,6 +6,8 @@ Este repositorio es una librería de números complejos desarrollada en  **Java*
 
 La librería debe soporta las siguientes operaciones entre números complejos:
 
+### Versión N° 1: Calculadora de números complejos
+
 * Suma
 * Producto
 * Resta
@@ -14,6 +16,24 @@ La librería debe soporta las siguientes operaciones entre números complejos:
 * Conjugado
 * Conversión entre representaciones polar y cartesiano
 * Retornar la fase de un número complejo.
+
+### Versión N° 2: Calculadora de matrices complejas
+
+* Adición de vectores complejos.
+* Inversa de vectores complejos.
+* Multiplicación escalar de vectores complejos.
+* Adición de matrices complejos.
+* Inversa de matrices complejos.
+* Multiplicación escalar de matrices complejas.
+* Matriz transpuesta
+* Matriz conjugada
+* Matriz adjunta
+* Función para calcular la "acción" de una matriz sobre un vector.
+* Norma de matrices
+* Distancia entre matrices
+* Revisar si es unitaria
+* Revisar si es Hermitian
+* Producto tensor.
 
 
 ## ¿Cómo usar la librería?:
