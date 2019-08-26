@@ -56,7 +56,7 @@ Se pueden ejecutar desde algun IDE de Java, o desde Maven mediante el comando:
 
 #### Ejemplo de ejecución correcta de pruebas:
 
-![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Imagenes/1.PNG | width=100)
+![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Imagenes/1.PNG)
 
 
 ### Desarrollado con:
