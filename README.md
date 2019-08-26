@@ -43,10 +43,26 @@ La librería debe soporta las siguientes operaciones entre números complejos:
 Clona el Repositorio con la siguiente direccion en el terminal usando el comando:
 ``` git clone https://github.com/sebastianfrasic/LibreriaNumerosComplejos.git ```
 
-Luego, se debe abrir la carpeta clonada con algun IDE de Java, como **Eclipse**, **NetBeans** o **Intellij IDEA**.
+Luego, se debe abrir la carpeta clonada con algun IDE de Java, como **Eclipse**, **NetBeans** o **Intellij IDEA**. (Recomiendo NetBeans).
 
 Para ejecutar la librería se deben ejecutar los tests, los cuales son pruebas unitarias de cada una de las funcionalidades de la librería.
 Dichos tests, están en el paquete __**src/test**__
+
+Se pueden ejecutar desde algun IDE de Java, o desde Maven mediante el comando:
+
+``` mvn test-compile ```
+
+``` mvn test ``` 
+
+#### Ejemplo de ejecución correcta de pruebas:
+
+![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Imagenes/1.PNG | width=100)
+
+
+### Desarrollado con:
+
+* [Java](https://www.oracle.com/technetwork/es/java/javase/downloads/index.html) - Lenguaje de programación.
+* [Maven](https://maven.apache.org/) - Gestor de dependencias.
 
 ### Recomendaciones:
 
