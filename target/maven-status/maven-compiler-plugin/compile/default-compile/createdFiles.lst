@@ -1,6 +1,5 @@
 complexLibrary\numerosComplejos\CalculadoraNumerosComplejos.class
+complexLibrary\matricesComplejas\MatrizCompleja.class
+complexLibrary\ComplexException.class
 complexLibrary\numerosComplejos\NumeroComplejo.class
 complexLibrary\matricesComplejas\CalculadoraMatricesComplejas.class
-main\java\matricesComplejas\MatrizCompleja.class
-complexLibrary\ComplexException.class
-complexLibrary\cnyt\App.class

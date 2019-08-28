@@ -61,7 +61,7 @@ public class NumeroComplejo {
 
 
     public double getFase(){
-        this.fase = Math.round(Math.toDegrees(Math.atan(parteImaginaria/parteReal)));
+        this.fase = Math.round(Math.toDegrees(Math.atan2(parteImaginaria, parteReal)));
         return fase;
     }
 
@@ -77,6 +77,12 @@ public class NumeroComplejo {
 
     public NumeroComplejo getConjugado() {
         this.parteImaginaria = this.parteImaginaria * (-1);
+        return this;
+    }
+    
+    public NumeroComplejo inversoDeUnNumeroComplejo(){
+        this.parteImaginaria = this.parteImaginaria * (-1);
+        this.parteReal = this.parteReal * (-1);
         return this;
     }
 
@@ -99,7 +105,6 @@ public class NumeroComplejo {
 
     private int cambiarParteImaginaria() {
         int i = (int) Math.round((modulo * Math.sin(Math.toRadians(fase))));
-        //System.out.println(Math.sin(Math.toRadians(fase)));
         return i;
     }
 
