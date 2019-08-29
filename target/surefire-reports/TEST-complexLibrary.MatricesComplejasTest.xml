@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="complexLibrary.MatricesComplejasTest" time="0.024" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="complexLibrary.MatricesComplejasTest" time="0.032" tests="9" errors="0" skipped="0" failures="1">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -15,10 +15,11 @@
     <property name="user.timezone" value="America/Bogota"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="os.name" value="Windows 10"/>
-    <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\2145120\AppData\Local\Temp\surefire8998874733555966273\surefirebooter3457174760505952693.jar C:\Users\2145120\AppData\Local\Temp\surefire8998874733555966273 2019-08-28T11-20-59_868-jvmRun1 surefire3527603906296074271tmp surefire_08055006222699755779tmp"/>
+    <property name="sun.java.command" value="C:\Users\2145120\AppData\Local\Temp\surefire7822611859259920015\surefirebooter4113954651190984545.jar C:\Users\2145120\AppData\Local\Temp\surefire7822611859259920015 2019-08-29T12-59-53_046-jvmRun1 surefire8050726064052863321tmp surefire_01723839897499580272tmp"/>
+    <property name="test" value="complexLibrary.MatricesComplejasTest"/>
     <property name="surefire.test.class.path" value="C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\test-classes;C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\classes;C:\Users\2145120\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\2145120\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\2145120"/>
@@ -31,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\2145120\AppData\Local\Temp\surefire8998874733555966273\surefirebooter3457174760505952693.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\2145120\AppData\Local\Temp\surefire7822611859259920015\surefirebooter4113954651190984545.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -43,6 +44,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.2\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="localRepository" value="C:\Users\2145120\.m2\repository"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\2145120\AppData\Local\Temp\"/>
@@ -60,9 +62,29 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="deberiaSumarDosVectores" classname="complexLibrary.MatricesComplejasTest" time="0.004"/>
+  <testcase name="deberiaSumarDosVectores" classname="complexLibrary.MatricesComplejasTest" time="0"/>
+  <testcase name="noDeberiaSumarMatricesDeTamañosDiferentes" classname="complexLibrary.MatricesComplejasTest" time="0"/>
+  <testcase name="deberiaCalcularElProductoPorUnEscalarEnUnaMatriz" classname="complexLibrary.MatricesComplejasTest" time="0"/>
+  <testcase name="deberiaCalcularLaMatrizTranspuesta" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaCalcularLaInversaDeUnaMatriz" classname="complexLibrary.MatricesComplejasTest" time="0"/>
+  <testcase name="deberiaCalcularLaMatrizConjugada" classname="complexLibrary.MatricesComplejasTest" time="0">
+    <failure message="expected:&lt;Fila :0 Columna: 0  ---&gt; (2.0 + 1.0i) Fila :0 Columna: 1  ---&gt; (1.0i) Fila :0 Columna: 2  ---&gt; (4.0 + 3.0i) &#10;Fila :1 Columna: 0  ---&gt; (3.0 + 1.0i) Fila :1 Columna: 1  ---&gt; (-1.0i) Fila :1 Columna: 2  ---&gt; (2.0i) &#10;&gt; but was:&lt;Fila :0 Columna: 0  ---&gt; (2.0 + -1.0i) Fila :0 Columna: 1  ---&gt; (-1.0i) Fila :0 Columna: 2  ---&gt; (4.0 + -3.0i) &#10;Fila :1 Columna: 0  ---&gt; (3.0 + -1.0i) Fila :1 Columna: 1  ---&gt; (1.0i) Fila :1 Columna: 2  ---&gt; (-2.0i) &#10;&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+expected:<Fila :0 Columna: 0  ---> (2.0 + 1.0i) Fila :0 Columna: 1  ---> (1.0i) Fila :0 Columna: 2  ---> (4.0 + 3.0i) 
+Fila :1 Columna: 0  ---> (3.0 + 1.0i) Fila :1 Columna: 1  ---> (-1.0i) Fila :1 Columna: 2  ---> (2.0i) 
+> but was:<Fila :0 Columna: 0  ---> (2.0 + -1.0i) Fila :0 Columna: 1  ---> (-1.0i) Fila :0 Columna: 2  ---> (4.0 + -3.0i) 
+Fila :1 Columna: 0  ---> (3.0 + -1.0i) Fila :1 Columna: 1  ---> (1.0i) Fila :1 Columna: 2  ---> (-2.0i) 
+>
+	at complexLibrary.MatricesComplejasTest.deberiaCalcularLaMatrizConjugada(MatricesComplejasTest.java:294)
+]]></failure>
+    <system-out><![CDATA[Fila :0 Columna: 0  ---> (2.0 + -1.0i) Fila :0 Columna: 1  ---> (-1.0i) Fila :0 Columna: 2  ---> (4.0 + -3.0i) 
+Fila :1 Columna: 0  ---> (3.0 + -1.0i) Fila :1 Columna: 1  ---> (1.0i) Fila :1 Columna: 2  ---> (-2.0i) 
+
+Fila :0 Columna: 0  ---> (2.0 + -1.0i) Fila :0 Columna: 1  ---> (-1.0i) Fila :0 Columna: 2  ---> (4.0 + -3.0i) 
+Fila :1 Columna: 0  ---> (3.0 + -1.0i) Fila :1 Columna: 1  ---> (1.0i) Fila :1 Columna: 2  ---> (-2.0i) 
+
+]]></system-out>
+  </testcase>
+  <testcase name="deberiaCalcularElProductoPorUnEscalarEnUnVector" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaSumarModulo" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaSumarDosMatrices" classname="complexLibrary.MatricesComplejasTest" time="0"/>
-  <testcase name="noDeberianDividirseDosNumerosComplejos" classname="complexLibrary.MatricesComplejasTest" time="0"/>
 </testsuite>

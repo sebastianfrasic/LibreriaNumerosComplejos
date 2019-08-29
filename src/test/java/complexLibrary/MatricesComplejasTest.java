@@ -47,17 +47,42 @@ public class MatricesComplejasTest {
             throw new ComplexException("No se puede sumar un vector con una matriz.");
         }
     }
+
     
     @Test
-    public void noDeberiaSumarUnVectorConUnaMatriz() throws ComplexException{
+    public void deberiaCalcularElProductoPorUnEscalarEnUnVector() throws ComplexException{
+        
+        MatrizCompleja v1 = new MatrizCompleja(3, 1);        
+        NumeroComplejo escalar = new NumeroComplejo(6, 2);        
+        MatrizCompleja respuesta = new MatrizCompleja(3, 1);
+        
+        if(v1.isVector()){
+            try{
+                v1.addComplex(0, 0, new NumeroComplejo(3, 0));
+                v1.addComplex(1, 0, new NumeroComplejo(0, 1));
+                v1.addComplex(2, 0, new NumeroComplejo(2, -1));
+
+                respuesta.addComplex(0, 0, new NumeroComplejo(18, 6));
+                respuesta.addComplex(1, 0, new NumeroComplejo(-2, 6));
+                respuesta.addComplex(2, 0, new NumeroComplejo(14, -2));
+            
+            }catch(ComplexException e){
+                e.printStackTrace();
+            }            
+            assertEquals(CalculadoraMatricesComplejas.productoPorEscalar(v1, escalar), respuesta);
+        }else{
+            throw new ComplexException("Debe ser un vector, no una matriz.");
+        }
+        
+        
     }
     
     
     @Test
     public void deberiaSumarDosMatrices(){
 
-        MatrizCompleja m1 = new MatrizCompleja(2,2);
-        MatrizCompleja m2 = new MatrizCompleja(2,2);
+        MatrizCompleja m1 = new MatrizCompleja(2, 2);
+        MatrizCompleja m2 = new MatrizCompleja(2, 2);
         
         MatrizCompleja respuesta = new MatrizCompleja(2, 2);
         
@@ -97,8 +122,8 @@ public class MatricesComplejasTest {
     @Test
     public void noDeberiaSumarMatricesDeTamañosDiferentes() {
 
-        MatrizCompleja m1 = new MatrizCompleja(2,2);
-        MatrizCompleja m2 = new MatrizCompleja(2,1);
+        MatrizCompleja m1 = new MatrizCompleja(2, 2);
+        MatrizCompleja m2 = new MatrizCompleja(2, 1);
         
         
 
@@ -125,8 +150,8 @@ public class MatricesComplejasTest {
     @Test
     public void deberiaSumarModulo(){
 
-        MatrizCompleja m1 = new MatrizCompleja(2,2);
-        MatrizCompleja m2 = new MatrizCompleja(2,2);
+        MatrizCompleja m1 = new MatrizCompleja(2, 2);
+        MatrizCompleja m2 = new MatrizCompleja(2, 2);
         
         MatrizCompleja respuesta = new MatrizCompleja(2, 2);
         
@@ -163,7 +188,7 @@ public class MatricesComplejasTest {
     @Test
     public void deberiaCalcularLaInversaDeUnaMatriz(){
         
-        MatrizCompleja m1 = new MatrizCompleja(2,2);
+        MatrizCompleja m1 = new MatrizCompleja(2, 2);
         MatrizCompleja respuesta = new MatrizCompleja(2, 2);
         try{
             m1.addComplex(0, 0, new NumeroComplejo(1, 1));
@@ -182,6 +207,93 @@ public class MatricesComplejasTest {
         
         assertEquals(CalculadoraMatricesComplejas.inversaDeUnaMatriz(m1), respuesta);
     }
+    
+    @Test
+    public void deberiaCalcularElProductoPorUnEscalarEnUnaMatriz(){
+        
+        MatrizCompleja m1 = new MatrizCompleja(2, 2);        
+        NumeroComplejo escalar = new NumeroComplejo(3, 1);        
+        MatrizCompleja respuesta = new MatrizCompleja(2, 2);
+        
+        try{
+            m1.addComplex(0, 0, new NumeroComplejo(0, 1));
+            m1.addComplex(0, 1, new NumeroComplejo(0, -1));
+            m1.addComplex(1, 0, new NumeroComplejo(1, 0));
+            m1.addComplex(1, 1, new NumeroComplejo(2, 1));
+            
+            respuesta.addComplex(0, 0, new NumeroComplejo(-1, 3));
+            respuesta.addComplex(0, 1, new NumeroComplejo(1, -3));
+            respuesta.addComplex(1, 0, new NumeroComplejo(3, 1));
+            respuesta.addComplex(1, 1, new NumeroComplejo(5, 5));
+            
+        }catch(ComplexException e){
+            e.printStackTrace();
+        }
+        assertEquals(CalculadoraMatricesComplejas.productoPorEscalar(m1, escalar), respuesta);
+    }
+    
+    
+    @Test
+    public void deberiaCalcularLaMatrizTranspuesta(){
+        
+        MatrizCompleja m1 = new MatrizCompleja(2, 3);                     
+        MatrizCompleja transpuesta = new MatrizCompleja(3, 2);
+        
+        try{
+            m1.addComplex(0, 0, new NumeroComplejo(2, -1));
+            m1.addComplex(0, 1, new NumeroComplejo(0, 1));
+            m1.addComplex(0, 2, new NumeroComplejo(4, 3));
+            m1.addComplex(1, 0, new NumeroComplejo(3, 1));
+            m1.addComplex(1, 1, new NumeroComplejo(0, -1));
+            m1.addComplex(1, 2, new NumeroComplejo(0, 2));
+            
+            transpuesta.addComplex(0, 0, new NumeroComplejo(2, -1));
+            transpuesta.addComplex(0, 1, new NumeroComplejo(3, 1));
+            transpuesta.addComplex(1, 0, new NumeroComplejo(0, 1));
+            transpuesta.addComplex(1, 1, new NumeroComplejo(0, -1));
+            transpuesta.addComplex(2, 0, new NumeroComplejo(4, 3));
+            transpuesta.addComplex(2, 1, new NumeroComplejo(0, 2));
+            
+            //System.out.println(CalculadoraMatricesComplejas.matrizTranspuesta(m1));
+            //System.out.println(transpuesta);
+            
+        }catch(ComplexException e){
+            e.printStackTrace();
+        }
+        assertEquals(CalculadoraMatricesComplejas.matrizTranspuesta(m1), transpuesta);
+    }
+    
+    
+        @Test
+    public void deberiaCalcularLaMatrizConjugada(){
+        
+        MatrizCompleja m1 = new MatrizCompleja(2, 3);                     
+        MatrizCompleja conjugada = new MatrizCompleja(2, 3);
+        
+        try{
+            m1.addComplex(0, 0, new NumeroComplejo(2, 1));
+            m1.addComplex(0, 1, new NumeroComplejo(0, 1));
+            m1.addComplex(0, 2, new NumeroComplejo(4, 3));
+            m1.addComplex(1, 0, new NumeroComplejo(3, 1));
+            m1.addComplex(1, 1, new NumeroComplejo(0, -1));
+            m1.addComplex(1, 2, new NumeroComplejo(0, 2));
+            
+            conjugada.addComplex(0, 0, new NumeroComplejo(2, -1));
+            conjugada.addComplex(0, 1, new NumeroComplejo(0, -1));
+            conjugada.addComplex(0, 2, new NumeroComplejo(4, -3));
+            conjugada.addComplex(1, 0, new NumeroComplejo(3, -1));
+            conjugada.addComplex(1, 1, new NumeroComplejo(0, 1));
+            conjugada.addComplex(1, 2, new NumeroComplejo(0, -2));
+            
+            System.out.println(CalculadoraMatricesComplejas.matrizConjugada(m1));
+            System.out.println(conjugada);
+            
+        }catch(ComplexException e){
+            e.printStackTrace();
+        }
+        assertEquals(CalculadoraMatricesComplejas.matrizConjugada(m1), conjugada);
+    }
+    
     
 
 }
