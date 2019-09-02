@@ -4,15 +4,6 @@ import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 public class CalculadoraMatricesComplejas {
-
-
-
-    private CalculadoraMatricesComplejas() {
-
-    }
-    
-    
-
     
     /**
      * Suma dos matrices de numeros complejos
@@ -20,7 +11,7 @@ public class CalculadoraMatricesComplejas {
      * @param A Primera matriz de numeros complejos
      * @param B Segunda matriz de numeros complejos
      * @return Una matriz de numeros complejos resultante de la suma de las matrices a y b
-     * @throws ComplexException
+     * @throws ComplexException Si las matrices no tienen la misma dimension
      */
     public static MatrizCompleja sumaDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
         verificarMatricesMismaDimension(A, B);
@@ -31,6 +22,26 @@ public class CalculadoraMatricesComplejas {
             }
         }
         return suma;
+    }
+    
+    
+    /**
+     * Resta dos matrices de numeros complejos
+     *
+     * @param A Primera matriz de numeros complejos
+     * @param B Segunda matriz de numeros complejos
+     * @return Una matriz de numeros complejos resultante de la resta de las matrices a y b
+     * @throws ComplexException Si las matrices no tienen la misma dimension
+     */
+    public static MatrizCompleja restaDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+        verificarMatricesMismaDimension(A, B);
+        MatrizCompleja resta = new MatrizCompleja(A.getM(), A.getN());
+        for(int i = 0; i < A.getM(); i++) {
+            for(int j = 0; j < B.getN(); j++) {
+            	resta.getMatriz()[i][j] = CalculadoraNumerosComplejos.restaDeNumerosComplejos(A.getMatriz()[i][j], B.getMatriz()[i][j]);
+            }
+        }
+        return resta;
     }
     
     
@@ -81,7 +92,10 @@ public class CalculadoraMatricesComplejas {
         return resultado;
     }
     
-    
+    /**     
+     * @param A Matriz compleja
+     * @return La matriz transpuesta de A
+     */
     public static MatrizCompleja matrizTranspuesta(MatrizCompleja A){
         MatrizCompleja transpuesta = new MatrizCompleja(A.getN(), A.getM());
         
@@ -95,6 +109,10 @@ public class CalculadoraMatricesComplejas {
     }
     
     
+    /**     
+     * @param A Matriz compleja
+     * @return La matriz conjugada de A
+     */
     public static MatrizCompleja matrizConjugada(MatrizCompleja A) {
         MatrizCompleja conjugada = new MatrizCompleja(A.getM(), A.getN());     
         for(int i = 0; i < A.getM(); i++){
@@ -105,7 +123,10 @@ public class CalculadoraMatricesComplejas {
         return conjugada;
     }
     
-    
+    /**     
+     * @param A Matriz compleja
+     * @return La matriz adjunta (daga) de A
+     */
     public static MatrizCompleja matrizAdjunta(MatrizCompleja A) {
         MatrizCompleja adjunta = new MatrizCompleja(A.getM(), A.getN());     
         
@@ -115,7 +136,13 @@ public class CalculadoraMatricesComplejas {
     }
     
     
-    
+    /**
+     * Realiza la multiplicación entre dos matrices complejas
+     * @param A Primera matriz compleja
+     * @param B Segunda matriz compleja
+     * @return Matriz resultante del producto entre A y B
+     * @throws ComplexException Si las dimensiones de las matrices A y B son incompatibles
+     */
     public static MatrizCompleja productoDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
     	if(A.getN() != B.getM()) {
     		throw new ComplexException(ComplexException.NO_SE_PUEDEN_MULTIPLICAR);
@@ -140,14 +167,81 @@ public class CalculadoraMatricesComplejas {
     }
     
     
+    /**
+     * Determina si dada una matriz A, es hermitiana o no
+     * @param A Matriz de complejos
+     * @return Si es hermitiana
+     */
     public static boolean esHermitiana(MatrizCompleja A) {
     	boolean esHermitiana = false;
-    	if(A.equals(CalculadoraMatricesComplejas.matrizAdjunta(A))) {
+    	if(A.equals(matrizAdjunta(A))) {
     		esHermitiana = true;
     	}
     	
     	return esHermitiana;
     }
     
+    /**
+     * Calcula el producto interno entre dos matrices 
+     * @param A Primera matriz de complejos
+     * @param B Segunda matriz de complejos
+     * @return Producto interno entre A y B
+     * @throws ComplexException si el producto de matrices es incompatible
+     */
+    public static MatrizCompleja productoInterno(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+    	MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());
+    	
+    	productoInterno = productoDeMatrices(matrizAdjunta(A), B);
+    	
+    	return productoInterno;
+    }
+
+    
+    /**
+     * Calcula el producto interno entre dos vectores 
+     * @param A Primera matriz de complejos
+     * @param B Segunda matriz de complejos
+     * @param esMatriz1x1 Si es una matriz 1x1
+     * @return El producto interno 
+     * @throws ComplexException si el producto de matrices es incompatible
+     */
+    public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {
+    	
+    	double parteReal;
+
+    	MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());
+    	
+    	productoInterno = productoDeMatrices(matrizAdjunta(A), B);
+    	
+    	NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
+    	
+    	parteReal =  numero.getParteReal();  	
+
+		return parteReal;
+    	
+    }
+
+    /**
+     * Calcula y retorna la norma de un vector
+     * @param A Vector para calcular la norma
+     * @return Norma del vector
+     * @throws ComplexException si el producto de matrices es incompatible
+     */
+	public static double norma(MatrizCompleja A) throws ComplexException {
+		double norma = Math.sqrt(productoInterno(A, A, true));
+		return norma;
+	}
+	
+	
+	
+	public static double distancia(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+		double distancia;
+		
+		distancia = norma(restaDeMatrices(A, B));
+		
+		return distancia;
+	}
+    
+
 
 }

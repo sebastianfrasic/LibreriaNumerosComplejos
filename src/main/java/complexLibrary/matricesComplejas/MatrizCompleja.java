@@ -11,7 +11,13 @@ public class MatrizCompleja {
     private int n;  //Columnas de la matriz
     private NumeroComplejo[][] matriz;  //Matriz rellenada con numeros complejos
         
-
+    
+    
+    /**
+     * Construye una matriz de un tamaño dado
+     * @param m Numero de filas
+     * @param n Numero de columnas
+     */
     public MatrizCompleja(int m, int n){
         this.m = m;
         this.n = n;
@@ -19,7 +25,10 @@ public class MatrizCompleja {
     }
     
     
-    
+    /**
+     * Construye una matriz dado un arreglo de arreglos de numeros complejos
+     * @param matriz Matriz donde se agregará el arreglo de arreglos
+     */
     public MatrizCompleja(NumeroComplejo[][] matriz){
         this.matriz = matriz;
     }
@@ -62,33 +71,56 @@ public class MatrizCompleja {
         return matriz[i][j];
     }
 
+    
+    /**    
+     * @return Cantidad de filas de la matriz
+     */
     public int getM() {
         return m;
     }
 
+    /**
+     * Establece un numero de filas a una matriz
+     * @param m Cantidad de filas de la matriz
+     */
     public void setM(int m) {
         this.m = m;
     }
 
+    
+    /**    
+     * @return Cantidad de columnas de la matriz
+     */
     public int getN() {
         return n;
     }
-
+    
+    
+    /**
+     * Establece un numero de columnas a una matriz
+     * @param m Cantidad de columnas de la matriz
+     */
     public void setN(int n) {
         this.n = n;
     }
 
+    /**    
+     * @return La matriz de numeros complejos
+     */
     public NumeroComplejo[][] getMatriz() {
         return matriz;
     }
 
+    /**
+     * Establece una matriz de numeros complejos
+     * @param matriz Matriz donde se establecerá el arreglo de arreglos
+     */
     public void setMatriz(NumeroComplejo[][] matriz) {
         this.matriz = matriz;
     }
     
     
-    /**
-     * 
+    /**     
      * @return Si la matriz que se ingresa es un vector
      */
     public boolean isVector(){
@@ -100,7 +132,6 @@ public class MatrizCompleja {
     }
     
   
-
     @Override
     public String toString() {
         String matriz = "";
@@ -126,7 +157,9 @@ public class MatrizCompleja {
 	}
 
 
-
+	/**
+	 * Determina si una matriz es igual a otra
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

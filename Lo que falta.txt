@@ -3,14 +3,10 @@ Faltan:
 Documento Readme con los requerimientos.
 
 
-Acción de matriz compleja sobre vector complejo
-
-Producto interno de vectores complejos
-
-Norma de vector complejo
-
-Distancia entre dos vectores complejos
-
 ¿Es la matriz compleja una matriz unitaria?
 
 Producto tensorial de matrices complejas
+
+
+
+Java doc en html
