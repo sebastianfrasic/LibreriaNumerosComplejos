@@ -7,9 +7,9 @@ import java.util.Arrays;
 
 public class MatrizCompleja {
     
-    private int m;
-    private int n;
-    private NumeroComplejo[][] matriz;
+    private int m;  //Filas de la matriz
+    private int n;  //Columnas de la matriz
+    private NumeroComplejo[][] matriz;  //Matriz rellenada con numeros complejos
         
 
     public MatrizCompleja(int m, int n){
@@ -38,6 +38,14 @@ public class MatrizCompleja {
         }
     }
 
+    
+    /**
+     * Agrega un numero complejo a la matriz
+     * @param i Posicion i de la matriz
+     * @param j Posicion j de la matriz
+     * @param numero Numero complejo que se va a agregar
+     * @throws ComplexException Si los elementos que se agregan se salen del rango de la matriz
+     */
     public void addComplex(int i, int j, NumeroComplejo numero) throws ComplexException{
         verificarRango(i, j);
         this.matriz [i][j] = numero;
@@ -78,6 +86,11 @@ public class MatrizCompleja {
         this.matriz = matriz;
     }
     
+    
+    /**
+     * 
+     * @return Si la matriz que se ingresa es un vector
+     */
     public boolean isVector(){
         boolean respuesta = false;
         if((this.getM()==1 && this.getN()>1) || (this.getN()==1 && this.getM()>1)){
@@ -100,38 +113,40 @@ public class MatrizCompleja {
         return matriz;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final MatrizCompleja other = (MatrizCompleja) obj;
-        if (this.n != other.n) {
-            return false;
-        }
-        if (this.m != other.m) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.matriz, other.matriz)) {
-            return false;
-        }
-        return true;
-    }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + m;
+		result = prime * result + Arrays.deepHashCode(matriz);
+		result = prime * result + n;
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MatrizCompleja other = (MatrizCompleja) obj;
+		if (m != other.m)
+			return false;		
+		if (n != other.n)
+			return false;
+		if (!Arrays.deepEquals(matriz, other.matriz))
+			return false;
+		return true;
+	}
+
 
     
-
 
 	
 	

@@ -34,3 +34,10 @@ bin/
 target/
 
 nbproject/
+
+target
+.DS_Store
+/nbproject/
+.idea
+*.iml
+bin

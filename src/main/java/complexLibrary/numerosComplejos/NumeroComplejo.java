@@ -76,8 +76,9 @@ public class NumeroComplejo {
 
 
     public NumeroComplejo getConjugado() {
-        this.parteImaginaria = this.parteImaginaria * (-1);
-        return this;
+    	NumeroComplejo conjugado = new NumeroComplejo(parteReal, parteImaginaria*(-1));
+        //this.parteImaginaria = this.parteImaginaria * (-1);
+        return conjugado;
     }
     
     public NumeroComplejo inversoDeUnNumeroComplejo(){

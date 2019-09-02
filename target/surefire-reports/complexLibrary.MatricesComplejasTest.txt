@@ -1,13 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: complexLibrary.MatricesComplejasTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in complexLibrary.MatricesComplejasTest
-deberiaCalcularLaMatrizConjugada(complexLibrary.MatricesComplejasTest)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: 
-expected:<Fila :0 Columna: 0  ---> (2.0 + 1.0i) Fila :0 Columna: 1  ---> (1.0i) Fila :0 Columna: 2  ---> (4.0 + 3.0i) 
-Fila :1 Columna: 0  ---> (3.0 + 1.0i) Fila :1 Columna: 1  ---> (-1.0i) Fila :1 Columna: 2  ---> (2.0i) 
-> but was:<Fila :0 Columna: 0  ---> (2.0 + -1.0i) Fila :0 Columna: 1  ---> (-1.0i) Fila :0 Columna: 2  ---> (4.0 + -3.0i) 
-Fila :1 Columna: 0  ---> (3.0 + -1.0i) Fila :1 Columna: 1  ---> (1.0i) Fila :1 Columna: 2  ---> (-2.0i) 
->
-	at complexLibrary.MatricesComplejasTest.deberiaCalcularLaMatrizConjugada(MatricesComplejasTest.java:294)
-
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in complexLibrary.MatricesComplejasTest

@@ -104,5 +104,50 @@ public class CalculadoraMatricesComplejas {
         }
         return conjugada;
     }
+    
+    
+    public static MatrizCompleja matrizAdjunta(MatrizCompleja A) {
+        MatrizCompleja adjunta = new MatrizCompleja(A.getM(), A.getN());     
+        
+        adjunta = matrizTranspuesta(matrizConjugada(A));
+        
+        return adjunta;
+    }
+    
+    
+    
+    public static MatrizCompleja productoDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+    	if(A.getN() != B.getM()) {
+    		throw new ComplexException(ComplexException.NO_SE_PUEDEN_MULTIPLICAR);
+    	}else {
+    		MatrizCompleja resultado = new MatrizCompleja(A.getM(), B.getN());
+    		
+    		for (int i = 0; i < A.getM(); i++) {
+                for (int j = 0; j < B.getN(); j++) {
+                    NumeroComplejo x = new NumeroComplejo(0, 0);
+                    for (int k = 0; k < A.getN(); k++) {
+                        x = CalculadoraNumerosComplejos.sumaDeNumerosComplejos(x, CalculadoraNumerosComplejos.productoDeNumerosComplejos(A.getMatriz()[i][k], B.getMatriz()[k][j]));
+                    }
+                    resultado.getMatriz()[i][j] = x;
+
+                }
+            }
+    		
+    		return resultado;
+    	}
+    	
+    	
+    }
+    
+    
+    public static boolean esHermitiana(MatrizCompleja A) {
+    	boolean esHermitiana = false;
+    	if(A.equals(CalculadoraMatricesComplejas.matrizAdjunta(A))) {
+    		esHermitiana = true;
+    	}
+    	
+    	return esHermitiana;
+    }
+    
 
 }
