@@ -241,6 +241,26 @@ public class CalculadoraMatricesComplejas {
 		
 		return distancia;
 	}
+	
+	
+	public static MatrizCompleja crearIdentidad(int dimension) {
+		
+		MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
+		
+        for(int i = 0; i < matrizIdentidad.getM(); i++){
+            for(int j = 0; j < matrizIdentidad.getN(); j++){
+                if(i == j) {
+                	matrizIdentidad.getMatriz()[i][j] =  new NumeroComplejo(1, 0);
+                			
+                }else {
+                	matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
+                }
+            }
+        }
+		
+		return matrizIdentidad;
+		
+	}
     
 
 

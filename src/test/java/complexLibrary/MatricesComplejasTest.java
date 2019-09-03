@@ -599,8 +599,19 @@ public class MatricesComplejasTest {
 
     }
     
-       
     
+    
+    /**
+     * 
+     */
+    @Test
+    public void deberiaCrearIdentidad() {
+    	
+    	//System.out.println("Identidad: \n");
+    	MatrizCompleja identidad = CalculadoraMatricesComplejas.crearIdentidad(3);
+    	
+    	System.out.println(identidad);
+    }
     
     
     /**
@@ -620,7 +631,7 @@ public class MatricesComplejasTest {
             m1.addComplex(2, 0, new NumeroComplejo(0, 3));
             m1.addComplex(2, 1, new NumeroComplejo(1, 1));
             m1.addComplex(2, 2, new NumeroComplejo(0, 0)); 
-	    
+            
             assertTrue(CalculadoraMatricesComplejas.esHermitiana(m1));
 	    
             } catch (ComplexException e) {
