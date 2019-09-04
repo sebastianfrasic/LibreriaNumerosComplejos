@@ -59,11 +59,11 @@ public class CalculadoraNumerosComplejos {
      */
     public static NumeroComplejo productoDeNumerosComplejos (NumeroComplejo a, NumeroComplejo b){
 
-        double parteReal = (a.getParteReal()*b.getParteReal()) - (a.getParteImaginaria()*b.getParteImaginaria());
-        double parteImaginaria = (a.getParteReal()*b.getParteImaginaria()) + (a.getParteImaginaria()*b.getParteReal());
+        double parteReal = ((double)Math.round((a.getParteReal()*b.getParteReal()) * 100d) / 100d)  -  ((double)Math.round((a.getParteImaginaria()*b.getParteImaginaria()) * 100d) / 100d);
+        double parteImaginaria = ((double)Math.round((a.getParteReal()*b.getParteImaginaria()) * 100d) / 100d) + ((double)Math.round((a.getParteImaginaria()*b.getParteReal()) * 100d) / 100d);
 
         return new NumeroComplejo(parteReal, parteImaginaria);
-    }
+    }	
 
 
     /**

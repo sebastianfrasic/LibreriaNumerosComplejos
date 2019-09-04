@@ -8,10 +8,8 @@ import static org.junit.Assert.*;
 
 
 
-
 public class MatricesComplejasTest {
-	
-	
+
 	//Pruebas Minimas
 	
 	/**
@@ -425,7 +423,7 @@ public class MatricesComplejasTest {
      * @throws ComplexException Si m1 y m2 no son vectores
      */
     @Test
-    public void deberiaCalcularLaAccionDeUnaMatrizSobreUnNumeroComplejo() throws ComplexException{
+    public void deberiaCalcularLaAccionDeUnaMatrizSobreUnVectorComplejo() throws ComplexException{
         
         MatrizCompleja m1 = new MatrizCompleja(3, 3);                     
         MatrizCompleja m2 = new MatrizCompleja(3, 1);
@@ -602,16 +600,51 @@ public class MatricesComplejasTest {
     
     
     /**
-     * 
+     * ¿Es la matriz compleja una matriz unitaria?  ----> True
      */
     @Test
-    public void deberiaCrearIdentidad() {
+    public void deberiaSerUnitaria() {
     	
-    	//System.out.println("Identidad: \n");
-    	MatrizCompleja identidad = CalculadoraMatricesComplejas.crearIdentidad(3);
-    	
-    	System.out.println(identidad);
+    	MatrizCompleja m1 = new MatrizCompleja(2, 2);
+		try {
+			m1.addComplex(0, 0, new NumeroComplejo(1/(Math.sqrt(2)), 0));
+			m1.addComplex(0, 1, new NumeroComplejo(0, 1/(Math.sqrt(2))));
+			m1.addComplex(1, 0, new NumeroComplejo(0, 1/(Math.sqrt(2))));
+			m1.addComplex(1, 1, new NumeroComplejo(1/(Math.sqrt(2)), 0));
+
+			assertTrue(CalculadoraMatricesComplejas.esUnitaria(m1));
+
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}    	  
     }
+    
+ 
+    /**
+     * ¿Es la matriz compleja una matriz unitaria?  ----> False
+     */
+    @Test
+    public void noDeberiaSerUnitaria() {
+    	
+    	MatrizCompleja m1 = new MatrizCompleja(3, 3);
+		try {
+			m1.addComplex(0, 0, new NumeroComplejo(0, 1));
+			m1.addComplex(0, 1, new NumeroComplejo(1, 0));
+			m1.addComplex(0, 2, new NumeroComplejo(0, 0));
+			m1.addComplex(1, 0, new NumeroComplejo(0, 0));
+			m1.addComplex(1, 1, new NumeroComplejo(0, 1));
+			m1.addComplex(1, 2, new NumeroComplejo(1, 0));
+			m1.addComplex(2, 0, new NumeroComplejo(1, 0));
+			m1.addComplex(2, 1, new NumeroComplejo(0, 0));
+			m1.addComplex(2, 2, new NumeroComplejo(0, 1));
+
+			assertFalse(CalculadoraMatricesComplejas.esUnitaria(m1));
+
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}    	  
+    }    
+    
     
     
     /**
@@ -662,7 +695,6 @@ public class MatricesComplejasTest {
 
     	
     }   
-	
 	
 	
     

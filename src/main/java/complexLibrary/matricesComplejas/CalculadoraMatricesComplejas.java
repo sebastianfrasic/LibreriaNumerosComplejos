@@ -233,7 +233,13 @@ public class CalculadoraMatricesComplejas {
 	}
 	
 	
-	
+	/**
+	 * Calcula y retorna la distancia entre dos vectores
+	 * @param A Vector 1
+	 * @param B Vector 2
+	 * @return Distancia entre A y B
+	 * @throws ComplexException Si la resta de los vectores no se puede realizar.
+	 */
 	public static double distancia(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
 		double distancia;
 		
@@ -242,8 +248,19 @@ public class CalculadoraMatricesComplejas {
 		return distancia;
 	}
 	
-	
-	public static MatrizCompleja crearIdentidad(int dimension) {
+	/**
+	 * Crea y retorna la matriz identidad de una matriz dada
+	 * @param A Matriz de numeros complejos
+	 * @return Matriz identidad de A
+	 * @throws ComplexException Si A no es cuadrada
+	 */
+	private static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
+		int dimension = 0;
+		if(A.getN() == A.getM()) {
+			dimension = A.getM();
+		}else {
+			throw new ComplexException(ComplexException.NO_ES_CUADRADA);
+		}
 		
 		MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
 		
@@ -262,6 +279,15 @@ public class CalculadoraMatricesComplejas {
 		
 	}
     
-
+	public static boolean esUnitaria(MatrizCompleja A) throws ComplexException {
+		boolean esUnitaria = false;
+		//System.out.println(productoDeMatrices(A, matrizAdjunta(A)));
+		//System.out.println(crearIdentidad(A));
+		
+		if(productoDeMatrices(A, matrizAdjunta(A)).equals(crearIdentidad(A))) {
+			esUnitaria = true;
+		}			
+		return esUnitaria;
+	}
 
 }

@@ -3,10 +3,7 @@ Faltan:
 Documento Readme con los requerimientos.
 
 
-¿Es la matriz compleja una matriz unitaria?
-
 Producto tensorial de matrices complejas
-
-
+Revisar toda la documentación de los métodos
 
 Java doc en html
