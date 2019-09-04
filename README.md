@@ -56,7 +56,7 @@ Hay 2 archivos de pruebas por cada versión del proyecto.
 *   NumerosComplejosTest.java
 *   MatricesComplejasTest.java
 
-En la clase MatricesComplejasTest están las pruebas mínimas requeridas por el docente, y posteriormente hay algunas pruebas adicionales.
+En la clase MatricesComplejasTest están las ![pruebas mínimas](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/CNYT_Pruebas_Proyecto_2.pdf) requeridas por el docente, y posteriormente hay algunas pruebas adicionales.
 
 Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 
@@ -65,7 +65,7 @@ Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 #### Ejemplo de ejecución correcta de pruebas:
 
 ##### Mediante Eclipse:
-![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/ejecucion.PNG)
+![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/ejecucion.png)
 
 ##### Mediante Maven:
 ![prueba2](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/pruebas.PNG)
