@@ -600,7 +600,7 @@ public class MatricesComplejasTest {
     
     
     /**
-     * ¿Es la matriz compleja una matriz unitaria?  ----> True
+     * ¿Es la matriz compleja una matriz unitaria?  ---- True
      */
     @Test
     public void deberiaSerUnitaria() {
@@ -621,7 +621,7 @@ public class MatricesComplejasTest {
     
  
     /**
-     * ¿Es la matriz compleja una matriz unitaria?  ----> False
+     * ¿Es la matriz compleja una matriz unitaria?  ---- False
      */
     @Test
     public void noDeberiaSerUnitaria() {
@@ -648,7 +648,7 @@ public class MatricesComplejasTest {
     
     
     /**
-     *  ¿Es la matriz compleja una matriz hermitiana? ---> True
+     *  ¿Es la matriz compleja una matriz hermitiana? --- True
      */
     @Test
     public void deberiaSerHermitiana() {
@@ -674,8 +674,9 @@ public class MatricesComplejasTest {
     	
     }
     
+    
     /**
-     *  ¿Es la matriz compleja una matriz hermitiana? ---> False
+     *  ¿Es la matriz compleja una matriz hermitiana? --- False
      */
     @Test
     public void noDeberiaSerHermitiana() {
@@ -692,9 +693,88 @@ public class MatricesComplejasTest {
             } catch (ComplexException e) {
                 e.printStackTrace();
             }
-
-    	
     }   
+    
+    /**
+     * Producto tensorial de matrices complejas
+     */
+    @Test
+    public void deberiaRealizarElProductoTensorEntreMatrices() {
+    	MatrizCompleja m1 = new MatrizCompleja(2, 2);
+    	MatrizCompleja m2 = new MatrizCompleja(3, 3);
+    	
+    	MatrizCompleja resultado = new MatrizCompleja(6, 6);
+    	
+    	try {
+			m1.addComplex(0, 0, new NumeroComplejo(1, 1));
+			m1.addComplex(0, 1, new NumeroComplejo(0, 0));
+			m1.addComplex(1, 0, new NumeroComplejo(1, 0));
+			m1.addComplex(1, 1, new NumeroComplejo(0, 1));
+			
+			
+			m2.addComplex(0, 0, new NumeroComplejo(-1, 2));
+			m2.addComplex(0, 1, new NumeroComplejo(-2, -2));
+			m2.addComplex(0, 2, new NumeroComplejo(0, 2));
+			
+			m2.addComplex(1, 0, new NumeroComplejo(2, 3));
+			m2.addComplex(1, 1, new NumeroComplejo(3, 1));
+			m2.addComplex(1, 2, new NumeroComplejo(2, 2));
+			
+			m2.addComplex(2, 0, new NumeroComplejo(-2, 1));
+			m2.addComplex(2, 1, new NumeroComplejo(1, -1));
+			m2.addComplex(2, 2, new NumeroComplejo(2, 1));			
+			
+			
+			resultado.addComplex(0, 0, new NumeroComplejo(-3, 1));
+			resultado.addComplex(0, 1, new NumeroComplejo(0, -4));
+			resultado.addComplex(0, 2, new NumeroComplejo(-2, 2));
+			resultado.addComplex(0, 3, new NumeroComplejo(0, 0));
+			resultado.addComplex(0, 4, new NumeroComplejo(0, 0));
+			resultado.addComplex(0, 5, new NumeroComplejo(0, 0));
+			
+			resultado.addComplex(1, 0, new NumeroComplejo(-1, 5));
+			resultado.addComplex(1, 1, new NumeroComplejo(2, 4));
+			resultado.addComplex(1, 2, new NumeroComplejo(0, 4));
+			resultado.addComplex(1, 3, new NumeroComplejo(0, 0));
+			resultado.addComplex(1, 4, new NumeroComplejo(0, 0));
+			resultado.addComplex(1, 5, new NumeroComplejo(0, 0));
+			
+			resultado.addComplex(2, 0, new NumeroComplejo(-3, -1));
+			resultado.addComplex(2, 1, new NumeroComplejo(2, 0));
+			resultado.addComplex(2, 2, new NumeroComplejo(1, 3));
+			resultado.addComplex(2, 3, new NumeroComplejo(0, 0));
+			resultado.addComplex(2, 4, new NumeroComplejo(0, 0));
+			resultado.addComplex(2, 5, new NumeroComplejo(0, 0));
+			
+			resultado.addComplex(3, 0, new NumeroComplejo(-1, 2));
+			resultado.addComplex(3, 1, new NumeroComplejo(-2, -2));
+			resultado.addComplex(3, 2, new NumeroComplejo(0, 2));
+			resultado.addComplex(3, 3, new NumeroComplejo(-2, -1));
+			resultado.addComplex(3, 4, new NumeroComplejo(2, -2));
+			resultado.addComplex(3, 5, new NumeroComplejo(-2, 0));
+			
+			resultado.addComplex(4, 0, new NumeroComplejo(2, 3));
+			resultado.addComplex(4, 1, new NumeroComplejo(3, 1));
+			resultado.addComplex(4, 2, new NumeroComplejo(2, 2));
+			resultado.addComplex(4, 3, new NumeroComplejo(-3, 2));
+			resultado.addComplex(4, 4, new NumeroComplejo(-1, 3));
+			resultado.addComplex(4, 5, new NumeroComplejo(-2, 2));
+			
+			resultado.addComplex(5, 0, new NumeroComplejo(-2, 1));
+			resultado.addComplex(5, 1, new NumeroComplejo(1, -1));
+			resultado.addComplex(5, 2, new NumeroComplejo(2, 1));
+			resultado.addComplex(5, 3, new NumeroComplejo(-1, -2));
+			resultado.addComplex(5, 4, new NumeroComplejo(1, 1));
+			resultado.addComplex(5, 5, new NumeroComplejo(-1, 2));
+			
+			assertEquals(CalculadoraMatricesComplejas.productoTensor(m1, m2), resultado);			
+			
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}
+    	
+    	
+    }
 	
 	
     
@@ -1226,7 +1306,46 @@ public class MatricesComplejasTest {
 		} catch (ComplexException e) {
 			e.printStackTrace();
 		}
-
+    }
+    
+    
+    /**
+     * Producto tensorial de vectores complejos
+     */
+    @Test
+    public void deberiaRealizarElProductoTensorEntreVectores() {
+    	MatrizCompleja m1 = new MatrizCompleja(4, 1);
+    	MatrizCompleja m2 = new MatrizCompleja(2, 1);
+    	
+    	MatrizCompleja resultado = new MatrizCompleja(8, 1);
+    	
+    	try {
+			m1.addComplex(0, 0, new NumeroComplejo(3, 0));
+			m1.addComplex(1, 0, new NumeroComplejo(1, 1));
+			m1.addComplex(2, 0, new NumeroComplejo(0, 0));
+			m1.addComplex(3, 0, new NumeroComplejo(-2, 5));
+			
+			
+			m2.addComplex(0, 0, new NumeroComplejo(4, 0));
+			m2.addComplex(1, 0, new NumeroComplejo(1, -1));
+		
+			
+			
+			resultado.addComplex(0, 0, new NumeroComplejo(12, 0));			
+			resultado.addComplex(1, 0, new NumeroComplejo(3, -3));			
+			resultado.addComplex(2, 0, new NumeroComplejo(4, 4));		
+			resultado.addComplex(3, 0, new NumeroComplejo(2, 0));			
+			resultado.addComplex(4, 0, new NumeroComplejo(0, 0));
+			resultado.addComplex(5, 0, new NumeroComplejo(0, 0));
+			resultado.addComplex(6, 0, new NumeroComplejo(-8, 20));
+			resultado.addComplex(7, 0, new NumeroComplejo(3, 7));
+			
+			assertEquals(CalculadoraMatricesComplejas.productoTensor(m1, m2), resultado);
+			
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}
+    	
     	
     }
     

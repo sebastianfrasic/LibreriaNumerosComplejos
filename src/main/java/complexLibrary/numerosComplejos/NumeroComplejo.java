@@ -9,6 +9,8 @@ public class NumeroComplejo {
     private double modulo;
     private double fase;
 	
+    
+    
     /**
     * Constructor de un numero complejo en su forma cartesiana
     * @param parteReal Parte real del numero complejo
@@ -16,10 +18,12 @@ public class NumeroComplejo {
     */
     public NumeroComplejo(double parteReal, double parteImaginaria) {
         this.parteReal = parteReal;
-	this.parteImaginaria = parteImaginaria;
+        this.parteImaginaria = parteImaginaria;
     }
 	
 	
+    
+    
     /**
     * Constructor de un numero complejo en su forma polar
     * @param modulo Modulo del numero complejo (Longitud del vector)
@@ -31,6 +35,8 @@ public class NumeroComplejo {
         this.fase = fase;
 		
     }
+    
+
 	
     public double getParteReal() {
         return parteReal;
@@ -39,6 +45,8 @@ public class NumeroComplejo {
     public void setParteReal(int parteReal) {
         this.parteReal = parteReal;
     }
+    
+    
 
     public double getParteImaginaria() {
         return parteImaginaria;
@@ -48,6 +56,8 @@ public class NumeroComplejo {
         this.parteImaginaria = parteImaginaria;
     }
 
+    
+    
 
     public double getModulo(){
         this.modulo = Math.round(Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) ));
@@ -58,6 +68,8 @@ public class NumeroComplejo {
     public void setModulo(double modulo){
         this.modulo = modulo;
     }
+    
+    
 
 
     public double getFase(){
@@ -74,20 +86,31 @@ public class NumeroComplejo {
         this.fase = fase;
     }
 
-
+    
+    
+    /**
+     * Calcula el conjugado de un numero complejo
+     * @return Conjugado (parte imaginaria * -1)
+     */
     public NumeroComplejo getConjugado() {
-    	NumeroComplejo conjugado = new NumeroComplejo(parteReal, parteImaginaria*(-1));
-        //this.parteImaginaria = this.parteImaginaria * (-1);
+    	NumeroComplejo conjugado = new NumeroComplejo(parteReal, parteImaginaria*(-1));        
         return conjugado;
     }
     
+    /**
+     * Calcula el inverso de un numero complejo (tanto parte real como parte imaginaria multiplicadas por -1)
+     * @return Inverso de un numero complejo
+     */
     public NumeroComplejo inversoDeUnNumeroComplejo(){
         this.parteImaginaria = this.parteImaginaria * (-1);
         this.parteReal = this.parteReal * (-1);
         return this;
     }
 
-
+    /**
+     * Pasa un numero complejo de su forma cartesiana a polar
+     * @return Numero complejo en su forma polar
+     */
     public ArrayList<Integer> cartesianoAPolar(){
         ArrayList<Integer> polar = new ArrayList<>();
 
@@ -97,7 +120,7 @@ public class NumeroComplejo {
         return polar;
     }
 
-
+    
     private int cambiarParteReal() {
         int real = (int) Math.round((modulo * Math.cos(Math.toRadians(fase))));
         return real;
@@ -109,7 +132,11 @@ public class NumeroComplejo {
         return i;
     }
 
-
+    
+    /**
+     * Pasa un numero complejo de su forma polar a cartesiana
+     * @return Numero complejo en forma cartesiana
+     */
     public ArrayList<Integer> polarACartesiano(){
         ArrayList<Integer> cartesiano = new ArrayList<>();
 

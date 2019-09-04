@@ -1,9 +1,3 @@
 Faltan:
 
 Documento Readme con los requerimientos.
-
-
-Producto tensorial de matrices complejas
-Revisar toda la documentación de los métodos
-
-Java doc en html

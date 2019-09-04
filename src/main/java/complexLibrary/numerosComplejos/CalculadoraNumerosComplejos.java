@@ -5,26 +5,6 @@ import complexLibrary.ComplexException;
 
 
 public class CalculadoraNumerosComplejos {
-	
-    private static CalculadoraNumerosComplejos calculadora = null;
-
-    private CalculadoraNumerosComplejos() {
-
-    }
-
-
-    /**
-     * 
-     * @return Una unica instancia de la calculadora de numeros complejos
-     */
-    public static CalculadoraNumerosComplejos getCalculadoraCompleja() {
-
-        if(calculadora == null) {
-            calculadora = new CalculadoraNumerosComplejos();
-        }
-
-        return calculadora;
-    }
 
 
     /**

@@ -4,6 +4,7 @@ import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 public class CalculadoraMatricesComplejas {
+	
     
     /**
      * Suma dos matrices de numeros complejos
@@ -201,7 +202,7 @@ public class CalculadoraMatricesComplejas {
      * Calcula el producto interno entre dos vectores 
      * @param A Primera matriz de complejos
      * @param B Segunda matriz de complejos
-     * @param esMatriz1x1 Si es una matriz 1x1
+     * @param esMatriz1x1 Si es una matriz 1x1 (un numero real)
      * @return El producto interno 
      * @throws ComplexException si el producto de matrices es incompatible
      */
@@ -279,6 +280,12 @@ public class CalculadoraMatricesComplejas {
 		
 	}
     
+	/**
+	 * Dice si una matriz dada es unitaria o no (Si el producto de la matriz por su adjunta es igual a la matriz identidad).
+	 * @param A Matriz de numeros complejos
+	 * @return Si la matriz es unitaria
+	 * @throws ComplexException Si el producto de matrices no se puede realizar
+	 */
 	public static boolean esUnitaria(MatrizCompleja A) throws ComplexException {
 		boolean esUnitaria = false;
 		//System.out.println(productoDeMatrices(A, matrizAdjunta(A)));
@@ -288,6 +295,32 @@ public class CalculadoraMatricesComplejas {
 			esUnitaria = true;
 		}			
 		return esUnitaria;
+	}
+	
+	/**
+	 * Calcula el producto tensor entre dos matrices
+	 * @param A Matriz 1 de numeros complejos
+	 * @param B Matriz 2 de numeros complejos
+	 * @return Producto tensor entre A y B
+	 */
+	public static MatrizCompleja productoTensor(MatrizCompleja A, MatrizCompleja B) {
+		int m = A.getM();
+		int n = A.getN();
+		int p = B.getM();
+		int q = B.getN();
+			
+		int filasProductoTensor = m*p;
+		int columnasProductoTensor = n*q;
+		
+		MatrizCompleja productoTensor = new MatrizCompleja(filasProductoTensor, columnasProductoTensor);
+		
+        for(int i = 0; i < productoTensor.getM(); i++){
+            for(int j = 0; j < productoTensor.getN(); j++){
+            	//productoTensor.getMatriz()[i][j] = A.getMatriz()[j][i];
+            	productoTensor.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejos((A.getMatriz()[i/p] [j/q]), B.getMatriz()[i%p][j%q]);
+            }
+        }
+		return productoTensor;
 	}
 
 }
