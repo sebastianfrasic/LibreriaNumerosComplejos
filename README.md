@@ -66,9 +66,10 @@ Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 
 ##### Mediante Eclipse:
 ![prueba1](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/ejecucion.png)
+![prueba2](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/ejecucion2.png)
 
 ##### Mediante Maven:
-![prueba2](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/pruebas.PNG)
+![prueba3](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/pruebas.PNG)
 
 
 #### Desarrollado con:
