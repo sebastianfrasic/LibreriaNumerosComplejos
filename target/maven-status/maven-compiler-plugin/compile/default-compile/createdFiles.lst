@@ -1,5 +1,5 @@
 complexLibrary\numerosComplejos\CalculadoraNumerosComplejos.class
 complexLibrary\matricesComplejas\MatrizCompleja.class
-complexLibrary\ComplexException.class
 complexLibrary\numerosComplejos\NumeroComplejo.class
 complexLibrary\matricesComplejas\CalculadoraMatricesComplejas.class
+complexLibrary\ComplexException.class

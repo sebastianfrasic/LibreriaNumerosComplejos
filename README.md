@@ -37,7 +37,7 @@ La librería soporta las siguientes operaciones entre números complejos:
 *   ¿Es la matriz compleja una matriz hermitiana?.
 *   Producto tensorial de matrices complejas.
 
-
+### Versión N° 3: Simulador de sistemas determinísticos, estocásticos y cuánticos:
 
 ##  ¿Cómo usar la librería?:
 
@@ -82,6 +82,6 @@ Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 
 *   Para usar los comandos con __mvn__ recuerda haber instalado Maven previamente.
 *   Recuerda leer la documentación de los métodos.
-*   En el directorio __**doc**__ se encuentra un archivo llamado ``` index.html ``` donde está de manera clara y resumida toda la documentación de la librería.
+*   En el directorio __**target\site\apidocs**__ se encuentra un archivo llamado ``` index.html ``` donde está de manera clara y resumida toda la documentación de la librería.
 *   En el directorio __*doc\complexLibrary\matricesComplejas*__ está resumida la documentación de la versión 2.
 *   Ante cualquier inquietud, puedes escribirme a mi correo electrónico: juansebastianfrasica@hotmail.com

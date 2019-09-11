@@ -9,7 +9,8 @@ public class ComplexException extends Exception {
     public static final String VECTOR_MATRIZ = "No se puede sumar un vector con una matriz.";
     public static final String NO_ES_VECTOR = "Error, no es un vector.";
     public static final String NO_ES_CUADRADA = "La matriz identidad debe ser cuadrada.";
-
+    public static final String NO_ES_DETERMINISTA = "La matriz que representa la dinamica del sistema debe tener 0´s y 1´s.";
+    public static final String DEBE_SER_VECTOR = "El estado inicial del sistema debe ser un vector.";
 
     public ComplexException(String message) {
         super(message);

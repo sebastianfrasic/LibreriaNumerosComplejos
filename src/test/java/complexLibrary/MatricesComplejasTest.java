@@ -10,12 +10,13 @@ import static org.junit.Assert.*;
 
 public class MatricesComplejasTest {
 
-	//Pruebas Minimas
 	
-	/**
-	 * Suma de vectores complejos
-	 * @throws ComplexException Si lo que se ingresa no son vectores
-	 */
+    //Pruebas Minimas
+
+    /**
+     * Suma de vectores complejos
+     * @throws ComplexException Si lo que se ingresa no son vectores
+     */
     @Test
     public void deberiaSumarDosVectores() throws ComplexException{
 

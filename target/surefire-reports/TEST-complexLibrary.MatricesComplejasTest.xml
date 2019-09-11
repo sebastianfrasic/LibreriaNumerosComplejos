@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\test-classes;C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\classes;C:\Users\2145120\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\2145120\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\test-classes;C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\classes;C:\Users\2145120\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\2145120\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -18,8 +18,8 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\2145120\AppData\Local\Temp\surefire8616954250340644371\surefirebooter7646154681152866731.jar C:\Users\2145120\AppData\Local\Temp\surefire8616954250340644371 2019-09-04T11-02-54_469-jvmRun1 surefire4973507400095659592tmp surefire_064418619199638751tmp"/>
-    <property name="surefire.test.class.path" value="C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\test-classes;C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\classes;C:\Users\2145120\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\2145120\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.java.command" value="C:\Users\2145120\AppData\Local\Temp\surefire1245235356214435601\surefirebooter3250171182796876131.jar C:\Users\2145120\AppData\Local\Temp\surefire1245235356214435601 2019-09-11T11-46-13_202-jvmRun1 surefire7778888717313226876tmp surefire_05297407905841867827tmp"/>
+    <property name="surefire.test.class.path" value="C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\test-classes;C:\Users\2145120\Documents\LibreriaNumerosComplejos\target\classes;C:\Users\2145120\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\2145120\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\2145120"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\2145120\AppData\Local\Temp\surefire8616954250340644371\surefirebooter7646154681152866731.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\2145120\AppData\Local\Temp\surefire1245235356214435601\surefirebooter3250171182796876131.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -52,7 +52,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Haskell\bin;C:\Program Files\Haskell Platform\8.6.3\lib\extralibs\bin;C:\Program Files\Haskell Platform\8.6.3\bin;C:\Program Files\Java\jre1.8.0_201\bin;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\PuTTY\;C:\Program Files (x86)\WinSCP\;C:\Program Files\Git\cmd;C:\Program Files\Haskell Platform\8.6.3\mingw\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\swipl\bin;&quot;C:\ProgramData\Oracle\Java\javapath;&quot;;C:\Android;C:\Android\tools;C:\Android\platform_tools;C:\Program Files\apache-maven-3.6.0\bin;C:\Program Files\Apache Software Foundation\Apache Maven 3.6.0\bin;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files\Java\jre1.8.0_201\bin;C:\Program Files (x86)\Wolfram Research\WolframScript\;C:\Program Files\heroku\bin;C:\Users\2145120\AppData\Local\Microsoft\WindowsApps;;C:\Users\2145120\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Haskell\bin;C:\Program Files\Haskell Platform\8.6.3\lib\extralibs\bin;C:\Program Files\Haskell Platform\8.6.3\bin;C:\Program Files\Java\jre1.8.0_201\bin;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\PuTTY\;C:\Program Files (x86)\WinSCP\;C:\Program Files\Git\cmd;C:\Program Files\Haskell Platform\8.6.3\mingw\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\swipl\bin;&quot;C:\ProgramData\Oracle\Java\javapath;&quot;;C:\Android;C:\Android\tools;C:\Android\platform_tools;C:\Program Files\apache-maven-3.6.0\bin;C:\Program Files\Apache Software Foundation\Apache Maven 3.6.0\bin;C:\Program Files\Java\jdk1.8.0_201\bin;C:\Program Files\Java\jre1.8.0_201\bin;C:\Program Files (x86)\Wolfram Research\WolframScript\;C:\Program Files\heroku\bin;C:\Users\2145120\AppData\Local\Microsoft\WindowsApps;;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="java.vm.version" value="25.201-b09"/>
@@ -72,10 +72,10 @@
   <testcase name="deberiaCalcularLaMatrizConjugada2" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaSerHermitiana2" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaSumarDosVectores2" classname="complexLibrary.MatricesComplejasTest" time="0"/>
-  <testcase name="noDeberiaMultiplicarDosMatrices2" classname="complexLibrary.MatricesComplejasTest" time="0"/>
+  <testcase name="noDeberiaMultiplicarDosMatrices2" classname="complexLibrary.MatricesComplejasTest" time="0.016"/>
   <testcase name="deberiaCalcularLaMatrizTranspuesta" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaSerHermitiana" classname="complexLibrary.MatricesComplejasTest" time="0"/>
-  <testcase name="deberiaRealizarElProductoTensorEntreMatrices" classname="complexLibrary.MatricesComplejasTest" time="0.016"/>
+  <testcase name="deberiaRealizarElProductoTensorEntreMatrices" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaCalcularLaInversaDeUnaMatriz" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaCalcularLaDistanciaEntreDosVectores" classname="complexLibrary.MatricesComplejasTest" time="0"/>
   <testcase name="deberiaCalcularLaMatrizAdjunta2" classname="complexLibrary.MatricesComplejasTest" time="0"/>

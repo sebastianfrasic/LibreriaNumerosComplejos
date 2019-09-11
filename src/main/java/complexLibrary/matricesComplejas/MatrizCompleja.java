@@ -137,7 +137,7 @@ public class MatrizCompleja {
         String matriz = "";
         for (int i=0 ; i< this.m; i++){
             for (int j=0; j<this.n; j++){
-                matriz += "Fila :" + i + " Columna: " + j + " ---> " + this.matriz[i][j] + "    ";
+                matriz += "Fila: " + i + ", Columna: " + j + " ---> " + this.matriz[i][j] + "    ";
             	//matriz += this.matriz [i][j] + " ";
             }
             matriz += "\n";

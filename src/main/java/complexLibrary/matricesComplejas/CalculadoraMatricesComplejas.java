@@ -93,7 +93,8 @@ public class CalculadoraMatricesComplejas {
         return resultado;
     }
     
-    /**     
+    /**
+     * Retorna la matriz transpuesta de A
      * @param A Matriz compleja
      * @return La matriz transpuesta de A
      */
@@ -111,6 +112,7 @@ public class CalculadoraMatricesComplejas {
     
     
     /**     
+     * Retorna la matriz conjugada de A
      * @param A Matriz compleja
      * @return La matriz conjugada de A
      */
@@ -125,6 +127,7 @@ public class CalculadoraMatricesComplejas {
     }
     
     /**     
+     * Retorna la matriz adjunta de A
      * @param A Matriz compleja
      * @return La matriz adjunta (daga) de A
      */
@@ -145,26 +148,23 @@ public class CalculadoraMatricesComplejas {
      * @throws ComplexException Si las dimensiones de las matrices A y B son incompatibles
      */
     public static MatrizCompleja productoDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
-    	if(A.getN() != B.getM()) {
-    		throw new ComplexException(ComplexException.NO_SE_PUEDEN_MULTIPLICAR);
-    	}else {
-    		MatrizCompleja resultado = new MatrizCompleja(A.getM(), B.getN());
-    		
-    		for (int i = 0; i < A.getM(); i++) {
+        if(A.getN() != B.getM()) {
+            throw new ComplexException(ComplexException.NO_SE_PUEDEN_MULTIPLICAR);
+        }else {
+            MatrizCompleja resultado = new MatrizCompleja(A.getM(), B.getN());
+
+            for (int i = 0; i < A.getM(); i++) {
                 for (int j = 0; j < B.getN(); j++) {
                     NumeroComplejo x = new NumeroComplejo(0, 0);
                     for (int k = 0; k < A.getN(); k++) {
                         x = CalculadoraNumerosComplejos.sumaDeNumerosComplejos(x, CalculadoraNumerosComplejos.productoDeNumerosComplejos(A.getMatriz()[i][k], B.getMatriz()[k][j]));
                     }
                     resultado.getMatriz()[i][j] = x;
-
                 }
             }
-    		
-    		return resultado;
-    	}
-    	
-    	
+
+            return resultado;
+        }	
     }
     
     
@@ -176,7 +176,7 @@ public class CalculadoraMatricesComplejas {
     public static boolean esHermitiana(MatrizCompleja A) {
     	boolean esHermitiana = false;
     	if(A.equals(matrizAdjunta(A))) {
-    		esHermitiana = true;
+            esHermitiana = true;
     	}
     	
     	return esHermitiana;
@@ -209,16 +209,12 @@ public class CalculadoraMatricesComplejas {
     public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {
     	
     	double parteReal;
-
-    	MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());
-    	
-    	productoInterno = productoDeMatrices(matrizAdjunta(A), B);
-    	
-    	NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
-    	
+    	MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());    	
+    	productoInterno = productoDeMatrices(matrizAdjunta(A), B);    	
+    	NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);    	
     	parteReal =  numero.getParteReal();  	
 
-		return parteReal;
+        return parteReal;
     	
     }
 
@@ -234,93 +230,91 @@ public class CalculadoraMatricesComplejas {
 	}
 	
 	
-	/**
-	 * Calcula y retorna la distancia entre dos vectores
-	 * @param A Vector 1
-	 * @param B Vector 2
-	 * @return Distancia entre A y B
-	 * @throws ComplexException Si la resta de los vectores no se puede realizar.
-	 */
-	public static double distancia(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
-		double distancia;
-		
-		distancia = norma(restaDeMatrices(A, B));
-		
-		return distancia;
-	}
+    /**
+     * Calcula y retorna la distancia entre dos vectores
+     * @param A Vector 1
+     * @param B Vector 2
+     * @return Distancia entre A y B
+     * @throws ComplexException Si la resta de los vectores no se puede realizar.
+     */
+    public static double distancia(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+        double distancia;
+        distancia = norma(restaDeMatrices(A, B));
+        return distancia;
+    }
 	
-	/**
-	 * Crea y retorna la matriz identidad de una matriz dada
-	 * @param A Matriz de numeros complejos
-	 * @return Matriz identidad de A
-	 * @throws ComplexException Si A no es cuadrada
-	 */
-	private static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
-		int dimension = 0;
-		if(A.getN() == A.getM()) {
-			dimension = A.getM();
-		}else {
-			throw new ComplexException(ComplexException.NO_ES_CUADRADA);
-		}
-		
-		MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
-		
-        for(int i = 0; i < matrizIdentidad.getM(); i++){
-            for(int j = 0; j < matrizIdentidad.getN(); j++){
-                if(i == j) {
-                	matrizIdentidad.getMatriz()[i][j] =  new NumeroComplejo(1, 0);
-                			
-                }else {
-                	matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
-                }
+    /**
+     * Crea y retorna la matriz identidad de una matriz dada
+     * @param A Matriz de numeros complejos
+     * @return Matriz identidad de A
+     * @throws ComplexException Si A no es cuadrada
+     */
+    private static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
+        int dimension = 0;
+        if(A.getN() == A.getM()) {
+            dimension = A.getM();
+        }else {
+            throw new ComplexException(ComplexException.NO_ES_CUADRADA);
+        }
+
+        MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
+
+    for(int i = 0; i < matrizIdentidad.getM(); i++){
+        for(int j = 0; j < matrizIdentidad.getN(); j++){
+            if(i == j) {
+                matrizIdentidad.getMatriz()[i][j] =  new NumeroComplejo(1, 0);
+
+            }else {
+                matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
             }
         }
-		
-		return matrizIdentidad;
-		
-	}
+    }
+
+        return matrizIdentidad;
+
+    }
     
-	/**
-	 * Dice si una matriz dada es unitaria o no (Si el producto de la matriz por su adjunta es igual a la matriz identidad).
-	 * @param A Matriz de numeros complejos
-	 * @return Si la matriz es unitaria
-	 * @throws ComplexException Si el producto de matrices no se puede realizar
-	 */
-	public static boolean esUnitaria(MatrizCompleja A) throws ComplexException {
-		boolean esUnitaria = false;
-		//System.out.println(productoDeMatrices(A, matrizAdjunta(A)));
-		//System.out.println(crearIdentidad(A));
-		
-		if(productoDeMatrices(A, matrizAdjunta(A)).equals(crearIdentidad(A))) {
-			esUnitaria = true;
-		}			
-		return esUnitaria;
-	}
+    /**
+     * Dice si una matriz dada es unitaria o no (Si el producto de la matriz por su adjunta es igual a la matriz identidad).
+     * @param A Matriz de numeros complejos
+     * @return Si la matriz es unitaria
+     * @throws ComplexException Si el producto de matrices no se puede realizar
+     */
+    public static boolean esUnitaria(MatrizCompleja A) throws ComplexException {
+        boolean esUnitaria = false;
+        //System.out.println(productoDeMatrices(A, matrizAdjunta(A)));
+        //System.out.println(crearIdentidad(A));
+
+        if(productoDeMatrices(A, matrizAdjunta(A)).equals(crearIdentidad(A))) {
+            esUnitaria = true;
+        }			
+        return esUnitaria;
+    }
 	
-	/**
-	 * Calcula el producto tensor entre dos matrices
-	 * @param A Matriz 1 de numeros complejos
-	 * @param B Matriz 2 de numeros complejos
-	 * @return Producto tensor entre A y B
-	 */
-	public static MatrizCompleja productoTensor(MatrizCompleja A, MatrizCompleja B) {
-		int m = A.getM();
-		int n = A.getN();
-		int p = B.getM();
-		int q = B.getN();
-			
-		int filasProductoTensor = m*p;
-		int columnasProductoTensor = n*q;
-		
-		MatrizCompleja productoTensor = new MatrizCompleja(filasProductoTensor, columnasProductoTensor);
-		
-        for(int i = 0; i < productoTensor.getM(); i++){
-            for(int j = 0; j < productoTensor.getN(); j++){
-            	//productoTensor.getMatriz()[i][j] = A.getMatriz()[j][i];
-            	productoTensor.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejos((A.getMatriz()[i/p] [j/q]), B.getMatriz()[i%p][j%q]);
-            }
+    /**
+     * Calcula el producto tensor entre dos matrices
+     * @param A Matriz 1 de numeros complejos
+     * @param B Matriz 2 de numeros complejos
+     * @return Producto tensor entre A y B
+     */
+    public static MatrizCompleja productoTensor(MatrizCompleja A, MatrizCompleja B) {
+        int m = A.getM();
+        int n = A.getN();
+        int p = B.getM();
+        int q = B.getN();
+
+        int filasProductoTensor = m*p;
+        int columnasProductoTensor = n*q;
+
+        MatrizCompleja productoTensor = new MatrizCompleja(filasProductoTensor, columnasProductoTensor);
+
+    for(int i = 0; i < productoTensor.getM(); i++){
+        for(int j = 0; j < productoTensor.getN(); j++){
+            //productoTensor.getMatriz()[i][j] = A.getMatriz()[j][i];
+            productoTensor.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejos((A.getMatriz()[i/p] [j/q]), B.getMatriz()[i%p][j%q]);
         }
-		return productoTensor;
-	}
+    }
+        return productoTensor;
+    }
 
 }
