@@ -4,14 +4,38 @@ import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 public class CalculadoraMatricesComplejas {
-	
+
+    
+     /**
+     * Suma dos vectores de numeros complejos
+     *
+     * @param A Primer vector de numeros complejos
+     * @param B Segundo vector de numeros complejos
+     * @return Un vector de numeros complejos resultante de la suma de los vectores A y B
+     * @throws ComplexException Si los vectores no tienen la misma dimension
+     */
+    public static MatrizCompleja sumaDeVectores(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+        if(A.isVector() && B.isVector()){
+            verificarMatricesMismaDimension(A, B);
+            MatrizCompleja suma = new MatrizCompleja(A.getM(), A.getN());
+            for(int i = 0; i < A.getM(); i++) {
+                for(int j = 0; j < B.getN(); j++) {
+                    suma.getMatriz()[i][j] = CalculadoraNumerosComplejos.sumaDeNumerosComplejos(A.getMatriz()[i][j], B.getMatriz()[i][j]);
+                }
+            }
+            return suma;
+        }else{
+            throw new ComplexException(ComplexException.NO_ES_VECTOR);
+        } 
+    }
+    
     
     /**
      * Suma dos matrices de numeros complejos
      *
      * @param A Primera matriz de numeros complejos
      * @param B Segunda matriz de numeros complejos
-     * @return Una matriz de numeros complejos resultante de la suma de las matrices a y b
+     * @return Una matriz de numeros complejos resultante de la suma de las matrices A y B
      * @throws ComplexException Si las matrices no tienen la misma dimension
      */
     public static MatrizCompleja sumaDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
@@ -65,6 +89,28 @@ public class CalculadoraMatricesComplejas {
      * @param A Matriz de numeros complejos
      * @return Inversa de la matriz A
      */
+    public static MatrizCompleja inversaDeUnVector(MatrizCompleja A) throws ComplexException {
+        
+        if(A.isVector()){
+            MatrizCompleja inversa = new MatrizCompleja(A.getM(), A.getN());
+            for(int i = 0; i < A.getM(); i++){
+                for(int j = 0; j < A.getN(); j++){
+                    inversa.getMatriz()[i][j] = A.getMatriz()[i][j].inversoDeUnNumeroComplejo();
+                }
+            }
+            return inversa;
+        }else{
+            throw new ComplexException(ComplexException.NO_ES_VECTOR);
+        }        
+
+    }
+    
+    
+     /**
+     * Calcula y retorna la inversa de una matriz, es decir, cada uno de sus elementos (tanto parte real como parte imaginaria) por -1
+     * @param A Matriz de numeros complejos
+     * @return Inversa de la matriz A
+     */
     public static MatrizCompleja inversaDeUnaMatriz(MatrizCompleja A) {
         MatrizCompleja inversa = new MatrizCompleja(A.getM(), A.getN());
         for(int i = 0; i < A.getM(); i++){
@@ -73,7 +119,33 @@ public class CalculadoraMatricesComplejas {
             }
         }
         return inversa;
-    }
+    }    
+    
+    
+    /**
+     * Calcula y retorna el producto de un escalar por un vector
+     * @param A Vector de numeros complejos
+     * @param B escalar a multiplicar
+     * @return A*B
+     * @throws complexLibrary.ComplexException Si A no es un vector
+     */
+    public static MatrizCompleja productoPorEscalarDeUnVector(MatrizCompleja A, NumeroComplejo B) throws ComplexException{
+        
+        if(A.isVector()){
+            MatrizCompleja resultado = new MatrizCompleja(A.getM(), A.getN());
+
+            for(int i = 0; i < A.getM(); i++){
+                for(int j = 0; j < A.getN(); j++){
+                    resultado.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejos(A.getMatriz()[i][j], B);
+                }
+            }
+        
+            return resultado;
+        }else{
+            throw new ComplexException(ComplexException.NO_ES_VECTOR);
+        }           
+
+    }    
     
     /**
      * Calcula y retorna el producto de un escalar por una matriz
@@ -206,13 +278,12 @@ public class CalculadoraMatricesComplejas {
      * @return El producto interno 
      * @throws ComplexException si el producto de matrices es incompatible
      */
-    public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {
-    	
-    	double parteReal;
-    	MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());    	
-    	productoInterno = productoDeMatrices(matrizAdjunta(A), B);    	
-    	NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);    	
-    	parteReal =  numero.getParteReal();  	
+    public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {    	
+        double parteReal;
+        MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());    	
+        productoInterno = productoDeMatrices(matrizAdjunta(A), B);    	
+        NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);    	
+        parteReal =  numero.getParteReal();  	
 
         return parteReal;
     	
@@ -224,10 +295,10 @@ public class CalculadoraMatricesComplejas {
      * @return Norma del vector
      * @throws ComplexException si el producto de matrices es incompatible
      */
-	public static double norma(MatrizCompleja A) throws ComplexException {
-		double norma = Math.sqrt(productoInterno(A, A, true));
-		return norma;
-	}
+    public static double norma(MatrizCompleja A) throws ComplexException {
+        double norma = Math.sqrt(productoInterno(A, A, true));
+        return norma;
+    }
 	
 	
     /**
@@ -259,16 +330,16 @@ public class CalculadoraMatricesComplejas {
 
         MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
 
-    for(int i = 0; i < matrizIdentidad.getM(); i++){
-        for(int j = 0; j < matrizIdentidad.getN(); j++){
-            if(i == j) {
-                matrizIdentidad.getMatriz()[i][j] =  new NumeroComplejo(1, 0);
+        for(int i = 0; i < matrizIdentidad.getM(); i++){
+            for(int j = 0; j < matrizIdentidad.getN(); j++){
+                if(i == j) {
+                    matrizIdentidad.getMatriz()[i][j] =  new NumeroComplejo(1, 0);
 
-            }else {
-                matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
+                }else {
+                    matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
+                }
             }
         }
-    }
 
         return matrizIdentidad;
 
