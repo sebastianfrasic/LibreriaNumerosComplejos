@@ -1,3 +1,0 @@
-Faltan:
-
-Documento Readme con los requerimientos.
