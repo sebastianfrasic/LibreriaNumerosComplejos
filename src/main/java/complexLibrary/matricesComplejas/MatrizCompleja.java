@@ -1,6 +1,6 @@
 package complexLibrary.matricesComplejas;
 
-import complexLibrary.ComplexException;
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.numerosComplejos.*;
 import java.util.Arrays;
 
@@ -129,6 +129,13 @@ public class MatrizCompleja {
             respuesta = true;
         }
         return respuesta;
+    }
+    
+    public boolean esCuadrada(){
+        boolean esCuadrada;     
+        esCuadrada = this.getM() == this.getN();          
+        return esCuadrada;
+        
     }
     
   

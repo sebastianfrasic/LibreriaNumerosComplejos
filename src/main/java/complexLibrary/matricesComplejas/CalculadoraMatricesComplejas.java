@@ -1,5 +1,5 @@
 package complexLibrary.matricesComplejas;
-import complexLibrary.ComplexException;
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
@@ -127,7 +127,7 @@ public class CalculadoraMatricesComplejas {
      * @param A Vector de numeros complejos
      * @param B escalar a multiplicar
      * @return A*B
-     * @throws complexLibrary.ComplexException Si A no es un vector
+     * @throws complexLibrary.excepciones.ComplexException Si A no es un vector
      */
     public static MatrizCompleja productoPorEscalarDeUnVector(MatrizCompleja A, NumeroComplejo B) throws ComplexException{
         
@@ -239,6 +239,33 @@ public class CalculadoraMatricesComplejas {
         }	
     }
     
+    /**
+     * Realiza la multiplicación entre dos matrices complejas
+     * @param A Primera matriz compleja
+     * @param B Segunda matriz compleja
+     * @return Matriz resultante del producto entre A y B
+     * @throws ComplexException Si las dimensiones de las matrices A y B son incompatibles
+     */
+    public static MatrizCompleja productoDeMatricesSinRedondear(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+        if(A.getN() != B.getM()) {
+            throw new ComplexException(ComplexException.NO_SE_PUEDEN_MULTIPLICAR);
+        }else {
+            MatrizCompleja resultado = new MatrizCompleja(A.getM(), B.getN());
+
+            for (int i = 0; i < A.getM(); i++) {
+                for (int j = 0; j < B.getN(); j++) {
+                    NumeroComplejo x = new NumeroComplejo(0, 0);
+                    for (int k = 0; k < A.getN(); k++) {
+                        x = CalculadoraNumerosComplejos.sumaDeNumerosComplejos(x, CalculadoraNumerosComplejos.productoDeNumerosComplejosSinRedondear(A.getMatriz()[i][k], B.getMatriz()[k][j]));
+                    }
+                    resultado.getMatriz()[i][j] = x;
+                }
+            }
+
+            return resultado;
+        }	
+    }    
+    
     
     /**
      * Determina si dada una matriz A, es hermitiana o no
@@ -322,7 +349,7 @@ public class CalculadoraMatricesComplejas {
      */
     private static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
         int dimension = 0;
-        if(A.getN() == A.getM()) {
+        if(A.esCuadrada()) {
             dimension = A.getM();
         }else {
             throw new ComplexException(ComplexException.NO_ES_CUADRADA);
@@ -379,13 +406,16 @@ public class CalculadoraMatricesComplejas {
 
         MatrizCompleja productoTensor = new MatrizCompleja(filasProductoTensor, columnasProductoTensor);
 
-    for(int i = 0; i < productoTensor.getM(); i++){
-        for(int j = 0; j < productoTensor.getN(); j++){
-            //productoTensor.getMatriz()[i][j] = A.getMatriz()[j][i];
-            productoTensor.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejos((A.getMatriz()[i/p] [j/q]), B.getMatriz()[i%p][j%q]);
+        for(int i = 0; i < productoTensor.getM(); i++){
+            for(int j = 0; j < productoTensor.getN(); j++){
+                //productoTensor.getMatriz()[i][j] = A.getMatriz()[j][i];
+                productoTensor.getMatriz()[i][j] = CalculadoraNumerosComplejos.productoDeNumerosComplejosSinRedondear((A.getMatriz()[i/p] [j/q]), B.getMatriz()[i%p][j%q]);
+            }
         }
-    }
-        return productoTensor;
-    }
+            return productoTensor;
+        }
+    
+    
+
 
 }

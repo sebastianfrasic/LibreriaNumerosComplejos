@@ -1,0 +1,14 @@
+Validar que sea cuadrada
+
+
+Validar que sea dinamica clasica
+Validar que sea dinamica doblemente estocastica
+
+Sobrecargar los metodos de las dinamicas para que reciba 2 vectores
+
+Hacer matriz estocastica asociada para la dinamica cuantica
+
+Mostrar gráficamente los experimentos de las rendijas.
+
+
+Diagrama de clases y de paquetes

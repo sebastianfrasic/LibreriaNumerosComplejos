@@ -1,5 +1,6 @@
 package complexLibrary;
 
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;

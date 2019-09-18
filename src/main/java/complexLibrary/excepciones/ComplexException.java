@@ -1,4 +1,4 @@
-package complexLibrary;
+package complexLibrary.excepciones;
 
 public class ComplexException extends Exception {
 

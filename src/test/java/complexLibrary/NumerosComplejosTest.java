@@ -1,9 +1,9 @@
 package complexLibrary;
 
-import complexLibrary.*;
+
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.numerosComplejos.*;
 import java.util.ArrayList;
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -99,6 +99,22 @@ public class NumerosComplejosTest {
         //System.out.println(CalculadoraCompleja.modulo(numero1) + "\n");
 
         assertEquals(5.0, respuesta, 0);
+
+    }
+    
+    
+    @Test
+    public void deberiaCalcularElModulo2() {
+
+        NumeroComplejo numero1 = new NumeroComplejo(-0.55, -0.02999999999999997);
+        
+        
+        double respuesta = Math.pow(CalculadoraNumerosComplejos.modulo(numero1), 2);
+        System.out.println(respuesta);
+        //System.out.println("Prueba del modulo de un numero complejo: ");
+        //System.out.println(CalculadoraCompleja.modulo(numero1) + "\n");
+
+        //assertEquals(5.0, respuesta, 0);
 
     }
 

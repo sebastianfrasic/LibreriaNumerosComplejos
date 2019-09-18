@@ -1,5 +1,7 @@
 package complexLibrary;
 
+import complexLibrary.dinamicas.*;
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
@@ -29,7 +31,7 @@ public class Quiz {
             V.addComplex(1, 0, new NumeroComplejo((double)7/10, 0));
             V.addComplex(2, 0, new NumeroComplejo((double)1/10, 0));
             
-            System.out.println(Simulador.sistemaConDinamicaDeterminista(A, V, 4));
+            System.out.println(Clasico.determinista(A, V, 4));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,7 +54,7 @@ public class Quiz {
             V.addComplex(1, 0, new NumeroComplejo((double)0, 0));
             
             
-            System.out.println(Simulador.sistemaConDinamicaDeterminista(A, V, 1));
+            System.out.println(Clasico.determinista(A, V, 1));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -66,27 +68,27 @@ public class Quiz {
     	
     	MatrizCompleja m1 = new MatrizCompleja(2, 2);
     	MatrizCompleja m2 = new MatrizCompleja(2, 2);
-		try {
-			
-			m1.addComplex(0, 0, new NumeroComplejo(0, 0));
-			m1.addComplex(0, 1, new NumeroComplejo(1, 0));
-			m1.addComplex(1, 0, new NumeroComplejo(1, 0));
-			m1.addComplex(1, 1, new NumeroComplejo(0, 0));
-			
-			m2.addComplex(0, 0, new NumeroComplejo(1/(Math.sqrt(2)), 0));
-			m2.addComplex(0, 1, new NumeroComplejo(1/(Math.sqrt(2)), 0));
-			m2.addComplex(1, 0, new NumeroComplejo(1/(Math.sqrt(2)), 0));
-			m2.addComplex(1, 1, new NumeroComplejo(-1/(Math.sqrt(2)), 0));
+        try {
 
-			System.out.println("Producto tensor: " + CalculadoraMatricesComplejas.productoTensor(m1, m2));
-			System.out.println("Es unitaria: " + CalculadoraMatricesComplejas.esUnitaria(m1));
-			System.out.println("Es hermitiana: " + CalculadoraMatricesComplejas.esHermitiana(m1));
-			//assertTrue(CalculadoraMatricesComplejas.esUnitaria(m1));
-			//assertTrue(CalculadoraMatricesComplejas.esHermitiana(m1));
+            m1.addComplex(0, 0, new NumeroComplejo(0, 0));
+            m1.addComplex(0, 1, new NumeroComplejo(1, 0));
+            m1.addComplex(1, 0, new NumeroComplejo(1, 0));
+            m1.addComplex(1, 1, new NumeroComplejo(0, 0));
 
-		} catch (ComplexException e) {
-			e.printStackTrace();
-		}    	  
+            m2.addComplex(0, 0, new NumeroComplejo(1/(Math.sqrt(2)), 0));
+            m2.addComplex(0, 1, new NumeroComplejo(1/(Math.sqrt(2)), 0));
+            m2.addComplex(1, 0, new NumeroComplejo(1/(Math.sqrt(2)), 0));
+            m2.addComplex(1, 1, new NumeroComplejo(-1/(Math.sqrt(2)), 0));
+
+            System.out.println("Producto tensor: " + CalculadoraMatricesComplejas.productoTensor(m1, m2));
+            System.out.println("Es unitaria: " + CalculadoraMatricesComplejas.esUnitaria(m1));
+            System.out.println("Es hermitiana: " + CalculadoraMatricesComplejas.esHermitiana(m1));
+            //assertTrue(CalculadoraMatricesComplejas.esUnitaria(m1));
+            //assertTrue(CalculadoraMatricesComplejas.esHermitiana(m1));
+
+        } catch (ComplexException e) {
+                e.printStackTrace();
+        }    	  
     }
     
     

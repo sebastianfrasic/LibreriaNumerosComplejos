@@ -1,6 +1,6 @@
 package complexLibrary.numerosComplejos;
 
-import complexLibrary.ComplexException;
+import complexLibrary.excepciones.ComplexException;
 
 
 
@@ -43,7 +43,21 @@ public class CalculadoraNumerosComplejos {
         double parteImaginaria = ((double)Math.round((a.getParteReal()*b.getParteImaginaria()) * 100d) / 100d) + ((double)Math.round((a.getParteImaginaria()*b.getParteReal()) * 100d) / 100d);
 
         return new NumeroComplejo(parteReal, parteImaginaria);
-    }	
+    }
+    
+    
+    /**
+     * @param a Primer numero complejo
+     * @param b Segundo numero complejo
+     * @return El producto entre dos numeros complejos
+     */
+    public static NumeroComplejo productoDeNumerosComplejosSinRedondear (NumeroComplejo a, NumeroComplejo b){
+
+        double parteReal = (a.getParteReal()*b.getParteReal()) - (a.getParteImaginaria()*b.getParteImaginaria());
+        double parteImaginaria = (a.getParteReal()*b.getParteImaginaria()) + (a.getParteImaginaria()*b.getParteReal());
+
+        return new NumeroComplejo(parteReal, parteImaginaria);
+    }    
 
 
     /**

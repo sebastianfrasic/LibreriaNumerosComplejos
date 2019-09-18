@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package complexLibrary;
 
 import complexLibrary.excepciones.ComplexException;
@@ -17,9 +12,7 @@ import static org.junit.Assert.*;
  *
  * @author Juan Sebastian Frasica G
  */
-public class SimuladorTest {
-    
-	
+public class Version3Test {    	
 
     @Test
     public void deberiaRealizarSistemaConDinamicaDeterminista() {
@@ -86,6 +79,8 @@ public class SimuladorTest {
             matrizDinamica.addComplex(5, 3, new NumeroComplejo(0, 0));
             matrizDinamica.addComplex(5, 4, new NumeroComplejo(0, 0));
             matrizDinamica.addComplex(5, 5, new NumeroComplejo(0, 0));
+            
+            Clasico.calcularSistema(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks);
             
             //System.out.println("Con " + numeroDeClicks + " clicks: \n" );
             //System.out.println(Simulador.sistemaConDinamicaDeterminista(matrizDinamica, vectorInicial, numeroDeClicks));
@@ -163,6 +158,9 @@ public class SimuladorTest {
             matrizDinamica.addComplex(5, 4, new NumeroComplejo(0, 0));
             matrizDinamica.addComplex(5, 5, new NumeroComplejo(0, 0));
             
+            System.out.println(Clasico.calcularSistema(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks));
+            System.out.println(Clasico.determinista(matrizDinamica, vectorInicial, numeroDeClicks));
+            
             //System.out.println(Simulador.sistemaConDinamicaDeterminista(matrizDinamica, vectorInicial, numeroDeClicks));
             //System.out.println(vectorFinal);
             assertEquals(vectorFinal, Clasico.determinista(matrizDinamica, vectorInicial, numeroDeClicks));
@@ -172,7 +170,7 @@ public class SimuladorTest {
         }            
     }
 	
-	
+/*	
     @Test
     public void deberiaRealizarSistemaConDinamicaEstocastica() {
 
@@ -226,5 +224,5 @@ public class SimuladorTest {
         }catch(ComplexException e){
             e.printStackTrace();
         }            
-    }
+    }*/
 }

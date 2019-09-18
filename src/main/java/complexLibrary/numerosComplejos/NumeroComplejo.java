@@ -60,7 +60,7 @@ public class NumeroComplejo {
     
 
     public double getModulo(){
-        this.modulo = Math.round(Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) ));
+        this.modulo = Math.sqrt( (Math.pow(this.parteReal, 2)) + (Math.pow(this.parteImaginaria, 2)) );
         return modulo;
     }
 

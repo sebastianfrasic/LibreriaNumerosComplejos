@@ -1,10 +1,16 @@
-package complexLibrary;
+package complexLibrary.dinamicas;
 
+import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
-import complexLibrary.numerosComplejos.NumeroComplejo;
 
-public class Simulador {
+
+public class Clasico extends Sistema{
+
+    public Clasico(TipoSistema tipo, MatrizCompleja matrizDinamica, MatrizCompleja vectorInicial, int numeroDeClicks) {
+        super(tipo, matrizDinamica, vectorInicial, numeroDeClicks);
+    }
+
     
     /**
      * Resuelve un sistema con dinamica determinista
@@ -14,7 +20,7 @@ public class Simulador {
      * @return Un vector correspondiente al estado final del sistema después de t clicks.
      * @throws ComplexException Si la matriz ingresada no cumple con las características de una matriz correspondiente a la dinámica de un sistema determinista.
      */
-    public static MatrizCompleja sistemaConDinamicaDeterminista(MatrizCompleja dinamica, MatrizCompleja estadoInicial, int numeroDeClicks) throws ComplexException {
+    public static MatrizCompleja determinista(MatrizCompleja dinamica, MatrizCompleja estadoInicial, int numeroDeClicks) throws ComplexException {
         if(!estadoInicial.isVector()) {
             throw new ComplexException(ComplexException.DEBE_SER_VECTOR);
         }
@@ -32,20 +38,23 @@ public class Simulador {
 
         for (int i = 0; i < numeroDeClicks; i++) {				
             estadoInicial = CalculadoraMatricesComplejas.productoDeMatrices(dinamica, estadoInicial);
-        }  
+        }
+        System.out.println("Entra al metodo determinista()");
         return estadoInicial;
-    }        
-	
+        
+    }
+    
+    
     /**
      * 
-     * @param m1 Matriz estocástica 1 que representan la dinámica de los sistemas constituyentes.
-     * @param m2 Matriz estocástica 2 que representan la dinámica de los sistemas constituyentes.
+     * @param m1 
+     * @param m2 
      * @param estadoInicial Vectores que corresponden al estado inicial de los sistemas constituyentes.
      * @param numeroDeClicks Un número entero no negativo t que representa el número de clicks de tiempo que se quieren considerar.
      * @return Un vector correspondiente al estado final del sistema ensamblado después de t clicks.
      * @throws ComplexException Si el estado inicial no es un vector
      */
-    public static MatrizCompleja sistemaConDinamicaEstocastico(MatrizCompleja m1, MatrizCompleja m2, MatrizCompleja estadoInicial, int numeroDeClicks) throws ComplexException {
+    public static MatrizCompleja deterministaConEnsamble(MatrizCompleja m1, MatrizCompleja m2, MatrizCompleja estadoInicial, int numeroDeClicks) throws ComplexException {
 
         if(!estadoInicial.isVector()) {
             throw new ComplexException(ComplexException.DEBE_SER_VECTOR);
@@ -53,11 +62,28 @@ public class Simulador {
             MatrizCompleja ensamble = CalculadoraMatricesComplejas.productoTensor(m1, m2);
 
             for (int i = 0; i < numeroDeClicks; i++) {				
-                estadoInicial = CalculadoraMatricesComplejas.productoDeMatrices(ensamble, estadoInicial);
+                estadoInicial = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(ensamble, estadoInicial);
             }
         }
         return estadoInicial;
 
+    }      
+
+    public static void calcularSistema(TipoSistema tipo, MatrizCompleja matrizDinamica, MatrizCompleja vectorInicial, int numeroDeClicks) throws ComplexException {
+        //validarQueSeaDinamicaClasica();
+        for (int i = 0; i < numeroDeClicks; i++) {				
+            vectorInicial = CalculadoraMatricesComplejas.productoDeMatrices(matrizDinamica, vectorInicial);
+        }
+        
+              
+        System.out.println("El vector de estado final del sistema es: \n" + vectorInicial);
+        //return vectorInicial;
+        
     }
+
+    private void validarQueSeaDinamicaClasica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }
