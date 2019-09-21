@@ -1,76 +1,54 @@
-
 package complexLibrary.dinamicas;
-import complexLibrary.excepciones.ComplexException;
-import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
+
 import complexLibrary.matricesComplejas.MatrizCompleja;
 
+/**
+ *
+ * @author juans
+ */
 public class Sistema {
-    protected TipoSistema tipo;
-    protected MatrizCompleja matrizDinamica;
-    protected MatrizCompleja vectorInicial;
-    protected MatrizCompleja vectorFinal;
-    protected MatrizCompleja matrizPotencia;
-    protected int numeroDeClicks;
-
-    public Sistema(TipoSistema tipo, MatrizCompleja matrizDinamica, MatrizCompleja vectorInicial, int numeroDeClicks) {
-        this.tipo = tipo;
-        this.matrizDinamica = matrizDinamica;
-        this.vectorInicial = vectorInicial;
-        this.numeroDeClicks = numeroDeClicks;
-    }
-
-    public TipoSistema getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoSistema tipo) {
-        this.tipo = tipo;
-    }
-
-    public MatrizCompleja getMatrizDinamica() {
-        return matrizDinamica;
-    }
-
-    public void setMatrizDinamica(MatrizCompleja matrizDinamica) {
-        this.matrizDinamica = matrizDinamica;
-    }
-
-    public MatrizCompleja getVectorInicial() {
-        return vectorInicial;
-    }
-
-    public void setVectorInicial(MatrizCompleja vectorInicial) {
-        this.vectorInicial = vectorInicial;
-    }
-
-    public MatrizCompleja getVectorFinal() {
-        return vectorFinal;
-    }
-
-    public void setVectorFinal(MatrizCompleja vectorFinal) {
-        this.vectorFinal = vectorFinal;
-    }
-
-    public int getNumeroDeClicks() {
-        return numeroDeClicks;
-    }
-
-    public void setNumeroDeClicks(int numeroDeClicks) {
-        this.numeroDeClicks = numeroDeClicks;
-    }
-            
     
-    public static void calcularSistema(TipoSistema tipo, MatrizCompleja matrizDinamica, MatrizCompleja vectorInicial, int numeroDeClicks) throws ComplexException{
-        
+    private boolean esValido;    
+    private MatrizCompleja matrizPotencia;
+    private MatrizCompleja vectorEstadoFinal;
+
+    public Sistema(boolean esValido, MatrizCompleja matrizPotencia, MatrizCompleja vectorEstadoFinal) {
+        this.esValido = esValido;
+        this.matrizPotencia = matrizPotencia;
+        this.vectorEstadoFinal = vectorEstadoFinal;
     }
     
+
+    public boolean isEsValido() {
+        return esValido;
+    }
+
+    public void setEsValido(boolean esValido) {
+        this.esValido = esValido;
+    }
+
+    public MatrizCompleja getMatrizPotencia() {
+        return matrizPotencia;
+    }
+
+    public void setMatrizPotencia(MatrizCompleja matrizPotencia) {
+        this.matrizPotencia = matrizPotencia;
+    }
+
+    public MatrizCompleja getVectorEstadoFinal() {
+        return vectorEstadoFinal;
+    }
+
+    public void setVectorEstadoFinal(MatrizCompleja vectorEstadoFinal) {
+        this.vectorEstadoFinal = vectorEstadoFinal;
+    }
 
     @Override
     public String toString() {
-        return "Sistema{" + "tipo=" + tipo + ", matrizDinamica=" + matrizDinamica + ", vectorInicial=" + vectorInicial + ", vectorFinal=" + vectorFinal + ", numeroDeClicks=" + numeroDeClicks + '}';
+        return "Sistema {" + "\n ¿El sistema es válido? = " + esValido + 
+                ",\n Matriz elevada al número de clicks = \n" + matrizPotencia + 
+                ",\n Vector de estado final = \n" + vectorEstadoFinal + '}';
     }
-    
-    
     
     
 }

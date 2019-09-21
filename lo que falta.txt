@@ -1,8 +1,4 @@
-Validar que sea cuadrada
-
-
-Validar que sea dinamica clasica
-Validar que sea dinamica doblemente estocastica
+Refactorizar las pruebas que están fallando.
 
 Sobrecargar los metodos de las dinamicas para que reciba 2 vectores
 

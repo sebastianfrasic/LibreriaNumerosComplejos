@@ -13,10 +13,26 @@ public class CalculadoraNumerosComplejos {
      * @return La suma entre dos numeros complejos
      */
     public static NumeroComplejo sumaDeNumerosComplejos(NumeroComplejo a, NumeroComplejo b) {
+        
 
         return new NumeroComplejo(a.getParteReal() + b.getParteReal(), a.getParteImaginaria() + b.getParteImaginaria());
 
     }
+    
+    /**
+     * @param a Primer numero complejo
+     * @param b Segundo numero complejo
+     * @return La suma entre dos numeros complejos redondeado a 2 decimales
+     */
+    public static NumeroComplejo sumaDeNumerosComplejosRedondeando(NumeroComplejo a, NumeroComplejo b) {
+        
+        
+        double parteReal = ((double)Math.round((a.getParteReal() + b.getParteReal()) * 100d) / 100d)  -  ((double)Math.round((a.getParteImaginaria() + b.getParteImaginaria()) * 100d) / 100d);
+        double parteImaginaria = ((double)Math.round((a.getParteReal()*b.getParteImaginaria()) * 100d) / 100d) + ((double)Math.round((a.getParteImaginaria()*b.getParteReal()) * 100d) / 100d);
+
+        return new NumeroComplejo(parteReal, parteImaginaria);
+
+    }    
 
 
     /**

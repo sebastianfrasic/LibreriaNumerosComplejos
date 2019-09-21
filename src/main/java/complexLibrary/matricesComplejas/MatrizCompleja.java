@@ -131,12 +131,94 @@ public class MatrizCompleja {
         return respuesta;
     }
     
+    /**
+     * Indica si la matriz es cuadrada, es decir, si el número de dimension es igual tanto en fila como en columna
+     * @return 
+     */
     public boolean esCuadrada(){
         boolean esCuadrada;     
         esCuadrada = this.getM() == this.getN();          
         return esCuadrada;
         
     }
+    
+    
+    
+    /**
+     * Indica si la matriz es de dinámica clasica. Es decir, si está llena solamente de 1´s y 0´s. Y por columna el numero de 1´s debe ser menor igual a 1
+     * @return 
+     */
+    public boolean esDeDinamicaClasica(){
+        boolean esClasica = true;
+        
+        NumeroComplejo cero = new NumeroComplejo(0, 0);
+        NumeroComplejo uno = new NumeroComplejo(1, 0);
+        
+        int cantidadDeUnos;
+        
+        for(int i = 0; i < this.getMatriz()[0].length; i++) {
+            cantidadDeUnos = 0;
+            for(int j = 0; j < this.getMatriz().length; j++) {
+                if(!this.getMatriz()[j][i].equals(cero) && !this.getMatriz()[i][j].equals(uno)){ //Si la matriz tiene 1´s o 0´s                    
+                    esClasica = false;
+                }
+                if(this.getMatriz()[j][i].equals(uno)){                    
+                    cantidadDeUnos++;                    
+                }
+            }
+            if(cantidadDeUnos > 1){
+                esClasica = false;
+            }
+        }   
+        
+        return esClasica;
+    }
+    
+    /**
+     * Indica si la matriz es de dinámica doblemente estocástica. Es decir, si la suma tanto por filas como por columnas es igual a 1
+     * @return 
+     */
+    public boolean esDeDinamicaDoblementeEstocastica(){
+        boolean esDoblementeEstocastica = true;
+        
+        NumeroComplejo uno = new NumeroComplejo(1, 0);
+        NumeroComplejo suma= new NumeroComplejo(0, 0);
+                      
+        for (int i = 0; i < this.getMatriz().length; i++) {            
+            suma = new NumeroComplejo(0, 0);
+            for (int j = 0; j < this.getMatriz()[0].length; j++) {
+                suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[i][j]);                
+            }
+            if(!suma.equals(uno)){
+                esDoblementeEstocastica = false;
+            }            
+        }
+        
+        for (int i = 0; i < this.getMatriz()[0].length; i++) {
+            suma = new NumeroComplejo(0, 0);
+            for (int j = 0; j < this.getMatriz().length; j++) {
+                suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[j][i]);
+            }
+            if(!suma.equals(uno)){
+                esDoblementeEstocastica = false;
+            }                        
+        }
+        
+        return esDoblementeEstocastica;
+    }    
+    
+    
+    /**
+     * Indica si la matriz es de dinamica cuántica. Es decir, si la matriz es unitaria
+     * @return
+     * @throws ComplexException Si el producto de matrices no se puede realizar
+     */
+    public boolean esDeDinamicaCuantica() throws ComplexException{
+        return CalculadoraMatricesComplejas.esUnitaria(this);
+    }
+    
+    
+    
     
   
     @Override
