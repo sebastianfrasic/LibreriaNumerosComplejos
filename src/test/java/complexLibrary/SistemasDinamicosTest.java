@@ -1,13 +1,16 @@
 
 package complexLibrary;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import complexLibrary.dinamicas.CalculadoraDinamica;
 import complexLibrary.dinamicas.TipoSistema;
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

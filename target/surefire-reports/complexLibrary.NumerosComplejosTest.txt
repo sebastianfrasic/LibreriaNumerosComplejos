@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: complexLibrary.NumerosComplejosTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.739 s - in complexLibrary.NumerosComplejosTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in complexLibrary.NumerosComplejosTest

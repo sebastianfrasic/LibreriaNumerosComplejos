@@ -1,11 +1,15 @@
 package complexLibrary;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 
@@ -38,6 +42,7 @@ public class MatricesComplejasTest {
         respuesta.addComplex(0, 0, new NumeroComplejo(16, 0));
         respuesta.addComplex(1, 0, new NumeroComplejo(1, 1));
         respuesta.addComplex(2, 0, new NumeroComplejo(3, -9));
+        
 
         assertEquals(CalculadoraMatricesComplejas.sumaDeVectores(vector1, vector2), respuesta);
     }
