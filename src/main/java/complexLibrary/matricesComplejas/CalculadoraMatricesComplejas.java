@@ -347,9 +347,9 @@ public class CalculadoraMatricesComplejas {
      * @return Matriz identidad de A
      * @throws ComplexException Si A no es cuadrada
      */
-    private static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
+    public static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
         int dimension = 0;
-        if(A.esCuadrada()) {
+        if(A.esCuadrada() || A.isVector()) {
             dimension = A.getM();
         }else {
             throw new ComplexException(ComplexException.NO_ES_CUADRADA);
@@ -382,6 +382,7 @@ public class CalculadoraMatricesComplejas {
         boolean esUnitaria = false;
         //System.out.println(productoDeMatrices(A, matrizAdjunta(A)));
         //System.out.println(crearIdentidad(A));
+                
 
         if(productoDeMatrices(A, matrizAdjunta(A)).equals(crearIdentidad(A))) {
             esUnitaria = true;
@@ -415,6 +416,24 @@ public class CalculadoraMatricesComplejas {
             return productoTensor;
         }
     
+    
+    public static MatrizCompleja matrizEstocasticaAsociada(MatrizCompleja A) throws ComplexException {
+
+        MatrizCompleja matrizEstocasticaAsociada = new MatrizCompleja(A.getM(), A.getN());     
+        for(int i = 0; i < A.getM(); i++){
+            for(int j = 0; j < A.getN(); j++){
+            	matrizEstocasticaAsociada.getMatriz()[i][j] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(A.getMatriz()[i][j]), 0);
+            }
+        }
+        if(matrizEstocasticaAsociada.esDeDinamicaDoblementeEstocastica()) {
+        	return matrizEstocasticaAsociada;    
+        }else {
+        	throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR_ESTOCASTICA_ASOCIADA);
+        }
+
+        
+        	
+    }
     
 
 

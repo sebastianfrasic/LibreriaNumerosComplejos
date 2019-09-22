@@ -18,9 +18,10 @@ public class CalculadoraDinamica {
 	public static void main(String[] args) {
 
 		MatrizCompleja matriz = new MatrizCompleja(2, 2);
-		MatrizCompleja vectorEstadoInicial = new MatrizCompleja(2, 1);
+		MatrizCompleja vectorEstadoInicial = new MatrizCompleja(2, 1);		
 
 		try {
+			
 			matriz.addComplex(0, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(0, 1, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(1, 0, new NumeroComplejo(0.5, 0));
@@ -29,7 +30,7 @@ public class CalculadoraDinamica {
 			vectorEstadoInicial.addComplex(0, 0, new NumeroComplejo(3, 0));
 			vectorEstadoInicial.addComplex(1, 0, new NumeroComplejo(4, 0));
 
-			Sistema sistemaClasico = CalcularDinamica(TipoSistema.ESTOCASTICO, matriz, vectorEstadoInicial, 1);
+			Sistema sistemaClasico = calcularDinamica(TipoSistema.ESTOCASTICO, matriz, vectorEstadoInicial, 1);			
 			System.out.println(sistemaClasico);
 		} catch (ComplexException ex) {
 			Logger.getLogger(CalculadoraDinamica.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,12 +49,15 @@ public class CalculadoraDinamica {
 	 * @return Un sistema que indica la validez de la matriz según su parámetro ingresado; una matriz M^t; y un vector de estado final
 	 * @throws complexLibrary.excepciones.ComplexException Si hay un problema al determinar si es unitaria
 	 */
-	public static Sistema CalcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks) throws ComplexException{
+	public static Sistema calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks) throws ComplexException{
 
 		boolean esValida = validarTipoMatriz(matriz, tipoDeSistema);
 		MatrizCompleja matrizPotencia = calcularPotencia(matriz, numeroDeClicks);
 		MatrizCompleja vectorEstadoFinal = calcularEstadoFinal(matriz, vectorEstadoInicial, numeroDeClicks);        
-
+		if(tipoDeSistema == TipoSistema.CUANTICO) {
+			vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal); 
+		}
+		
 		return new Sistema(esValida, matrizPotencia, vectorEstadoFinal);
 	}
 
@@ -106,6 +110,26 @@ public class CalculadoraDinamica {
 			vectorDeEstadoInicial = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matriz, vectorDeEstadoInicial);
 
 		}
+		
 		return vectorDeEstadoInicial;
+	}
+	
+	
+	public static MatrizCompleja calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja v1, MatrizCompleja m2, MatrizCompleja v2, int t) throws ComplexException {
+		if(v1.isVector() && v2.isVector() && validarTipoMatriz(m1, tipo)) {			
+			
+			MatrizCompleja vectorEnsamblado = CalculadoraMatricesComplejas.productoTensor(v1, v2);
+			MatrizCompleja matrizDeLaDinamica = CalculadoraMatricesComplejas.productoTensor(m1, m2);
+			
+			int numeroDeClicks = t;			
+			for (int i = 0; i < numeroDeClicks; i++) {
+				vectorEnsamblado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEnsamblado);				
+			}
+			
+			return vectorEnsamblado;
+		}else {
+			throw new ComplexException(ComplexException.NO_ES_VECTOR);
+		}
+		
 	}
 }

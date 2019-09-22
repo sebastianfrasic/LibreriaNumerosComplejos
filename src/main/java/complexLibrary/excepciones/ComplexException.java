@@ -11,6 +11,8 @@ public class ComplexException extends Exception {
     public static final String NO_ES_CUADRADA = "La matriz identidad debe ser cuadrada.";
     public static final String NO_ES_DETERMINISTA = "La matriz que representa la dinamica del sistema debe tener 0´s y 1´s.";
     public static final String DEBE_SER_VECTOR = "El estado inicial del sistema debe ser un vector.";
+    public static final String NO_SE_PUDO_CALCULAR_ESTOCASTICA_ASOCIADA = "No se pudo realizar el calculo de la matriz estocastica asociada.";
+    public static final String DEBE_SER_CUANTICA = "El calculo de matriz estocastica asociada solamente está definida para matrices de dinamica cuantica";
 
     public ComplexException(String message) {
         super(message);

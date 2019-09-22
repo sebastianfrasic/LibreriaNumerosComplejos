@@ -97,6 +97,11 @@ public class CalculadoraNumerosComplejos {
 	public static double modulo(NumeroComplejo a){
 		return a.getModulo();
 	}
+	
+	
+	public static double moduloElevadoAlCuadrado(NumeroComplejo a) {
+		return Math.pow(modulo(a), 2);
+	}
 
 
 	/**

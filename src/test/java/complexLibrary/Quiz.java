@@ -30,7 +30,7 @@ public class Quiz {
 			V.addComplex(1, 0, new NumeroComplejo((double)7/10, 0));
 			V.addComplex(2, 0, new NumeroComplejo((double)1/10, 0));
 
-			System.out.println(CalculadoraDinamica.CalcularDinamica(TipoSistema.CLASICO, A, V, 4).getVectorEstadoFinal());
+			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, A, V, 4).getVectorEstadoFinal());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -53,7 +53,7 @@ public class Quiz {
 			V.addComplex(1, 0, new NumeroComplejo((double)0, 0));
 
 
-			System.out.println(CalculadoraDinamica.CalcularDinamica(TipoSistema.CLASICO, A, V, 1).getVectorEstadoFinal());
+			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, A, V, 1).getVectorEstadoFinal());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

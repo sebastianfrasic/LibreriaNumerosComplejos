@@ -7,8 +7,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import complexLibrary.dinamicas.CalculadoraDinamica;
+import complexLibrary.dinamicas.Sistema;
 import complexLibrary.dinamicas.TipoSistema;
 import complexLibrary.excepciones.ComplexException;
+import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
@@ -53,6 +55,35 @@ public class SistemasDinamicosTest {
         assertTrue(esDoblementeEstocastica);
         
     }    
+    
+    @Test
+    public void laMatrizDeberiaSerDeDinamicaDoblementeEstocastica2() throws ComplexException{
+        MatrizCompleja matriz = new MatrizCompleja(3, 1);
+        
+        matriz.addComplex(0, 0, new NumeroComplejo(0.3333333333333334, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0.2666666666666666, 0));
+        matriz.addComplex(2, 0, new NumeroComplejo(0.4, 0));
+
+        boolean esDoblementeEstocastica;
+        esDoblementeEstocastica = matriz.esDeDinamicaDoblementeEstocastica();
+        assertTrue(esDoblementeEstocastica);
+        
+    }      
+    
+    
+    @Test
+    public void laMatrizDeberiaSerDeDinamicaDoblementeEstocastica3() throws ComplexException{
+        MatrizCompleja matriz = new MatrizCompleja(1, 3);
+        
+        matriz.addComplex(0, 0, new NumeroComplejo(0.3333333333333334, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0.2666666666666666, 0));
+        matriz.addComplex(0, 2, new NumeroComplejo(0.4, 0));
+        
+        boolean esDoblementeEstocastica;
+        esDoblementeEstocastica = matriz.esDeDinamicaDoblementeEstocastica();
+        assertTrue(esDoblementeEstocastica);
+        
+    }  
     
     @Test
     public void deberiaRealizarSistemaConDinamicaDeterminista() {
@@ -122,7 +153,7 @@ public class SistemasDinamicosTest {
             
             //System.out.println("Con " + numeroDeClicks + " clicks: \n" );
             //System.out.println(Simulador.sistemaConDinamicaDeterminista(matrizDinamica, vectorInicial, numeroDeClicks));
-            assertEquals(vectorFinal, CalculadoraDinamica.CalcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
+            assertEquals(vectorFinal, CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
         
         }catch(ComplexException e){
             e.printStackTrace();
@@ -198,7 +229,7 @@ public class SistemasDinamicosTest {
             
             //System.out.println(Simulador.sistemaConDinamicaDeterminista(matrizDinamica, vectorInicial, numeroDeClicks));
             //System.out.println(vectorFinal);
-            assertEquals(vectorFinal, CalculadoraDinamica.CalcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
+            assertEquals(vectorFinal, CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
         
         }catch(ComplexException e){
             e.printStackTrace();
@@ -277,10 +308,56 @@ public class SistemasDinamicosTest {
             
             //System.out.println(Simulador.sistemaConDinamicaDeterminista(matrizDinamica, vectorInicial, numeroDeClicks));
             //System.out.println(vectorFinal);
-            assertEquals(vectorFinal, CalculadoraDinamica.CalcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
+            assertEquals(vectorFinal, CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, matrizDinamica, vectorInicial, numeroDeClicks).getVectorEstadoFinal());
         
         }catch(ComplexException e){
             e.printStackTrace();
         }            
-    }    
+    } 
+    
+    @Test
+    public void deberiaCalcularElVectorEstocasticoAsociado() {
+    	MatrizCompleja prueba = new MatrizCompleja(3, 1);
+		try {
+			prueba.addComplex(0, 0, new NumeroComplejo((double)1/(Math.sqrt(3)), 0));
+			prueba.addComplex(1, 0, new NumeroComplejo(0, (double)2/(Math.sqrt(15))));
+			prueba.addComplex(2, 0, new NumeroComplejo(Math.sqrt(2)/Math.sqrt(5), 0));
+			
+			//System.out.println("Matriz estocastica asociada: \n" + CalculadoraMatricesComplejas.matrizEstocasticaAsociada(prueba));
+			//System.out.println("La prueba es estocastica? " + CalculadoraMatricesComplejas.matrizEstocasticaAsociada(prueba).esDeDinamicaDoblementeEstocastica());
+			
+		} catch (ComplexException e) {		
+			e.printStackTrace();
+		}
+
+    }
+    
+    @Test
+    public void deberiaCalcularDinamicaCuantica() {
+    	MatrizCompleja matriz = new MatrizCompleja(2, 2);
+    	MatrizCompleja estadoInicial = new MatrizCompleja(2, 1);
+		try {
+			matriz.addComplex(0, 0, new NumeroComplejo((double)1/(Math.sqrt(2)), 0));
+			matriz.addComplex(0, 1, new NumeroComplejo(0, (double)1/(Math.sqrt(2))));
+			matriz.addComplex(1, 0, new NumeroComplejo((double)1/(Math.sqrt(2)), 0));
+			matriz.addComplex(1, 1, new NumeroComplejo(0, (double)-1/(Math.sqrt(2))));
+			
+			System.out.println(matriz);
+			
+			estadoInicial.addComplex(0, 0, new NumeroComplejo(1, 0));
+			estadoInicial.addComplex(1, 0, new NumeroComplejo(0, 0));
+
+			
+			System.out.println(matriz.esDeDinamicaCuantica());
+			
+			Sistema respuesta = CalculadoraDinamica.calcularDinamica(TipoSistema.CUANTICO, matriz, estadoInicial, 1);
+			System.out.println(respuesta);
+			
+		
+			
+		} catch (ComplexException e) {		
+			e.printStackTrace();
+		}
+
+    }
 }

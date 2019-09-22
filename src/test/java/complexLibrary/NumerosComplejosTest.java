@@ -103,7 +103,7 @@ public class NumerosComplejosTest {
 
 	}
 
-
+	/*
 	@Test
 	public void deberiaCalcularElModulo2() {
 
@@ -111,13 +111,13 @@ public class NumerosComplejosTest {
 
 
 		double respuesta = Math.pow(CalculadoraNumerosComplejos.modulo(numero1), 2);
-		System.out.println(respuesta);
+		//System.out.println(respuesta);
 		//System.out.println("Prueba del modulo de un numero complejo: ");
 		//System.out.println(CalculadoraCompleja.modulo(numero1) + "\n");
 
 		//assertEquals(5.0, respuesta, 0);
 
-	}
+	}*/
 
 	@Test
 	public void deberiaCalcularElConjugado() {
@@ -167,7 +167,7 @@ public class NumerosComplejosTest {
 
 	@Test
 	public void deberiaRetornarLaFase() {
-		NumeroComplejo numero1 = new NumeroComplejo(78,5);  
+		NumeroComplejo numero1 = new NumeroComplejo(78, 5);  
 		int fase = 4;
 
 		//System.out.println("Prueba de retornar la fase de un numero complejo: ");

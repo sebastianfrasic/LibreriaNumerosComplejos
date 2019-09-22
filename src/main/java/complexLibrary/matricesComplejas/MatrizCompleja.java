@@ -132,7 +132,8 @@ public class MatrizCompleja {
 		}
 		return respuesta;
 	}
-
+	
+	
 	/**
 	 * Indica si la matriz es cuadrada, es decir, si el número de dimension es igual tanto en fila como en columna
 	 * @return 
@@ -175,6 +176,27 @@ public class MatrizCompleja {
 
 		return esClasica;
 	}
+	
+	public String dimension() {
+		String dimension = this.getM() + " x " + this.getN();
+		return dimension;
+	}
+	
+	public boolean esVectorPorFilas() {
+		boolean esVectorPorFilas = true;
+		if (this.getM() > this.getN()) {
+			esVectorPorFilas = false;
+		}
+		return esVectorPorFilas; 
+	}
+	
+	public boolean esVectorPorColumnas() {
+		boolean esVectorPorColumnas = true;
+		if (this.getM() < this.getN()) {
+			esVectorPorColumnas = false;
+		}
+		return esVectorPorColumnas; 
+	}
 
 	/**
 	 * Indica si la matriz es de dinámica doblemente estocástica. Es decir, si la suma tanto por filas como por columnas es igual a 1
@@ -184,30 +206,49 @@ public class MatrizCompleja {
 		boolean esDoblementeEstocastica = true;
 
 		NumeroComplejo uno = new NumeroComplejo(1, 0);
-		NumeroComplejo suma= new NumeroComplejo(0, 0);
-
-		for (int i = 0; i < this.getMatriz().length; i++) {            
-			suma = new NumeroComplejo(0, 0);
-			for (int j = 0; j < this.getMatriz()[0].length; j++) {
-				suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[i][j]);                
+		NumeroComplejo suma = new NumeroComplejo(0, 0);
+		
+		if(!this.isVector()) {
+			for (int i = 0; i < this.getM(); i++) {            
+				suma = new NumeroComplejo(0, 0);
+				for (int j = 0; j < this.getN(); j++) {
+					suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[i][j]);                
+				}
+				if(!suma.equals(uno)){
+					esDoblementeEstocastica = false;
+				}            
 			}
-			if(!suma.equals(uno)){
-				esDoblementeEstocastica = false;
-			}            
-		}
 
-		for (int i = 0; i < this.getMatriz()[0].length; i++) {
-			suma = new NumeroComplejo(0, 0);
-			for (int j = 0; j < this.getMatriz().length; j++) {
-				suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[j][i]);
+			for (int i = 0; i < this.getN(); i++) {
+				suma = new NumeroComplejo(0, 0);
+				for (int j = 0; j < this.getM(); j++) {
+					suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[j][i]);
+				}
+				if(!suma.equals(uno)){
+					esDoblementeEstocastica = false;
+				}                        
 			}
-			if(!suma.equals(uno)){
-				esDoblementeEstocastica = false;
-			}                        
+		}else {
+			if(!this.esCuadrada()) {
+				sumarElementosDeLaMatriz();
+			}
 		}
-
 		return esDoblementeEstocastica;
 	}    
+	
+	public NumeroComplejo sumarElementosDeLaMatriz() {
+		NumeroComplejo suma = new NumeroComplejo(0,0);
+		for (int i = 0; i < this.getM(); i++) {
+			for (int j = 0; j < this.getN(); j++) {			
+				suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[i][j]);
+			}
+			
+		}
+		return suma;
+	}
+	
+	
+	
 
 
 	/**
@@ -229,7 +270,6 @@ public class MatrizCompleja {
 		for (int i=0 ; i< this.m; i++){
 			for (int j=0; j<this.n; j++){
 				matriz += "Fila: " + i + ", Columna: " + j + " ---> " + this.matriz[i][j] + "    ";
-				//matriz += this.matriz [i][j] + " ";
 			}
 			matriz += "\n";
 		}
