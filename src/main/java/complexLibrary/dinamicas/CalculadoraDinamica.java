@@ -127,12 +127,21 @@ public class CalculadoraDinamica {
 			MatrizCompleja vectorEnsamblado = CalculadoraMatricesComplejas.productoTensor(v1, v2);
 			MatrizCompleja matrizDeLaDinamica = CalculadoraMatricesComplejas.productoTensor(m1, m2);
 			
-			int numeroDeClicks = t;			
-			for (int i = 0; i < numeroDeClicks; i++) {
-				vectorEnsamblado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEnsamblado);				
+			if(vectorEnsamblado.getMatriz().length != matrizDeLaDinamica.getMatriz().length) {
+				throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR);
+			}else {				
+				int numeroDeClicks = t;			
+				for (int i = 0; i < numeroDeClicks; i++) {
+					vectorEnsamblado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEnsamblado);				
+				}
+				if(tipo == TipoSistema.CUANTICO) {
+					if(matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEnsamblado.vectorDeDinamicaCuantica()) {
+						vectorEnsamblado = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEnsamblado); 
+					}
+				}
+				
+				return vectorEnsamblado;
 			}
-			
-			return vectorEnsamblado;
 		}else {
 			throw new ComplexException(ComplexException.NO_ES_VECTOR);
 		}
