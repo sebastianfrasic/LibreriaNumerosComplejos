@@ -3,6 +3,10 @@
 Este repositorio es una librería de números complejos desarrollada en  **Java**, por **Juan Sebastián Frásica Galeano** para la materia Ciencias Naturales Y Tecnología **(CNYT)**. Es una librería que simula algunos comportamientos de la computación cuántica.
 
 
+## Calidad del código  
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2de9d2b7c70c4ccbbaa5a70a3286faab)](https://www.codacy.com/manual/sebastianfrasic/LibreriaNumerosComplejos?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sebastianfrasic/LibreriaNumerosComplejos&amp;utm_campaign=Badge_Grade)
+
+
 ## Funcionalidades
 
 La librería soporta las siguientes operaciones entre números complejos:
@@ -79,9 +83,6 @@ Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 *   [Java](https://www.oracle.com/technetwork/es/java/javase/downloads/index.html) - Lenguaje de programación.
 *   [Maven](https://maven.apache.org/) - Gestor de dependencias.
 
-
-## Calidad del código  
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2de9d2b7c70c4ccbbaa5a70a3286faab)](https://www.codacy.com/manual/sebastianfrasic/LibreriaNumerosComplejos?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sebastianfrasic/LibreriaNumerosComplejos&amp;utm_campaign=Badge_Grade)
 
 
 ## Recomendaciones

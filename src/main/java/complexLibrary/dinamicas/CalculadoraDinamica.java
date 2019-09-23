@@ -56,10 +56,8 @@ public class CalculadoraDinamica {
 			boolean esValida = validarTipoMatriz(matriz, tipoDeSistema);
 			MatrizCompleja matrizPotencia = calcularPotencia(matriz, numeroDeClicks);
 			MatrizCompleja vectorEstadoFinal = calcularEstadoFinal(matriz, vectorEstadoInicial, numeroDeClicks);        
-			if(tipoDeSistema == TipoSistema.CUANTICO) {
-				if(matriz.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
-					vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal); 
-				}
+			if(tipoDeSistema == TipoSistema.CUANTICO && matriz.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
+				vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal); 
 			}
 
 			return new Sistema(esValida, matrizPotencia, vectorEstadoFinal);
@@ -134,10 +132,8 @@ public class CalculadoraDinamica {
 				for (int i = 0; i < numeroDeClicks; i++) {
 					vectorEnsamblado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEnsamblado);				
 				}
-				if(tipo == TipoSistema.CUANTICO) {
-					if(matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEnsamblado.vectorDeDinamicaCuantica()) {
-						vectorEnsamblado = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEnsamblado); 
-					}
+				if(tipo == TipoSistema.CUANTICO && matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEnsamblado.vectorDeDinamicaCuantica()) {
+					vectorEnsamblado = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEnsamblado); 
 				}
 				
 				return vectorEnsamblado;
@@ -160,10 +156,8 @@ public class CalculadoraDinamica {
 				for (int i = 0; i < numeroDeClicks; i++) {
 					vectorEstadoInicial = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEstadoInicial);				
 				}
-				if(tipo == TipoSistema.CUANTICO) {
-					if(matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
-						vectorEstadoInicial = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoInicial); 
-					}
+				if(tipo == TipoSistema.CUANTICO && matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
+					vectorEstadoInicial = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoInicial); 					
 				}
 				
 				return vectorEstadoInicial;
