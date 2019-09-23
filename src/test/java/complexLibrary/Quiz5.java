@@ -7,11 +7,11 @@ import complexLibrary.dinamicas.TipoSistema;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
-public class Quiz {
+public class Quiz5 {
 
 
 	@Test
-	public void xd() {
+	public void punto3() {
 		MatrizCompleja A = new MatrizCompleja(3, 3);
 		MatrizCompleja V = new MatrizCompleja(3, 1);
 
@@ -30,7 +30,7 @@ public class Quiz {
 			V.addComplex(1, 0, new NumeroComplejo((double)7/10, 0));
 			V.addComplex(2, 0, new NumeroComplejo((double)1/10, 0));
 
-			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, A, V, 4).getVectorEstadoFinal());
+			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.ESTOCASTICO, A, V, 4).getVectorEstadoFinal());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -38,7 +38,7 @@ public class Quiz {
 	}
 
 	@Test
-	public void xdd() {
+	public void punto4() {
 		MatrizCompleja A = new MatrizCompleja(2, 2);
 		MatrizCompleja V = new MatrizCompleja(2, 1);
 
@@ -53,7 +53,7 @@ public class Quiz {
 			V.addComplex(1, 0, new NumeroComplejo((double)0, 0));
 
 
-			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.CLASICO, A, V, 1).getVectorEstadoFinal());
+			System.out.println(CalculadoraDinamica.calcularDinamica(TipoSistema.CUANTICO, A, V, 1).getVectorEstadoFinal());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

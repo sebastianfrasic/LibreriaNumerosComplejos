@@ -431,9 +431,22 @@ public class CalculadoraMatricesComplejas {
         	throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR_ESTOCASTICA_ASOCIADA);
         }
 
-        
-        	
+
     }
+    
+    
+	public static MatrizCompleja matrizModuloAlCuadrado(MatrizCompleja A) {
+		MatrizCompleja matrizModulo = new MatrizCompleja(A.getM(), A.getN());
+		for (int i = 0; i < matrizModulo.getM(); i++) {
+			for (int j = 0; j < matrizModulo.getN(); j++) {			
+				matrizModulo.getMatriz()[i][j] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(A.getMatriz()[i][j]), 0);
+			}
+			
+		}
+		return matrizModulo;
+	}
+	
+    
     
 
 

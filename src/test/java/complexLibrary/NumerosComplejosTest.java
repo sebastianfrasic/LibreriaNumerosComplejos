@@ -54,7 +54,7 @@ public class NumerosComplejosTest {
 		assertEquals(multiplicacion, CalculadoraNumerosComplejos.productoDeNumerosComplejos(numero1, numero2));
 	}
 
-
+	
 	@Test
 	public void deberianDividirseDosNumerosComplejos() {
 

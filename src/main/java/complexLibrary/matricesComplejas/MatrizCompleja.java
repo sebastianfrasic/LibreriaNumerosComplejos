@@ -230,14 +230,17 @@ public class MatrizCompleja {
 			}
 		}else {
 			if(!this.esCuadrada()) {
-				sumarElementosDeLaMatriz();
+				suma = sumarElementosDeLaMatriz();
+				if(!suma.equals(uno)) {
+					esDoblementeEstocastica = false;
+				}
 			}
 		}
 		return esDoblementeEstocastica;
 	}    
 	
 	public NumeroComplejo sumarElementosDeLaMatriz() {
-		NumeroComplejo suma = new NumeroComplejo(0,0);
+		NumeroComplejo suma = new NumeroComplejo(0, 0);
 		for (int i = 0; i < this.getM(); i++) {
 			for (int j = 0; j < this.getN(); j++) {			
 				suma = CalculadoraNumerosComplejos.sumaDeNumerosComplejosRedondeando(suma, this.getMatriz()[i][j]);
@@ -248,7 +251,7 @@ public class MatrizCompleja {
 	}
 	
 	
-	
+
 
 
 	/**
@@ -256,11 +259,24 @@ public class MatrizCompleja {
 	 * @return
 	 * @throws ComplexException Si el producto de matrices no se puede realizar
 	 */
-	public boolean esDeDinamicaCuantica() throws ComplexException{
+	public boolean matrizDeDinamicaCuantica() throws ComplexException{
 		return CalculadoraMatricesComplejas.esUnitaria(this);
 	}
 
 
+	public boolean vectorDeDinamicaCuantica() throws ComplexException{
+		if(this.isVector()) {
+			MatrizCompleja vector = CalculadoraMatricesComplejas.matrizModuloAlCuadrado(this);
+			
+			return vector.esDeDinamicaDoblementeEstocastica();
+				
+			
+			
+		}else {
+			throw new ComplexException(ComplexException.DEBE_SER_VECTOR);
+		}
+		
+	}
 
 
 

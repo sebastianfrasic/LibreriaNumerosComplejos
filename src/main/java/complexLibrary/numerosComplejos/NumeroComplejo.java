@@ -169,16 +169,17 @@ public class NumeroComplejo {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}if (getClass() != obj.getClass()) {
 			return false;
+		}
 		NumeroComplejo other = (NumeroComplejo) obj;
-		if (parteImaginaria != other.parteImaginaria)
+		if (parteImaginaria != other.parteImaginaria) {
 			return false;
-		if (parteReal != other.parteReal) {
+		}if (parteReal != other.parteReal) {
 			return false;
 		} 
 		return true;

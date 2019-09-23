@@ -50,15 +50,21 @@ public class CalculadoraDinamica {
 	 * @throws complexLibrary.excepciones.ComplexException Si hay un problema al determinar si es unitaria
 	 */
 	public static Sistema calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks) throws ComplexException{
+		if(!vectorEstadoInicial.isVector()) {
+			throw new ComplexException(ComplexException.DEBE_SER_VECTOR);
+		}else {
+			boolean esValida = validarTipoMatriz(matriz, tipoDeSistema);
+			MatrizCompleja matrizPotencia = calcularPotencia(matriz, numeroDeClicks);
+			MatrizCompleja vectorEstadoFinal = calcularEstadoFinal(matriz, vectorEstadoInicial, numeroDeClicks);        
+			if(tipoDeSistema == TipoSistema.CUANTICO) {
+				if(matriz.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
+					vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal); 
+				}
+			}
 
-		boolean esValida = validarTipoMatriz(matriz, tipoDeSistema);
-		MatrizCompleja matrizPotencia = calcularPotencia(matriz, numeroDeClicks);
-		MatrizCompleja vectorEstadoFinal = calcularEstadoFinal(matriz, vectorEstadoInicial, numeroDeClicks);        
-		if(tipoDeSistema == TipoSistema.CUANTICO) {
-			vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal); 
+			return new Sistema(esValida, matrizPotencia, vectorEstadoFinal);
 		}
-		
-		return new Sistema(esValida, matrizPotencia, vectorEstadoFinal);
+
 	}
 
 
@@ -79,7 +85,7 @@ public class CalculadoraDinamica {
 			esValida = matriz.esDeDinamicaDoblementeEstocastica();
 			break;
 		case CUANTICO:
-			esValida = matriz.esDeDinamicaCuantica();
+			esValida = matriz.matrizDeDinamicaCuantica();
 		default:
 			break;                
 		}
@@ -127,6 +133,33 @@ public class CalculadoraDinamica {
 			}
 			
 			return vectorEnsamblado;
+		}else {
+			throw new ComplexException(ComplexException.NO_ES_VECTOR);
+		}
+		
+	}
+	
+	public static MatrizCompleja calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja m2, MatrizCompleja vectorEstadoInicial, int t) throws ComplexException {
+		if(vectorEstadoInicial.isVector() && validarTipoMatriz(m1, tipo)) {			
+						
+			MatrizCompleja matrizDeLaDinamica = CalculadoraMatricesComplejas.productoTensor(m1, m2);
+			
+			if(vectorEstadoInicial.getMatriz().length != matrizDeLaDinamica.getMatriz().length) {
+				throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR);
+			}else {				
+				int numeroDeClicks = t;			
+				for (int i = 0; i < numeroDeClicks; i++) {
+					vectorEstadoInicial = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEstadoInicial);				
+				}
+				if(tipo == TipoSistema.CUANTICO) {
+					if(matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
+						vectorEstadoInicial = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoInicial); 
+					}
+				}
+				
+				return vectorEstadoInicial;
+			}
+
 		}else {
 			throw new ComplexException(ComplexException.NO_ES_VECTOR);
 		}
