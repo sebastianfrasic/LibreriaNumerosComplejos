@@ -73,7 +73,7 @@ public class CalculadoraDinamica {
 	 * @return Si la matriz ingresada es valida
 	 * @throws ComplexException Si hay un problema al determinar si es unitaria
 	 */
-	private static boolean validarTipoMatriz(MatrizCompleja matriz, TipoSistema tipo) throws ComplexException{
+	public static boolean validarTipoMatriz(MatrizCompleja matriz, TipoSistema tipo) throws ComplexException{
 		boolean esValida = false;
 		switch(tipo){
 		case CLASICO:
@@ -168,4 +168,9 @@ public class CalculadoraDinamica {
 		}
 		
 	}
+	
+	
+	
+	
+
 }

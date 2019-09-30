@@ -11,11 +11,23 @@ public class Sistema {
     private boolean esValido;    
     private MatrizCompleja matrizPotencia;
     private MatrizCompleja vectorEstadoFinal;
+    private MatrizCompleja matrizDelSistema;
+    
+    private boolean imprimirValidez;
 
     public Sistema(boolean esValido, MatrizCompleja matrizPotencia, MatrizCompleja vectorEstadoFinal) {
         this.esValido = esValido;
         this.matrizPotencia = matrizPotencia;
         this.vectorEstadoFinal = vectorEstadoFinal;
+        this.imprimirValidez = true;
+        
+    }
+    
+    public Sistema(MatrizCompleja matrizDelSistema, MatrizCompleja matrizPotencia, MatrizCompleja vectorEstadoFinal) {
+    	this.matrizDelSistema = matrizDelSistema;
+    	this.matrizPotencia = matrizPotencia;
+    	this.vectorEstadoFinal = vectorEstadoFinal;
+    	this.imprimirValidez = false;
     }
     
 
@@ -45,9 +57,15 @@ public class Sistema {
 
     @Override
     public String toString() {
-        return "Sistema {" + "\n ¿El sistema es válido? = " + esValido + 
-                ",\n Matriz elevada al número de clicks = \n" + matrizPotencia + 
-                ",\n Vector de estado final = \n" + vectorEstadoFinal + '}';
+    	String respuesta = "";
+    	if (imprimirValidez) {
+    		respuesta ="Dinamica del sistema:" + "\n ¿El sistema es válido? = " + esValido + "\n" + 
+                    "\n Matriz elevada al número de clicks = \n" + matrizPotencia + 
+                    "\n Vector de estado final = \n" + vectorEstadoFinal ; 
+    	}else {
+    		respuesta = "pto sebas";
+    	}
+        return respuesta;
     }
     
     
