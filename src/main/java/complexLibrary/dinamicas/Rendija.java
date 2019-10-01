@@ -15,7 +15,7 @@ public class Rendija {
 			
 			MatrizCompleja vectorEstadoInicial = crearVectorDeEstadoInicial(size);
 			
-			MatrizCompleja matrizDelSistema = calcularMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
+			MatrizCompleja matrizDelSistema = calcularMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared, vectorDeProbabilidad);
 			
 			
 			
@@ -39,16 +39,22 @@ public class Rendija {
 		for (int i = 1; i < vectorDeEstadoInicial.getM(); i++) {
 			vectorDeEstadoInicial.addComplex(i, 0, cero);			
 		}
-		System.out.println(vectorDeEstadoInicial);
+		//System.out.println(vectorDeEstadoInicial);
 		return vectorDeEstadoInicial;
 		
 		
 	}
 	
-	private static MatrizCompleja calcularMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
-		int size = calcularTamañoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
+	public static MatrizCompleja calcularMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja VP) {
 		
-		return null;
+		int size = calcularTamañoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
+		MatrizCompleja matrizDelSistema = new MatrizCompleja(size, size);
+		llenarMatrizDeCeros(matrizDelSistema);
+		llenarColumna0(matrizDelSistema, numeroDeRendijas);
+		llenarDe1s(matrizDelSistema, numeroDeRendijas);
+		llenarDeVP(matrizDelSistema, VP, numeroDeRendijas, numeroDeBlancosPared);
+		
+		return matrizDelSistema;
 	}
 	
 	public static int calcularTamañoMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
@@ -61,6 +67,44 @@ public class Rendija {
 		
 		return size;
 	}
+	
+	private static MatrizCompleja llenarMatrizDeCeros(MatrizCompleja M) {
+		for (int i = 0; i < M.getM(); i++) {
+			for (int j = 0; j < M.getN(); j++) {
+				M.getMatriz()[i][j] = new NumeroComplejo(0, 0);				
+			}			
+		}
+		return M;
+	}
+	
+	private static MatrizCompleja llenarColumna0(MatrizCompleja M, int numeroRendijas) {
+		for (int i = 0; i < numeroRendijas; i++) {
+			M.getMatriz()[i+1][0] = new NumeroComplejo((double)1/numeroRendijas, 0);		
+		}
+		return M;
+	}
+	
+	private static MatrizCompleja llenarDe1s(MatrizCompleja M, int numeroRendijas) {
+		for (int i = numeroRendijas+1; i < M.getMatriz().length; i++) {
+			M.getMatriz()[i][i] = new NumeroComplejo(1, 0);		
+		}
+		return M;
+	}
+	
+	private static MatrizCompleja llenarDeVP(MatrizCompleja M, MatrizCompleja VP, int numRendijas, int numeroBlancos) {
+		int inicio = numRendijas + 1;
+		for (int j = 1; j < numRendijas + 1; j++) {
+			for (int i = 0; i < VP.getMatriz().length; i++) {
+				M.getMatriz()[inicio+i][j] = VP.getMatriz()[i][0];
+			}			
+			inicio += VP.getMatriz().length - numeroBlancos;
+		}
+		
+		return M;
+	}
+	
+	
+
 	
 
 }

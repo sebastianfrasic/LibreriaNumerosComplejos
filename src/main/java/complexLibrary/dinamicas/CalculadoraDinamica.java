@@ -21,30 +21,25 @@ public class CalculadoraDinamica {
 		MatrizCompleja vectorEstadoInicial = new MatrizCompleja(2, 1);		
 
 		try {			
+
+			//int size = Rendija.calcularTamañoMatrizDelSistema(2, 2);
+			//System.out.println(size + "\n");
+			//System.out.println(Rendija.crearVectorDeEstadoInicial(size));
 			
-			/*
-			double[][] numeros2 = {{0,0},{0,0},{0,0},{0,0}};
-			MatrizCompleja m = new MatrizCompleja(2, 2, numeros2);
+			MatrizCompleja vectorDeProbabilidad = new MatrizCompleja(7, 1);
+			vectorDeProbabilidad.addComplex(0, 0, new NumeroComplejo(0.2, 0));
+			vectorDeProbabilidad.addComplex(1, 0, new NumeroComplejo(0.2, 0));
+			vectorDeProbabilidad.addComplex(2, 0, new NumeroComplejo(0.3, 0));
+			vectorDeProbabilidad.addComplex(3, 0, new NumeroComplejo(0.05, 0));
+			vectorDeProbabilidad.addComplex(4, 0, new NumeroComplejo(0.1, 0));
+			vectorDeProbabilidad.addComplex(5, 0, new NumeroComplejo(0.1, 0));
+			vectorDeProbabilidad.addComplex(6, 0, new NumeroComplejo(0.05, 0));
+	
 			
-			System.out.println(m.getM());*/
+			//System.out.println(vectorDeProbabilidad.getMatriz().length);
 			
-			int size = Rendija.calcularTamañoMatrizDelSistema(2, 2);
-			System.out.println(size + "\n");
-			System.out.println(Rendija.crearVectorDeEstadoInicial(size));
-			
-			MatrizCompleja vectorDeProbabilidad = new MatrizCompleja(9, 1);
-			vectorDeProbabilidad.addComplex(0, 0, new NumeroComplejo(1, 0));
-			vectorDeProbabilidad.addComplex(1, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(2, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(3, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(4, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(5, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(6, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(7, 0, new NumeroComplejo(0, 0));
-			vectorDeProbabilidad.addComplex(8, 0, new NumeroComplejo(0, 0));
-			
-			System.out.println(vectorDeProbabilidad);
-			//Rendija.calcularExperimentoDeRendijas(TipoSistema.ESTOCASTICO, 3, 4, vectorDeProbabilidad);
+			//System.out.println(Rendija.calcularMatrizDelSistema(2, 3, vectorDeProbabilidad));
+			System.out.println(Rendija.calcularExperimentoDeRendijas(TipoSistema.ESTOCASTICO, 2, 3, vectorDeProbabilidad));
 			
 			matriz.addComplex(0, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(0, 1, new NumeroComplejo(0.5, 0));
@@ -100,16 +95,16 @@ public class CalculadoraDinamica {
 	public static boolean validarTipoMatriz(MatrizCompleja matriz, TipoSistema tipo) throws ComplexException{
 		boolean esValida = false;
 		switch(tipo){
-		case CLASICO:
-			esValida = matriz.esDeDinamicaClasica();
-			break;
-		case ESTOCASTICO:
-			esValida = matriz.esDeDinamicaDoblementeEstocastica();
-			break;
-		case CUANTICO:
-			esValida = matriz.matrizDeDinamicaCuantica();
-		default:
-			break;                
+			case CLASICO:
+				esValida = matriz.esDeDinamicaClasica();
+				break;
+			case ESTOCASTICO:
+				esValida = matriz.esDeDinamicaDoblementeEstocastica();
+				break;
+			case CUANTICO:
+				esValida = matriz.matrizDeDinamicaCuantica();
+			default:
+				break;                
 		}
 		return esValida;
 	}

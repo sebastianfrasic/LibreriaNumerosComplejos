@@ -1,4 +1,4 @@
-Experimento de las rendijas.
+
 
 Mostrar gráficamente los experimentos de las rendijas.
 Implementar en Java las graficas con los resultados.

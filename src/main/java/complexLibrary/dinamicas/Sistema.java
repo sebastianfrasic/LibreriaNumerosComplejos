@@ -47,7 +47,15 @@ public class Sistema {
         this.matrizPotencia = matrizPotencia;
     }
 
-    public MatrizCompleja getVectorEstadoFinal() {
+    public MatrizCompleja getMatrizDelSistema() {
+		return matrizDelSistema;
+	}
+
+	public void setMatrizDelSistema(MatrizCompleja matrizDelSistema) {
+		this.matrizDelSistema = matrizDelSistema;
+	}
+
+	public MatrizCompleja getVectorEstadoFinal() {
         return vectorEstadoFinal;
     }
 
@@ -63,7 +71,10 @@ public class Sistema {
                     "\n Matriz elevada al número de clicks = \n" + matrizPotencia + 
                     "\n Vector de estado final = \n" + vectorEstadoFinal ; 
     	}else {
-    		respuesta = "pto sebas";
+    		respuesta = "Experimento de las rendijas: \n" + 
+    					"Matriz del sistema (M) = \n " + matrizDelSistema +
+    					"\n Matriz al cuadrado (M^2) = \n " + matrizPotencia +
+    					"\n Vector de estado final = \n" + vectorEstadoFinal ; 
     	}
         return respuesta;
     }
