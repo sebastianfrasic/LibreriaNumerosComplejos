@@ -34,6 +34,65 @@ public class MatrizCompleja {
 	public MatrizCompleja(NumeroComplejo[][] matriz){
 		this.matriz = matriz;
 	}
+	
+	/**
+	 * Crea la matriz partiendo del numero de filas, columnas y un arreglo de los numeros complejos.
+	 * @param filas de la matriz
+	 * @param columnas de la matriz
+	 * @param numeros de la matriz
+	 * @throws CalculadoraException cuando la cantidad de numeros no llena la matriz 
+	 */
+	public MatrizCompleja(int filas, int columnas, NumeroComplejo[] numeros) throws ComplexException{
+		if(numeros.length < filas*columnas) {
+			throw new ComplexException("Faltan numeros");
+		}
+		this.matriz = new NumeroComplejo[filas][columnas];
+		añadirNumeros(numeros);
+	}
+	
+
+	
+	/**
+	 * Crea una matriz partiendo del numero de filas, columnas y un arreglo de los numeros en coordenadas.
+	 * @param filas de la matriz
+	 * @param columnas de la matriz
+	 * @param numeros de la matriz
+	 * @throws CalculadoraException cuando la cantidad de numeros no llena la matriz 
+	 */
+	public MatrizCompleja(int filas, int columnas, double[][] numeros) throws ComplexException{
+		if(numeros.length < filas*columnas) {
+			throw new ComplexException("Faltan numeros");
+		}
+		this.matriz = new NumeroComplejo[filas][columnas];
+		añadirNumeros(crearComplejos(numeros));
+	}
+
+	/**
+	 * Añade los numeros a la matriz
+	 * @param numeros numeros para añadir
+	 */
+	private void añadirNumeros(NumeroComplejo[] numeros) {
+		int contador = 0;
+		for (int i  = 0; i < this.matriz.length;i++) {
+			for (int j  = 0; j < this.matriz[0].length;j++) {
+				this.matriz[i][j] = numeros[contador];
+				contador++;
+			}
+		}
+	}
+	
+	/**
+	 * Crea un arreglo de complejos dados sus partes reales e imaginarias 
+	 * @param numeros las partes reales e imaginarias de los numeros
+	 * @return el arrego de los numeros complejos .
+	 */
+	private NumeroComplejo[] crearComplejos(double[][] numeros) {
+		NumeroComplejo[] complejos = new NumeroComplejo[numeros.length];
+		for (int i  = 0; i < numeros.length; i++) {
+			complejos[i] = new NumeroComplejo(numeros[i][0],numeros[i][1]);
+		}
+		return complejos;
+	}
 
 
 
