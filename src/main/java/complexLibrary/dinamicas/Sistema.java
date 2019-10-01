@@ -72,8 +72,8 @@ public class Sistema {
                     "\n Vector de estado final = \n" + vectorEstadoFinal ; 
     	}else {
     		respuesta = "Experimento de las rendijas: \n" + 
-    					"Matriz del sistema (M) = \n " + matrizDelSistema +
-    					"\n Matriz al cuadrado (M^2) = \n " + matrizPotencia +
+    					"Matriz del sistema (M) = \n " + matrizDelSistema + "\n" +
+    					"\n Matriz al cuadrado (M^2) = \n " + matrizPotencia +  "\n" +
     					"\n Vector de estado final = \n" + vectorEstadoFinal ; 
     	}
         return respuesta;

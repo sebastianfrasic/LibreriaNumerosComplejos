@@ -7,6 +7,8 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 
 public class Rendija {
 	
+	private static MatrizCompleja vectorDeProbabilidad = new MatrizCompleja(7, 1);
+	
 	public static Sistema calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad) throws ComplexException {
 		if(vectorDeProbabilidad.getMatriz().length == ((2*numeroDeBlancosPared) + 1)){
 			CalculadoraDinamica.validarTipoMatriz(vectorDeProbabilidad, tipoDeSistema);
@@ -103,8 +105,28 @@ public class Rendija {
 		return M;
 	}
 	
-	
+	public static void main (String[] args) {
+		try {
+			vectorDeProbabilidad.addComplex(0, 0, new NumeroComplejo(0.2, 0));
+			vectorDeProbabilidad.addComplex(1, 0, new NumeroComplejo(0.2, 0));
+			vectorDeProbabilidad.addComplex(2, 0, new NumeroComplejo(0.3, 0));
+			vectorDeProbabilidad.addComplex(3, 0, new NumeroComplejo(0.05, 0));
+			vectorDeProbabilidad.addComplex(4, 0, new NumeroComplejo(0.1, 0));
+			vectorDeProbabilidad.addComplex(5, 0, new NumeroComplejo(0.1, 0));
+			vectorDeProbabilidad.addComplex(6, 0, new NumeroComplejo(0.05, 0));
+			
+			System.out.println(Rendija.calcularExperimentoDeRendijas(TipoSistema.ESTOCASTICO, 2, 3, vectorDeProbabilidad));		
+			new Grafico().setVisible(true);
+		} catch (ComplexException e) {
+			e.printStackTrace();
+		}
 
+	}
+	
+	
+	public static MatrizCompleja obtenerVectorFinal() throws ComplexException {
+		return Rendija.calcularExperimentoDeRendijas(TipoSistema.ESTOCASTICO, 2, 3, vectorDeProbabilidad).getVectorEstadoFinal();
+	}
 	
 
 }

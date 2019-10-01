@@ -14,6 +14,7 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
  * @author juans
  */
 public class CalculadoraDinamica {
+		
 
 	public static void main(String[] args) {
 
@@ -26,20 +27,8 @@ public class CalculadoraDinamica {
 			//System.out.println(size + "\n");
 			//System.out.println(Rendija.crearVectorDeEstadoInicial(size));
 			
-			MatrizCompleja vectorDeProbabilidad = new MatrizCompleja(7, 1);
-			vectorDeProbabilidad.addComplex(0, 0, new NumeroComplejo(0.2, 0));
-			vectorDeProbabilidad.addComplex(1, 0, new NumeroComplejo(0.2, 0));
-			vectorDeProbabilidad.addComplex(2, 0, new NumeroComplejo(0.3, 0));
-			vectorDeProbabilidad.addComplex(3, 0, new NumeroComplejo(0.05, 0));
-			vectorDeProbabilidad.addComplex(4, 0, new NumeroComplejo(0.1, 0));
-			vectorDeProbabilidad.addComplex(5, 0, new NumeroComplejo(0.1, 0));
-			vectorDeProbabilidad.addComplex(6, 0, new NumeroComplejo(0.05, 0));
-	
 			
-			//System.out.println(vectorDeProbabilidad.getMatriz().length);
-			
-			//System.out.println(Rendija.calcularMatrizDelSistema(2, 3, vectorDeProbabilidad));
-			System.out.println(Rendija.calcularExperimentoDeRendijas(TipoSistema.ESTOCASTICO, 2, 3, vectorDeProbabilidad));
+
 			
 			matriz.addComplex(0, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(0, 1, new NumeroComplejo(0.5, 0));
@@ -187,6 +176,9 @@ public class CalculadoraDinamica {
 		}
 		
 	}
+	
+	
+
 	
 	
 	
