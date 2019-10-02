@@ -32,8 +32,6 @@ public class CalculadoraDinamica {
 			matriz.addComplex(1, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(1, 1, new NumeroComplejo(0.5, 0));  
 			
-			System.out.println(CalculadoraMatricesComplejas.matrizModuloAlCuadrado(matriz));
-			System.out.println(CalculadoraMatricesComplejas.matrizEstocasticaAsociada(matriz));
 			vectorEstadoInicial.addComplex(0, 0, new NumeroComplejo(3, 0));
 			vectorEstadoInicial.addComplex(1, 0, new NumeroComplejo(4, 0));
 
