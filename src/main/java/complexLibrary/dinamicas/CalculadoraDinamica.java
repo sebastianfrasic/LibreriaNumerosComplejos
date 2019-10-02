@@ -25,16 +25,15 @@ public class CalculadoraDinamica {
 
 			//int size = Rendija.calcularTamañoMatrizDelSistema(2, 2);
 			//System.out.println(size + "\n");
-			//System.out.println(Rendija.crearVectorDeEstadoInicial(size));
-			
-			
-
+			//System.out.println(Rendija.crearVectorDeEstadoInicial(size));					
 			
 			matriz.addComplex(0, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(0, 1, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(1, 0, new NumeroComplejo(0.5, 0));
 			matriz.addComplex(1, 1, new NumeroComplejo(0.5, 0));  
-
+			
+			System.out.println(CalculadoraMatricesComplejas.matrizModuloAlCuadrado(matriz));
+			System.out.println(CalculadoraMatricesComplejas.matrizEstocasticaAsociada(matriz));
 			vectorEstadoInicial.addComplex(0, 0, new NumeroComplejo(3, 0));
 			vectorEstadoInicial.addComplex(1, 0, new NumeroComplejo(4, 0));
 
@@ -50,7 +49,7 @@ public class CalculadoraDinamica {
 
 	/**
 	 * 
-	 * @param tipoDeSistema
+	 * @param tipoDeSistema Tipo de sistema (clasico, probabilistico o cuantico)
 	 * @param matriz
 	 * @param vectorEstadoInicial
 	 * @param numeroDeClicks 
@@ -113,7 +112,14 @@ public class CalculadoraDinamica {
 		return matriz;
 	}
 
-
+	/**
+	 * Calcula la dinamica del sistema, es decir, realiza el producto entre matrices (Matriz y vector de estado inicial) tantas veces como sea el numero de clicks
+	 * @param matriz Matriz dinamica del sistema
+	 * @param vectorDeEstadoInicial
+	 * @param numeroDeClicks
+	 * @return
+	 * @throws ComplexException
+	 */
 	private static MatrizCompleja calcularEstadoFinal(MatrizCompleja matriz, MatrizCompleja vectorDeEstadoInicial, int numeroDeClicks) throws ComplexException{
 		if(!vectorDeEstadoInicial.isVector()){
 			throw new ComplexException(ComplexException.NO_ES_VECTOR);

@@ -94,12 +94,13 @@ public class Rendija {
 	}
 	
 	private static MatrizCompleja llenarDeVP(MatrizCompleja M, MatrizCompleja VP, int numRendijas, int numeroBlancos) {
+		int blankSpaces = VP.getMatriz().length - numeroBlancos;
 		int inicio = numRendijas + 1;
 		for (int j = 1; j < numRendijas + 1; j++) {
 			for (int i = 0; i < VP.getMatriz().length; i++) {
 				M.getMatriz()[inicio+i][j] = VP.getMatriz()[i][0];
 			}			
-			inicio += VP.getMatriz().length - numeroBlancos;
+			inicio += blankSpaces;
 		}
 		
 		return M;
