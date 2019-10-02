@@ -217,7 +217,7 @@ public class MatrizCompleja {
      */
     public boolean esDeDinamicaClasica() {
         boolean esClasica = true;
-/*
+        
         NumeroComplejo cero = new NumeroComplejo(0, 0);
         NumeroComplejo uno = new NumeroComplejo(1, 0);
 
@@ -226,9 +226,6 @@ public class MatrizCompleja {
         for (int i = 0; i < this.getMatriz()[0].length; i++) {
             cantidadDeUnos = 0;
             for (int j = 0; j < this.getMatriz().length; j++) {
-                if (!this.getMatriz()[j][i].equals(cero) && !this.getMatriz()[i][j].equals(uno)) { //Si la matriz tiene 1´s o 0´s                    
-                    esClasica = false;
-                }
                 if (this.getMatriz()[j][i].equals(uno)) {
                     cantidadDeUnos++;
                 }
@@ -236,7 +233,7 @@ public class MatrizCompleja {
             if (cantidadDeUnos > 1) {
                 esClasica = false;
             }
-        }*/
+        }
 
         return esClasica;
     }

@@ -20,7 +20,7 @@ public class Grafico extends JFrame {
 
     public Grafico(MatrizCompleja vectorFinal) throws ComplexException {
         setTitle("Vector de estado final");
-        setSize(800, 600);
+        setSize(1500, 1000);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -40,20 +40,20 @@ public class Grafico extends JFrame {
 
             DecimalFormat df = new DecimalFormat("#.00");
             double valor = vectorFinal.getMatriz()[i][0].getParteReal();
-            
+
             String a;
-            if(valor < 1){
-                a = "0"+ df.format(vectorFinal.getMatriz()[i][0].getParteReal());
-            }else{
+            if (valor < 1) {
+                a = "0" + df.format(vectorFinal.getMatriz()[i][0].getParteReal());
+            } else {
                 a = df.format(vectorFinal.getMatriz()[i][0].getParteReal());
-            }            
+            }
 
             estado = "Estado " + estado + " = " + a + "%";
             data.setValue(estado, vectorFinal.getMatriz()[i][0].getParteReal() * 100);
         }
 
         // Creando el Grafico
-        JFreeChart chart = ChartFactory.createPieChart("Vector de estado final del experimento de las rendijas:", data, true, true, false);
+        JFreeChart chart = ChartFactory.createPieChart("Vector de estado final:", data, true, true, false);
 
         // Crear el Panel del Grafico con ChartPanel
         ChartPanel chartPanel = new ChartPanel(chart);

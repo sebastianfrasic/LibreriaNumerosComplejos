@@ -7,7 +7,6 @@ package complexLibrary.version3;
 
 import complexLibrary.dinamicas.CalculadoraDinamica;
 import complexLibrary.dinamicas.Grafico;
-import complexLibrary.dinamicas.Sistema;
 import complexLibrary.dinamicas.TipoSistema;
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.MatrizCompleja;

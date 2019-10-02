@@ -58,6 +58,9 @@ public class CalculadoraDinamica {
             boolean esValida = validarTipoMatriz(matriz, tipoDeSistema);
             MatrizCompleja matrizPotencia = calcularPotencia(matriz, numeroDeClicks);
             MatrizCompleja vectorEstadoFinal = calcularEstadoFinal(matriz, vectorEstadoInicial, numeroDeClicks);
+            if (tipoDeSistema == TipoSistema.CUANTICO) {
+                vectorEstadoFinal = CalculadoraMatricesComplejas.matrizModuloAlCuadrado(vectorEstadoFinal);
+            }
             if (tipoDeSistema == TipoSistema.CUANTICO && matriz.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {
                 vectorEstadoFinal = CalculadoraMatricesComplejas.matrizEstocasticaAsociada(vectorEstadoFinal);
             }
@@ -132,7 +135,7 @@ public class CalculadoraDinamica {
         return vectorDeEstadoInicial;
     }
 
-    public static MatrizCompleja calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja v1, MatrizCompleja m2, MatrizCompleja v2, int t) throws ComplexException {
+    public static MatrizCompleja calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja v1, MatrizCompleja m2, MatrizCompleja v2, int numeroDeClicks) throws ComplexException {
         if (v1.isVector() && v2.isVector() && validarTipoMatriz(m1, tipo)) {
 
             MatrizCompleja vectorEnsamblado = CalculadoraMatricesComplejas.productoTensor(v1, v2);
@@ -141,7 +144,6 @@ public class CalculadoraDinamica {
             if (vectorEnsamblado.getMatriz().length != matrizDeLaDinamica.getMatriz().length) {
                 throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR);
             } else {
-                int numeroDeClicks = t;
                 for (int i = 0; i < numeroDeClicks; i++) {
                     vectorEnsamblado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEnsamblado);
                 }
