@@ -47,53 +47,53 @@ Esta versión tiene 3 funciones principales:
 
 #### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. Esta función es el método ```calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks)``` que se encuentra en la clase ```CalculadoraDinamica.java```
 
-*   Recibe como parámetros:
-  *     Tipo de sistema.
-  *     Matriz M.
-  *     Vector de estado inicial.
-  *     N° de clicks de tiempo.
+* Recibe como parámetros:
+  * Tipo de sistema.
+  * Matriz M.
+  * Vector de estado inicial.
+  * N° de clicks de tiempo.
 
-*   Retorna:
-  *     Validez de la matriz, según el parámetro de la dinámica ingresada. (Dinámica clásica ó dinámica doblemente estocástica ó dinámica cuántica).
-  *     Matriz M^t
-  *     Vector de estado final.
+* Retorna:
+  * Validez de la matriz, según el parámetro de la dinámica ingresada. (Dinámica clásica ó dinámica doblemente estocástica ó dinámica cuántica).
+  * Matriz M^t
+  * Vector de estado final.
 
-*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```DinamicaDeUnSistemaEnElTiempo.java```. Para ejecutarla, primero se debe compilar (Se puede usar el comando de Maven ```mvn package```):
+* La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```DinamicaDeUnSistemaEnElTiempo.java```. Para ejecutarla, primero se debe compilar (Se puede usar el comando de Maven ```mvn package```):   
 ![package](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/package.PNG)
 
-Debe salir algo similar a esto:
+Debe salir algo similar a esto:   
 ![packageExitoso](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/packageExitoso.PNG)
 
 Posteriormente, se debe ejecutar el método main(String[] args) de esta clase.
 
 #### 2. Función que ensambla sistemas y sus dinámicas. Esta función es el método ```calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja v1, MatrizCompleja m2, MatrizCompleja v2, int t)``` que se encuentra en la clase ```CalculadoraDinamica.java```
 
-*   Recibe como parámetros:
-  *     Matriz 1.
-  *     Vector 1.
-  *     Matriz 2.
-  *     Vector 2.
-  *     N° de clicks de tiempo.
+* Recibe como parámetros:
+  * Matriz 1.
+  * Vector 1.
+  * Matriz 2.
+  * Vector 2.
+  * N° de clicks de tiempo.
 
-*   Retorna:
-  *     Vector de estado final.
+* Retorna:
+  * Vector de estado final.
 
-*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```SistemasEnsamblados.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
+* La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```SistemasEnsamblados.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.   
 
 #### 3. Función que realiza la simulación del experimento de las rendijas. Esta función es el método ```calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad)``` que se encuentra en la clase ```Rendija.java```
 
-*   Recibe como parámetros:
+* Recibe como parámetros:
   * Número de rendijas.
   * Número de blancos por pared.
   * Vector de probabilidades.
   * Tipo de sistema al que corresponde el vector de probabilidades (clásico, estocástico o cuántico).
 
-*   Retorna:
+* Retorna:
   * Matriz asociada al sistema (al grafo).
   * Matriz M^2
   * Vector de estado final, y su resultado es mostrado gráficamente en un diagrama de torta.
 
-*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```ExperimentoRendijas.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
+* La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```ExperimentoRendijas.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
 
 ## ¿Cómo usar la librería?
 
