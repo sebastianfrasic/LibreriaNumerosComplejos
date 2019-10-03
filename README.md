@@ -12,34 +12,34 @@ La librería soporta las siguientes operaciones entre números complejos:
 
 ### Versión N° 1: Calculadora de números complejos
 
-* Suma.
-* Producto.
-* Resta.
-* División.
-* Módulo.
-* Conjugado.
-* Conversión entre representaciones polar y cartesiano.
-* Retornar la fase de un número complejo.
+*   Suma.
+*   Producto.
+*   Resta.
+*   División.
+*   Módulo.
+*   Conjugado.
+*   Conversión entre representaciones polar y cartesiano.
+*   Retornar la fase de un número complejo.
 
 ### Versión N° 2: Calculadora de matrices complejas
 
-* Suma de vectores complejos.
-* Inverso aditivo de vector complejo.
-* Multiplicación de escalar por vector complejo.
-* Suma de matrices complejas.
-* Inverso aditivo de matriz compleja.
-* Multiplicación de escalar por matriz compleja.
-* Transpuesta de matriz compleja.
-* Conjugada de matriz compleja.
-* Adjunta (daga) de matriz compleja .
-* Producto de matrices complejas.
-* Acción de matriz compleja sobre vector complejo.
-* Producto interno de vectores complejos.
-* Norma de vector complejo.
-* Distancia entre dos vectores complejos.
-* ¿Es la matriz compleja una matriz unitaria?.
-* ¿Es la matriz compleja una matriz hermitiana?.
-* Producto tensorial de matrices complejas.
+*   Suma de vectores complejos.
+*   Inverso aditivo de vector complejo.
+*   Multiplicación de escalar por vector complejo.
+*   Suma de matrices complejas.
+*   Inverso aditivo de matriz compleja.
+*   Multiplicación de escalar por matriz compleja.
+*   Transpuesta de matriz compleja.
+*   Conjugada de matriz compleja.
+*   Adjunta (daga) de matriz compleja .
+*   Producto de matrices complejas.
+*   Acción de matriz compleja sobre vector complejo.
+*   Producto interno de vectores complejos.
+*   Norma de vector complejo.
+*   Distancia entre dos vectores complejos.
+*   ¿Es la matriz compleja una matriz unitaria?.
+*   ¿Es la matriz compleja una matriz hermitiana?.
+*   Producto tensorial de matrices complejas.
 
 ### Versión N° 3: El sato de lo clásico a lo cuántico
 
@@ -47,41 +47,53 @@ Esta versión tiene 3 funciones principales:
 
 #### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. Esta función es el método ```calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks)``` que se encuentra en la clase ```CalculadoraDinamica.java```
 
-* Recibe como parámetros:
-  * Tipo de sistema.
-  * Matriz M.
-  * Vector de estado inicial.
-  * N° de clicks de tiempo.
+*   Recibe como parámetros:
+  *     Tipo de sistema.
+  *     Matriz M.
+  *     Vector de estado inicial.
+  *     N° de clicks de tiempo.
 
-* Retorna:
-  * Validez de la matriz, según el parámetro de la dinámica ingresada. (Dinámica clásica ó dinámica doblemente estocástica ó dinámica cuántica).
-  * Matriz M^t
-  * Vector de estado final.
+*   Retorna:
+  *     Validez de la matriz, según el parámetro de la dinámica ingresada. (Dinámica clásica ó dinámica doblemente estocástica ó dinámica cuántica).
+  *     Matriz M^t
+  *     Vector de estado final.
+
+*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```DinamicaDeUnSistemaEnElTiempo.java```. Para ejecutarla, primero se debe compilar (Se puede usar el comando de Maven ```mvn package```):
+![package](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/package.PNG)
+
+Debe salir algo similar a esto:
+![packageExitoso](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/packageExitoso.PNG)
+
+Posteriormente, se debe ejecutar el método main(String[] args) de esta clase.
 
 #### 2. Función que ensambla sistemas y sus dinámicas. Esta función es el método ```calcularDinamicaConEnsamble(TipoSistema tipo, MatrizCompleja m1, MatrizCompleja v1, MatrizCompleja m2, MatrizCompleja v2, int t)``` que se encuentra en la clase ```CalculadoraDinamica.java```
 
-* Recibe como parámetros:
-  * Matriz 1.
-  * Vector 1.
-  * Matriz 2.
-  * Vector 2.
-  * N° de clicks de tiempo.
+*   Recibe como parámetros:
+  *     Matriz 1.
+  *     Vector 1.
+  *     Matriz 2.
+  *     Vector 2.
+  *     N° de clicks de tiempo.
 
-* Retorna:
-  * Vector de estado final.
+*   Retorna:
+  *     Vector de estado final.
+
+*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```SistemasEnsamblados.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
 
 #### 3. Función que realiza la simulación del experimento de las rendijas. Esta función es el método ```calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad)``` que se encuentra en la clase ```Rendija.java```
 
-* Recibe como parámetros:
+*   Recibe como parámetros:
   * Número de rendijas.
   * Número de blancos por pared.
   * Vector de probabilidades.
   * Tipo de sistema al que corresponde el vector de probabilidades (clásico, estocástico o cuántico).
 
-* Retorna:
+*   Retorna:
   * Matriz asociada al sistema (al grafo).
   * Matriz M^2
   * Vector de estado final, y su resultado es mostrado gráficamente en un diagrama de torta.
+
+*   La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```ExperimentoRendijas.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
 
 ## ¿Cómo usar la librería?
 
@@ -97,9 +109,9 @@ Dichos tests, están en el paquete __**src\test\java\complexLibrary**__
 
 Hay 3 archivos de pruebas por cada versión del proyecto:
 
-* NumerosComplejosTest.java
-* MatricesComplejasTest.java
-* SistemasDinamicosTest.java
+*   NumerosComplejosTest.java
+*   MatricesComplejasTest.java
+*   SistemasDinamicosTest.java
 
 En la clase MatricesComplejasTest están las ![pruebas mínimas](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/CNYT_Pruebas_Proyecto_2.pdf) requeridas por el docente, y posteriormente hay algunas pruebas adicionales.  
 
@@ -127,6 +139,6 @@ Se pueden ejecutar desde algún IDE de Java, o desde Maven mediante el comando:
 
 ## Recomendaciones
 
-* Para usar los comandos con __mvn__ recuerda haber instalado Maven previamente.
-* Recuerda leer la documentación de los métodos.
-* Ante cualquier inquietud, puedes escribirme a mi correo electrónico: juansebastianfrasica@hotmail.com
+*   Para usar los comandos con __mvn__ recuerda haber instalado Maven previamente.
+*   Recuerda leer la documentación de los métodos.
+*   Ante cualquier inquietud, puedes escribirme a mi correo electrónico: juansebastianfrasica@hotmail.com
