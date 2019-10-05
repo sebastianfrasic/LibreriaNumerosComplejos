@@ -45,6 +45,8 @@ La librería soporta las siguientes operaciones entre números complejos:
 
 Esta versión tiene 3 funciones principales:
 
+La especificación de dichas funciones se encuentra ![aquí](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/Pruebas_Proyecto_3.pdf)
+
 #### 1. Simulador de sistemas determinísticos, estocásticos y cuánticos; junto con su dinámica. Esta función es el método ```calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks)``` que se encuentra en la clase ```CalculadoraDinamica.java```
 
 * Recibe como parámetros:
