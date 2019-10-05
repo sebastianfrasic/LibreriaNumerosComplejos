@@ -1,8 +1,1 @@
-Arreglar la verificacion de que sea dinamica clasica
-
-Mostrar gráficamente los experimentos de las rendijas.
-Implementar en Java las graficas con los resultados.
-
 Documentar todo.
-
-Diagrama de clases y de paquetes
