@@ -13,7 +13,7 @@ public class MatrizCompleja {
     private NumeroComplejo[][] matriz;  //Matriz rellenada con numeros complejos
 
     /**
-     * Construye una matriz de un tamaÒo dado
+     * Construye una matriz de un tama√±o dado
      *
      * @param m Numero de filas
      * @param n Numero de columnas
@@ -27,76 +27,12 @@ public class MatrizCompleja {
     /**
      * Construye una matriz dado un arreglo de arreglos de numeros complejos
      *
-     * @param matriz Matriz donde se agregar· el arreglo de arreglos
+     * @param matriz Matriz donde se agregar√° el arreglo de arreglos
      */
     public MatrizCompleja(NumeroComplejo[][] matriz) {
         this.matriz = matriz;
     }
 
-    /**
-     * Crea la matriz partiendo del numero de filas, columnas y un arreglo de
-     * los numeros complejos.
-     *
-     * @param filas de la matriz
-     * @param columnas de la matriz
-     * @param numeros de la matriz
-     * @throws CalculadoraException cuando la cantidad de numeros no llena la
-     * matriz
-     */
-    public MatrizCompleja(int filas, int columnas, NumeroComplejo[] numeros) throws ComplexException {
-        if (numeros.length < filas * columnas) {
-            throw new ComplexException("Faltan numeros");
-        }
-        this.matriz = new NumeroComplejo[filas][columnas];
-        aÒadirNumeros(numeros);
-    }
-
-    /**
-     * Crea una matriz partiendo del numero de filas, columnas y un arreglo de
-     * los numeros en coordenadas.
-     *
-     * @param filas de la matriz
-     * @param columnas de la matriz
-     * @param numeros de la matriz
-     * @throws CalculadoraException cuando la cantidad de numeros no llena la
-     * matriz
-     */
-    public MatrizCompleja(int filas, int columnas, double[][] numeros) throws ComplexException {
-        if (numeros.length < filas * columnas) {
-            throw new ComplexException("Faltan numeros");
-        }
-        this.matriz = new NumeroComplejo[filas][columnas];
-        aÒadirNumeros(crearComplejos(numeros));
-    }
-
-    /**
-     * AÒade los numeros a la matriz
-     *
-     * @param numeros numeros para aÒadir
-     */
-    private void aÒadirNumeros(NumeroComplejo[] numeros) {
-        int contador = 0;
-        for (int i = 0; i < this.matriz.length; i++) {
-            for (int j = 0; j < this.matriz[0].length; j++) {
-                this.matriz[i][j] = numeros[contador];
-                contador++;
-            }
-        }
-    }
-
-    /**
-     * Crea un arreglo de complejos dados sus partes reales e imaginarias
-     *
-     * @param numeros las partes reales e imaginarias de los numeros
-     * @return el arrego de los numeros complejos .
-     */
-    private NumeroComplejo[] crearComplejos(double[][] numeros) {
-        NumeroComplejo[] complejos = new NumeroComplejo[numeros.length];
-        for (int i = 0; i < numeros.length; i++) {
-            complejos[i] = new NumeroComplejo(numeros[i][0], numeros[i][1]);
-        }
-        return complejos;
-    }
 
     /**
      * Verifica si las coordenadas dadas estan fuera de rango o no.
@@ -178,7 +114,7 @@ public class MatrizCompleja {
     /**
      * Establece una matriz de numeros complejos
      *
-     * @param matriz Matriz donde se establecer· el arreglo de arreglos
+     * @param matriz Matriz donde se establecer√° el arreglo de arreglos
      */
     public void setMatriz(NumeroComplejo[][] matriz) {
         this.matriz = matriz;
@@ -196,7 +132,7 @@ public class MatrizCompleja {
     }
 
     /**
-     * Indica si la matriz es cuadrada, es decir, si el n˙mero de dimension es
+     * Indica si la matriz es cuadrada, es decir, si el n√∫mero de dimension es
      * igual tanto en fila como en columna
      *
      * @return
@@ -209,8 +145,8 @@ public class MatrizCompleja {
     }
 
     /**
-     * Indica si la matriz es de din·mica clasica. Es decir, si est· llena
-     * solamente de 1¥s y 0¥s. Y por columna el numero de 1¥s debe ser menor
+     * Indica si la matriz es de din√°mica clasica. Es decir, si est√° llena
+     * solamente de 1¬¥s y 0¬¥s. Y por columna el numero de 1¬¥s debe ser menor
      * igual a 1
      *
      * @return
@@ -260,7 +196,7 @@ public class MatrizCompleja {
     }
 
     /**
-     * Indica si la matriz es de din·mica doblemente estoc·stica. Es decir, si
+     * Indica si la matriz es de din√°mica doblemente estoc√°stica. Es decir, si
      * la suma tanto por filas como por columnas es igual a 1
      *
      * @return
@@ -314,7 +250,7 @@ public class MatrizCompleja {
     }
 
     /**
-     * Indica si la matriz es de dinamica cu·ntica. Es decir, si la matriz es
+     * Indica si la matriz es de dinamica cu√°ntica. Es decir, si la matriz es
      * unitaria
      *
      * @return
