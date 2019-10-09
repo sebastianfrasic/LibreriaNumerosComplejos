@@ -179,6 +179,9 @@ public class NumeroComplejo {
         } else {
             resultado = "(" + parteReal + " + " + parteImaginaria + "i)";
         }
+        if(parteReal == 0 && parteImaginaria == 0){
+            resultado = "(0)";
+        }
         return resultado;
     }
 

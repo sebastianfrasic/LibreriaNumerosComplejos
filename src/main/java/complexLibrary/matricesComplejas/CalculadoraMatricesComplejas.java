@@ -298,10 +298,7 @@ public class CalculadoraMatricesComplejas {
      * @throws ComplexException si el producto de matrices es incompatible
      */
     public static MatrizCompleja productoInterno(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
-        MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());
-
-        productoInterno = productoDeMatrices(matrizAdjunta(A), B);
-
+        MatrizCompleja productoInterno = productoDeMatricesSinRedondear(matrizAdjunta(A), B);
         return productoInterno;
     }
 
@@ -316,8 +313,7 @@ public class CalculadoraMatricesComplejas {
      */
     public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {
         double parteReal;
-        MatrizCompleja productoInterno = new MatrizCompleja(A.getM(), B.getN());
-        productoInterno = productoDeMatrices(matrizAdjunta(A), B);
+        MatrizCompleja productoInterno = productoDeMatrices(matrizAdjunta(A), B);        
         NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
         parteReal = numero.getParteReal();
 

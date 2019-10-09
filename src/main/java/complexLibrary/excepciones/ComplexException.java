@@ -16,6 +16,7 @@ public class ComplexException extends Exception {
     public static final String TIPO_INVALIDO = "El tipo de sistema ingresado es incorrecto, por favor verifique.";
     public static final String NO_SE_PUDO_CALCULAR = "No se pudo realizar el calculo del vector final.";
     public static final String VP_INVALIDO = "El vector de probabilidades que ingresó es inválido";
+    public static final String NO_ES_HERMITIANA = "La matriz observable Omega no es hermitiana";
 
     public ComplexException(String message) {
         super(message);
