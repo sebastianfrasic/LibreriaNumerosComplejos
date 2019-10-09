@@ -311,9 +311,26 @@ public class CalculadoraMatricesComplejas {
      * @return El producto interno
      * @throws ComplexException si el producto de matrices es incompatible
      */
+    public static NumeroComplejo productoInterno(boolean retornaNumeroComplejo, MatrizCompleja A, MatrizCompleja B) throws ComplexException {
+        MatrizCompleja productoInterno = productoDeMatrices(matrizAdjunta(A), B);
+        NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
+
+        return numero;
+
+    }
+
+    /**
+     * Calcula el producto interno entre dos vectores
+     *
+     * @param A Primera matriz de complejos
+     * @param B Segunda matriz de complejos
+     * @param esMatriz1x1 Si es una matriz 1x1 (un numero real)
+     * @return El producto interno
+     * @throws ComplexException si el producto de matrices es incompatible
+     */
     public static double productoInterno(MatrizCompleja A, MatrizCompleja B, boolean esMatriz1x1) throws ComplexException {
         double parteReal;
-        MatrizCompleja productoInterno = productoDeMatrices(matrizAdjunta(A), B);        
+        MatrizCompleja productoInterno = productoDeMatrices(matrizAdjunta(A), B);
         NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
         parteReal = numero.getParteReal();
 
