@@ -451,6 +451,8 @@ public class SistemasDinamicosTest {
 
             Sistema respuesta = CalculadoraDinamica.calcularDinamica(TipoSistema.CUANTICO, matriz, estadoInicial, 1);
 
+
+
             assertEquals(estadoFinal, respuesta.getVectorEstadoFinal());
 
         } catch (ComplexException e) {

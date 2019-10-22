@@ -100,11 +100,11 @@ public class Actividad3 {
             omega.addComplex(1, 0, new NumeroComplejo(1, -1));
             omega.addComplex(1, 1, new NumeroComplejo(3, 0));
 
-            //System.out.println(CalculadoraCuantica.calcularProbabilidad(psi));
-            //System.out.println(CalculadoraCuantica.calcularProbabilidad(psi).sumarElementosDeLaMatriz());
+
             System.out.println("Valor esperado: " + CalculadoraCuantica.calcularValorEsperado(omega, psi));
-            System.out.println("Operador delta: " + CalculadoraCuantica.calcularOperadorDelta(omega, psi));
+            System.out.println("Operador delta: \n" + CalculadoraCuantica.calcularOperadorDelta(omega, psi));
             System.out.println("Varianza: " + CalculadoraCuantica.calcularVarianza(omega, psi));
+            System.out.println("Desviación estándar: " + CalculadoraCuantica.calcularDesviacionEstandar(omega, psi));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -67,7 +67,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * Multiplicación de escalar por vector complejo
+     * Multiplicaciï¿½n de escalar por vector complejo
      *
      * @throws ComplexException Si lo que se ingresa no es un vector
      */
@@ -167,7 +167,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * Multiplicación de escalar por matriz compleja
+     * Multiplicaciï¿½n de escalar por matriz compleja
      */
     @Test
     public void deberiaMultiplicarPorUnEscalarUnaMatriz() {
@@ -339,8 +339,8 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * No se deberian multiplicar porque la matriz 1 es de tamaño 3x3, y la
-     * matriz 2 es de tamaño 2x2
+     * No se deberian multiplicar porque la matriz 1 es de tamaï¿½o 3x3, y la
+     * matriz 2 es de tamaï¿½o 2x2
      */
     @Test
     public void noDeberiaMultiplicarDosMatrices() {
@@ -373,7 +373,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * Acción de matriz compleja sobre vector complejo
+     * Acciï¿½n de matriz compleja sobre vector complejo
      *
      * @throws ComplexException Si m1 y m2 no son vectores
      */
@@ -549,7 +549,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * ¿Es la matriz compleja una matriz unitaria? ---- True
+     * ï¿½Es la matriz compleja una matriz unitaria? ---- True
      */
     @Test
     public void deberiaSerUnitaria() {
@@ -569,7 +569,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * ¿Es la matriz compleja una matriz unitaria? ---- False
+     * ï¿½Es la matriz compleja una matriz unitaria? ---- False
      */
     @Test
     public void noDeberiaSerUnitaria() {
@@ -594,7 +594,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * ¿Es la matriz compleja una matriz hermitiana? --- True
+     * ï¿½Es la matriz compleja una matriz hermitiana? --- True
      */
     @Test
     public void deberiaSerHermitiana() {
@@ -620,7 +620,7 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * ¿Es la matriz compleja una matriz hermitiana? --- False
+     * ï¿½Es la matriz compleja una matriz hermitiana? --- False
      */
     @Test
     public void noDeberiaSerHermitiana() {
@@ -792,10 +792,10 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * No deberia porque m1 es de tamaño 2x2 y m2 es de tamaño 2x1
+     * No deberia porque m1 es de tamaï¿½o 2x2 y m2 es de tamaï¿½o 2x1
      */
     @Test
-    public void noDeberiaSumarMatricesDeTamañosDiferentes() {
+    public void noDeberiaSumarMatricesDeTamanosDiferentes() {
 
         MatrizCompleja m1 = new MatrizCompleja(2, 2);
         MatrizCompleja m2 = new MatrizCompleja(2, 1);
@@ -1049,8 +1049,8 @@ public class MatricesComplejasTest {
     }
 
     /**
-     * No se deberian multiplicar porque la matriz 1 es de tamaño 2x2, y la
-     * matriz 2 es de tamaño 1x2
+     * No se deberian multiplicar porque la matriz 1 es de tamaï¿½o 2x2, y la
+     * matriz 2 es de tamaï¿½o 1x2
      */
     @Test
     public void noDeberiaMultiplicarDosMatrices2() {

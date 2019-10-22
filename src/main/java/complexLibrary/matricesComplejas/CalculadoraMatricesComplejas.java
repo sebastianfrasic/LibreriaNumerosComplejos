@@ -217,7 +217,7 @@ public class CalculadoraMatricesComplejas {
     }
 
     /**
-     * Realiza la multiplicación entre dos matrices complejas
+     * Realiza la multiplicaciï¿½n entre dos matrices complejas
      *
      * @param A Primera matriz compleja
      * @param B Segunda matriz compleja
@@ -246,7 +246,7 @@ public class CalculadoraMatricesComplejas {
     }
 
     /**
-     * Realiza la multiplicación entre dos matrices complejas
+     * Realiza la multiplicaciï¿½n entre dos matrices complejas
      *
      * @param A Primera matriz compleja
      * @param B Segunda matriz compleja
@@ -307,7 +307,7 @@ public class CalculadoraMatricesComplejas {
      *
      * @param A Primera matriz de complejos
      * @param B Segunda matriz de complejos
-     * @param esMatriz1x1 Si es una matriz 1x1 (un numero real)
+     * @param retornaNumeroComplejo Si retorna un nÃºmero complejo
      * @return El producto interno
      * @throws ComplexException si el producto de matrices es incompatible
      */

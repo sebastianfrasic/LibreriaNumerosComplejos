@@ -42,13 +42,10 @@ public class CalculadoraCuantica {
         }
     }
 
-    public static MatrizCompleja calcularAmplitudDeTransicion(MatrizCompleja psi, MatrizCompleja phi) throws ComplexException {
-        System.out.println("psi " + CalculadoraMatricesComplejas.norma(psi));
-        System.out.println("phi " + CalculadoraMatricesComplejas.norma(phi));
+    public static NumeroComplejo calcularAmplitudDeTransicion(MatrizCompleja psi, MatrizCompleja phi) throws ComplexException {
         psi = normalizarVector(psi);
         phi = normalizarVector(phi);
-
-        return CalculadoraMatricesComplejas.productoInterno(phi, psi);
+        return CalculadoraMatricesComplejas.productoInterno(true, phi, psi);
     }
 
     public static NumeroComplejo calcularValorEsperado(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
@@ -64,29 +61,21 @@ public class CalculadoraCuantica {
             return respuesta;
         }
     }
-    
-    private static MatrizCompleja agregarAMatriz(NumeroComplejo N) throws ComplexException{
-        MatrizCompleja matriz = new MatrizCompleja(1, 1);
-        matriz.addComplex(0, 0, N);
-        System.out.println(matriz);
-        return matriz;
-    }
 
     public static MatrizCompleja calcularOperadorDelta(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
         MatrizCompleja matrizIdentidad = CalculadoraMatricesComplejas.crearIdentidad(omega);
-        System.out.println(matrizIdentidad);
-        System.out.println(omega);
-        System.out.println(psi.isVector());
-        System.out.println(calcularValorEsperado(omega, psi));
-        System.out.println(CalculadoraMatricesComplejas.productoPorEscalar(matrizIdentidad, calcularValorEsperado(omega, psi)));
-        MatrizCompleja respuesta = CalculadoraMatricesComplejas.restaDeMatrices(omega, CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(agregarAMatriz(calcularValorEsperado(omega, psi)), matrizIdentidad));
+        NumeroComplejo valorEsperado = calcularValorEsperado(omega, psi);
+        MatrizCompleja respuesta = CalculadoraMatricesComplejas.restaDeMatrices(omega, CalculadoraMatricesComplejas.productoPorEscalar(matrizIdentidad, valorEsperado));
         return respuesta;
     }
 
-    public static MatrizCompleja calcularVarianza(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
-        MatrizCompleja valorEsperado = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(calcularOperadorDelta(omega, psi), calcularOperadorDelta(omega, psi));
-        MatrizCompleja respuesta = calcularValorEsperado(valorEsperado, psi);
-        return respuesta;
+    public static NumeroComplejo calcularVarianza(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
+        MatrizCompleja operadorDelta = calcularOperadorDelta(omega, psi);
+        return calcularValorEsperado(CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(operadorDelta, operadorDelta),psi);
+    }
+
+    public static double calcularDesviacionEstandar(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
+        return Math.sqrt(calcularVarianza(omega, psi).getParteReal());
     }
 
 }
