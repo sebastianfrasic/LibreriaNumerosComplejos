@@ -85,8 +85,8 @@ public class TeoriaCuanticaBasicaTest {
 
             NumeroComplejo respuestaValorEsperado = CalculadoraCuantica.calcularValorEsperado(omega, psi);
             NumeroComplejo respuestVarianza = CalculadoraCuantica.calcularVarianza(omega, psi);
-            System.out.println("Valor esperado: " + respuestaValorEsperado);
-            System.out.println("Varianza: " + respuestVarianza);
+            //System.out.println("Valor esperado: " + respuestaValorEsperado);
+            //System.out.println("Varianza: " + respuestVarianza);
 
             double rtaValorEsperado = CalculadoraNumerosComplejos.redondearAXDecimalesUnaNumeroComplejo(respuestaValorEsperado, 2).getParteReal();
             double rtaVarianza = CalculadoraNumerosComplejos.redondearAXDecimalesUnaNumeroComplejo(respuestVarianza, 0).getParteReal();
