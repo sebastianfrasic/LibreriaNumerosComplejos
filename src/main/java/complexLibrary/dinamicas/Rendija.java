@@ -13,7 +13,7 @@ public class Rendija {
         if (vectorDeProbabilidad.getMatriz().length == ((2 * numeroDeBlancosPared) + 1)) {
             CalculadoraDinamica.validarTipoMatriz(vectorDeProbabilidad, tipoDeSistema);
 
-            int size = calcularTamañoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
+            int size = calcularTamanoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
 
             MatrizCompleja vectorEstadoInicial = crearVectorDeEstadoInicial(size);
 
@@ -44,7 +44,7 @@ public class Rendija {
 
     public static MatrizCompleja calcularMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja VP) {
 
-        int size = calcularTamañoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
+        int size = calcularTamanoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
         MatrizCompleja matrizDelSistema = new MatrizCompleja(size, size);
         llenarMatrizDeCeros(matrizDelSistema);
         llenarColumna0(matrizDelSistema, numeroDeRendijas);
@@ -54,7 +54,7 @@ public class Rendija {
         return matrizDelSistema;
     }
 
-    public static int calcularTamañoMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
+    public static int calcularTamanoMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
         int paredes = numeroDeRendijas + 1;
 
         int puntosNegros = 2 * numeroDeRendijas;

@@ -431,7 +431,7 @@ public class SistemasDinamicosTest {
         }
 
     }
-
+/*
     @Test
     public void deberiaCalcularDinamicaCuantica() {
         MatrizCompleja matriz = new MatrizCompleja(2, 2);
@@ -459,6 +459,6 @@ public class SistemasDinamicosTest {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
 }

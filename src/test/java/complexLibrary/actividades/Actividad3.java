@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
-import cuantica.CalculadoraCuantica;
+import complexLibrary.cuantica.CalculadoraCuantica;
 
 public class Actividad3 {
 

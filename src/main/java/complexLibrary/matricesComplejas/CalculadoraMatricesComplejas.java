@@ -4,6 +4,8 @@ import complexLibrary.excepciones.ComplexException;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
+import java.text.DecimalFormat;
+
 public class CalculadoraMatricesComplejas {
 
     /**
@@ -73,8 +75,8 @@ public class CalculadoraMatricesComplejas {
     /**
      * Verifica si dos matrices tienen la misma dimension
      *
-     * @param a Primera MatrizCompleja
-     * @param b Segunda MatrizCompleja
+     * @param A Primera MatrizCompleja
+     * @param B Segunda MatrizCompleja
      * @throws ComplexException Si las matrices no tienen la misma dimension
      */
     private static void verificarMatricesMismaDimension(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
@@ -470,4 +472,27 @@ public class CalculadoraMatricesComplejas {
         return matrizModulo;
     }
 
+
+
+    public static MatrizCompleja redondearAXDecimalesUnaMatriz(MatrizCompleja M, int numeroDeDecimales){
+        String format = "#." + generarCeros(numeroDeDecimales);
+        DecimalFormat df = new DecimalFormat(format);
+        for (int i = 0; i < M.getM(); i++) {
+            for (int j = 0; j < M.getN(); j++) {
+                M.getMatriz()[i][j] = new NumeroComplejo(Double.parseDouble(df.format(M.getMatriz()[i][j].getParteReal())), Double.parseDouble(df.format(M.getMatriz()[i][j].getParteImaginaria())));
+            }
+
+        }
+        return M;
+    }
+
+    public static String generarCeros(int numero){
+        String resp = "";
+        for (int i = 0; i<numero; i++){
+            resp += "0";
+        }
+        return resp;
+    }
+
 }
+

@@ -1,6 +1,10 @@
 package complexLibrary.numerosComplejos;
 
 import complexLibrary.excepciones.ComplexException;
+import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
+import complexLibrary.matricesComplejas.MatrizCompleja;
+
+import java.text.DecimalFormat;
 
 public class CalculadoraNumerosComplejos {
 
@@ -100,7 +104,16 @@ public class CalculadoraNumerosComplejos {
      * @return El conjugado del numero complejo dado
      */
     public static NumeroComplejo conjugado(NumeroComplejo a) {
+
         return a.getConjugado();
     }
+
+    public static NumeroComplejo redondearAXDecimalesUnaNumeroComplejo(NumeroComplejo M, int numeroDeDecimales){
+        String format = "#." + CalculadoraMatricesComplejas.generarCeros(numeroDeDecimales);
+        DecimalFormat df = new DecimalFormat(format);
+        M = new NumeroComplejo(Double.parseDouble(df.format(M.getParteReal())), Double.parseDouble(df.format(M.getParteImaginaria())));
+        return M;
+    }
+
 
 }
