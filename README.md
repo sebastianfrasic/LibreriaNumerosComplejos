@@ -97,6 +97,39 @@ Posteriormente, se debe ejecutar el método main(String[] args) de esta clase.
 
 * La prueba de esta función se encuentra en ```\src\test\java\complexLibrary\version3``` en la clase ```ExperimentoRendijas.java```. Al igual que en la clase anterior, esta clase tambien se debe compilar y ejecutar.
 
+### Versión N° 4: Teoría cuántica básica
+
+Esta versión tiene 3 funciones nuevas:
+La especificación de dichas funciones se encuentra ![aquí](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/Recursos/Pruebas_Proyecto_4.pdf)
+
+#### Función que calcula la distribución de probabilidad para los estados básicos de una partícula en una recta. Esta función es el método ```calcularProbabilidad(int numeroDePuntos, MatrizCompleja ket)``` que se encuentra en la clase ```CalculadoraCuantica.java```
+
+* Recibe como parámetros:
+  * Número de puntos del vector ket.
+  * Vector ket.
+
+* Retorna:
+  * Vector de la distribución de probabilidad para los estados básicos de una partícula en una recta.
+
+
+#### Calculadora estadística para observables. Esta función es el método ```calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad)``` que se encuentra en la clase ```Rendija.java```
+
+* Recibe como parámetros: 
+  * Matriz omega Ω correspondiente al observable.
+  * Vector de estado inicial ψ  
+
+* Retorna:
+  * Valor esperado.
+  * Varianza.
+
+
+Las pruebas de estas funciones se encuentran en ```\src\test\java\complexLibrary\version4``` en la clase ```TeoriaCuanticaBasicaTest.java```. 
+
+#### Valores y vectores propios de un observable. 
+
+* Esta función se hizo en Python, y se encuentra en ```src\main\python``` en el archivo ```valoresyvectorespropios.py``` 
+
+
 ## ¿Cómo usar la librería?
 
 ### Pasos de descarga y uso de pruebas
