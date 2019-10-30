@@ -6,6 +6,8 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 2145120
@@ -104,4 +106,17 @@ public class CalculadoraCuantica {
         return Math.sqrt(calcularVarianza(omega, psi).getParteReal());
     }
 
+/*
+    public static ArrayList<Double> esferaDeBloch(MatrizCompleja ket) throws ComplexException {
+        if(!ket.isVector()){
+            throw new ComplexException(ComplexException.NO_ES_VECTOR);
+        }else{
+            ket = CalculadoraCuantica.normalizarVector(ket);
+            ArrayList<Double> respuesta = new ArrayList<>();
+
+
+
+        }
+    }
+*/
 }

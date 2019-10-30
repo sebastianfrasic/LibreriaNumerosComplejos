@@ -99,22 +99,22 @@ public class NumeroComplejo {
      *
      * @return Numero complejo en su forma polar
      */
-    public ArrayList<Integer> cartesianoAPolar() {
-        ArrayList<Integer> polar = new ArrayList<>();
+    public ArrayList<Double> cartesianoAPolar() {
+        ArrayList<Double> polar = new ArrayList<>();
 
-        polar.add((int) this.getModulo());
-        polar.add((int) this.getFase());
+        polar.add(this.getModulo());
+        polar.add(this.getFase());
 
         return polar;
     }
 
-    private int cambiarParteReal() {
-        int real = (int) Math.round((modulo * Math.cos(Math.toRadians(fase))));
+    private double cambiarParteReal() {
+        double real = Math.round((modulo * Math.cos(Math.toRadians(fase))));
         return real;
     }
 
-    private int cambiarParteImaginaria() {
-        int i = (int) Math.round((modulo * Math.sin(Math.toRadians(fase))));
+    private double cambiarParteImaginaria() {
+        double i =  Math.round((modulo * Math.sin(Math.toRadians(fase))));
         return i;
     }
 
@@ -123,8 +123,8 @@ public class NumeroComplejo {
      *
      * @return Numero complejo en forma cartesiana
      */
-    public ArrayList<Integer> polarACartesiano() {
-        ArrayList<Integer> cartesiano = new ArrayList<>();
+    public ArrayList<Double> polarACartesiano() {
+        ArrayList<Double> cartesiano = new ArrayList<>();
 
         cartesiano.add(this.cambiarParteReal());
         cartesiano.add(this.cambiarParteImaginaria());

@@ -124,9 +124,9 @@ public class NumerosComplejosTest {
 
         NumeroComplejo numero1 = new NumeroComplejo(4, -3);
 
-        ArrayList<Integer> polar = new ArrayList<>();
-        polar.add(5);
-        polar.add(-37);
+        ArrayList<Double> polar = new ArrayList<>();
+        polar.add(5.0);
+        polar.add(-37.0);
 
         //System.out.println("Prueba de pasar de cartesiano a polar: ");
         //System.out.println(numero1.cartesianoAPolar() + "\n");
@@ -139,9 +139,9 @@ public class NumerosComplejosTest {
 
         NumeroComplejo numero1 = new NumeroComplejo(78, 5, true);
 
-        ArrayList<Integer> cartesiano = new ArrayList<>();
-        cartesiano.add(78);
-        cartesiano.add(7);
+        ArrayList<Double> cartesiano = new ArrayList<>();
+        cartesiano.add(78.0);
+        cartesiano.add(7.0);
 
         //System.out.println("Prueba de pasar de polar a cartesiano: ");
         //System.out.println(numero1.polarACartesiano() + "\n");
@@ -172,4 +172,29 @@ public class NumerosComplejosTest {
 
     }
 
+
+    @Test
+    public void deberiaCambiarDeCartesianoAPolar2() {
+
+        NumeroComplejo numero1 = new NumeroComplejo(Math.sqrt(3)/(2*Math.sqrt(2)), Math.sqrt(3)/(2*Math.sqrt(2)));
+
+        System.out.println("Prueba de pasar de cartesiano a polar: ");
+        System.out.println(numero1.cartesianoAPolar() + "\n");
+        //assertEquals(polar, numero1.cartesianoAPolar());
+
+    }
+
+    @Test
+    public void deberiaCambiarDeCartesianoAPolar3() {
+
+        NumeroComplejo numero1 = new NumeroComplejo((double)-1/4, Math.sqrt(3)/4);
+
+
+        System.out.println("Prueba de pasar de cartesiano a polar: ");
+        System.out.println(numero1.cartesianoAPolar() + "\n");
+
+        //System.out.println(numero1.cartesianoAPolar().get(0));
+        //assertEquals(polar, numero1.cartesianoAPolar());
+
+    }
 }
