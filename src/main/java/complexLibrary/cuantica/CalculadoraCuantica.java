@@ -9,7 +9,6 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 import java.util.ArrayList;
 
 /**
- *
  * @author 2145120
  */
 public class CalculadoraCuantica {
@@ -33,7 +32,8 @@ public class CalculadoraCuantica {
     public static MatrizCompleja calcularProbabilidad(int numeroDePuntos, MatrizCompleja ket) throws ComplexException {
         if (!ket.isVector()) {
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
-        } if (ket.getMatriz().length != numeroDePuntos){
+        }
+        if (ket.getMatriz().length != numeroDePuntos) {
             throw new ComplexException("El número de puntos no coincide con la longitud del ket ingresado.");
         } else {
             ket = normalizarVector(ket);
@@ -51,7 +51,7 @@ public class CalculadoraCuantica {
     public static MatrizCompleja calcularBra(MatrizCompleja ket) throws ComplexException {
         if (!ket.isVector()) {
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
-        }else{
+        } else {
             return CalculadoraMatricesComplejas.matrizAdjunta(ket);
         }
     }

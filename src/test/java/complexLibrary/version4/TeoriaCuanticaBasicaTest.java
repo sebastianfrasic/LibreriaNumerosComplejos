@@ -43,7 +43,7 @@ public class TeoriaCuanticaBasicaTest {
             psi.addComplex(9, 0, new NumeroComplejo(-1, 1));
 
             MatrizCompleja respuesta = CalculadoraCuantica.calcularProbabilidad(10, psi);
-            respuesta = CalculadoraMatricesComplejas.redondearAXDecimalesUnaMatriz(respuesta,4);
+            respuesta = CalculadoraMatricesComplejas.redondearAXDecimalesUnaMatriz(respuesta, 4);
 
             assertEquals(respuestaEsperada, respuesta);
 
@@ -69,18 +69,18 @@ public class TeoriaCuanticaBasicaTest {
             omega.addComplex(0, 0, new NumeroComplejo(0, 0));
             omega.addComplex(0, 1, new NumeroComplejo(0, -0.5));
             omega.addComplex(0, 2, new NumeroComplejo(0, -1));
-            omega.addComplex(0, 3, new NumeroComplejo((double)-7/2, 0));
-            omega.addComplex(1, 0, new NumeroComplejo(0, (double)1/2));
+            omega.addComplex(0, 3, new NumeroComplejo((double) -7 / 2, 0));
+            omega.addComplex(1, 0, new NumeroComplejo(0, (double) 1 / 2));
             omega.addComplex(1, 1, new NumeroComplejo(0, 0));
-            omega.addComplex(1, 2, new NumeroComplejo((double)7/2, 0));
+            omega.addComplex(1, 2, new NumeroComplejo((double) 7 / 2, 0));
             omega.addComplex(1, 3, new NumeroComplejo(0, -1));
             omega.addComplex(2, 0, new NumeroComplejo(0, 1));
-            omega.addComplex(2, 1, new NumeroComplejo((double)7/2, 0));
+            omega.addComplex(2, 1, new NumeroComplejo((double) 7 / 2, 0));
             omega.addComplex(2, 2, new NumeroComplejo(0, 0));
-            omega.addComplex(2, 3, new NumeroComplejo(0, (double)-1/2));
-            omega.addComplex(3, 0, new NumeroComplejo((double)-7/2, 0));
+            omega.addComplex(2, 3, new NumeroComplejo(0, (double) -1 / 2));
+            omega.addComplex(3, 0, new NumeroComplejo((double) -7 / 2, 0));
             omega.addComplex(3, 1, new NumeroComplejo(0, 1));
-            omega.addComplex(3, 2, new NumeroComplejo(0, (double)1/2));
+            omega.addComplex(3, 2, new NumeroComplejo(0, (double) 1 / 2));
             omega.addComplex(3, 3, new NumeroComplejo(0, 0));
 
             NumeroComplejo respuestaValorEsperado = CalculadoraCuantica.calcularValorEsperado(omega, psi);

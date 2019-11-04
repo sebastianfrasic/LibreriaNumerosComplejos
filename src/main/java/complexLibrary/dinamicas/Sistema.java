@@ -3,7 +3,6 @@ package complexLibrary.dinamicas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 
 /**
- *
  * @author juans
  */
 public class Sistema {
@@ -66,8 +65,8 @@ public class Sistema {
     public String toString() {
         String respuesta = "";
         if (imprimirValidez) {
-            respuesta = "Dinamica del sistema:" + "\n ¿El sistema es válido? = " + esValido + "\n"
-                    + "\n Matriz elevada al número de clicks = \n" + matrizPotencia
+            respuesta = "Dinamica del sistema:" + "\n ï¿½El sistema es vï¿½lido? = " + esValido + "\n"
+                    + "\n Matriz elevada al nï¿½mero de clicks = \n" + matrizPotencia
                     + "\n Vector de estado final = \n" + vectorEstadoFinal;
         } else {
             respuesta = "Experimento de las rendijas: \n"

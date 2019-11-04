@@ -105,7 +105,7 @@ public class Quiz6 {
             m2.addComplex(1, 0, new NumeroComplejo((Math.sqrt(2)) / 2, 0));
             m2.addComplex(1, 1, new NumeroComplejo(-(Math.sqrt(2)) / 2, 0));
 
-            MatrizCompleja producto = CalculadoraMatricesComplejas.productoDeMatrices(m1,m2);
+            MatrizCompleja producto = CalculadoraMatricesComplejas.productoDeMatrices(m1, m2);
             System.out.println("Producto de matrices: \n" + producto);
 
             System.out.println("La matriz 1 es unitaria? " + CalculadoraMatricesComplejas.esUnitaria(m1));

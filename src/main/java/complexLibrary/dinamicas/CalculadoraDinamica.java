@@ -9,7 +9,6 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 /**
- *
  * @author juans
  */
 public class CalculadoraDinamica {
@@ -41,15 +40,14 @@ public class CalculadoraDinamica {
     }
 
     /**
-     *
-     * @param tipoDeSistema Tipo de sistema (clasico, probabilistico o cuantico)
+     * @param tipoDeSistema       Tipo de sistema (clasico, probabilistico o cuantico)
      * @param matriz
      * @param vectorEstadoInicial
      * @param numeroDeClicks
      * @return Un sistema que indica la validez de la matriz según su parámetro
      * ingresado; una matriz M^t; y un vector de estado final
      * @throws complexLibrary.excepciones.ComplexException Si hay un problema al
-     * determinar si es unitaria
+     *                                                     determinar si es unitaria
      */
     public static Sistema calcularDinamica(TipoSistema tipoDeSistema, MatrizCompleja matriz, MatrizCompleja vectorEstadoInicial, int numeroDeClicks) throws ComplexException {
         if (!vectorEstadoInicial.isVector()) {
@@ -74,8 +72,8 @@ public class CalculadoraDinamica {
      * Realiza la validez de la matriz, según el parametro de dinamica ingresado
      *
      * @param matriz Matriz a validar
-     * @param tipo dinamica clasica, dinamica doblemente estocastica ó dinamica
-     * cuantica
+     * @param tipo   dinamica clasica, dinamica doblemente estocastica ó dinamica
+     *               cuantica
      * @return Si la matriz ingresada es valida
      * @throws ComplexException Si hay un problema al determinar si es unitaria
      */
@@ -97,10 +95,9 @@ public class CalculadoraDinamica {
     }
 
     /**
-     *
      * @param matriz Matriz dinamica del sistema
-     * @param t Potencia (exponente) que indica el numero de veces que se
-     * multiplicará la matriz con sí msima
+     * @param t      Potencia (exponente) que indica el numero de veces que se
+     *               multiplicará la matriz con sí msima
      * @return Una matriz resultante de la potencia
      * @throws ComplexException Si las matrices no se pueden multiplicar
      */
@@ -117,7 +114,7 @@ public class CalculadoraDinamica {
      * matrices (Matriz y vector de estado inicial) tantas veces como sea el
      * numero de clicks
      *
-     * @param matriz Matriz dinamica del sistema
+     * @param matriz                Matriz dinamica del sistema
      * @param vectorDeEstadoInicial
      * @param numeroDeClicks
      * @return

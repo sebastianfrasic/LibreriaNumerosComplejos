@@ -50,11 +50,11 @@ public class MatrizCompleja {
     /**
      * Agrega un numero complejo a la matriz
      *
-     * @param i Posicion i de la matriz
-     * @param j Posicion j de la matriz
+     * @param i      Posicion i de la matriz
+     * @param j      Posicion j de la matriz
      * @param numero Numero complejo que se va a agregar
      * @throws ComplexException Si los elementos que se agregan se salen del
-     * rango de la matriz
+     *                          rango de la matriz
      */
     public void addComplex(int i, int j, NumeroComplejo numero) throws ComplexException {
         verificarRango(i, j);
@@ -153,7 +153,7 @@ public class MatrizCompleja {
      */
     public boolean esDeDinamicaClasica() {
         boolean esClasica = true;
-        
+
         NumeroComplejo cero = new NumeroComplejo(0, 0);
         NumeroComplejo uno = new NumeroComplejo(1, 0);
 

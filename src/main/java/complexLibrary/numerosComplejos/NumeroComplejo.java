@@ -12,7 +12,7 @@ public class NumeroComplejo {
     /**
      * Constructor de un numero complejo en su forma cartesiana
      *
-     * @param parteReal Parte real del numero complejo
+     * @param parteReal       Parte real del numero complejo
      * @param parteImaginaria Parte imaginaria del numero complejo
      */
     public NumeroComplejo(double parteReal, double parteImaginaria) {
@@ -23,10 +23,10 @@ public class NumeroComplejo {
     /**
      * Constructor de un numero complejo en su forma polar
      *
-     * @param modulo Modulo del numero complejo (Longitud del vector)
-     * @param fase Fase del numero complejo (Angulo formado por el vector)
+     * @param modulo      Modulo del numero complejo (Longitud del vector)
+     * @param fase        Fase del numero complejo (Angulo formado por el vector)
      * @param estaEnPolar true si el numero complejo est� en forma polar,
-     * false si no
+     *                    false si no
      */
     public NumeroComplejo(double modulo, double fase, boolean estaEnPolar) {
         this.modulo = modulo;
@@ -114,7 +114,7 @@ public class NumeroComplejo {
     }
 
     private double cambiarParteImaginaria() {
-        double i =  Math.round((modulo * Math.sin(Math.toRadians(fase))));
+        double i = Math.round((modulo * Math.sin(Math.toRadians(fase))));
         return i;
     }
 
@@ -179,7 +179,7 @@ public class NumeroComplejo {
         } else {
             resultado = "(" + parteReal + " + " + parteImaginaria + "i)";
         }
-        if(parteReal == 0 && parteImaginaria == 0){
+        if (parteReal == 0 && parteImaginaria == 0) {
             resultado = "(0)";
         }
         return resultado;

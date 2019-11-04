@@ -13,7 +13,6 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 /**
- *
  * @author 2145120
  */
 public class DinamicaDeUnSistemaEnElTiempo {

@@ -108,14 +108,12 @@ public class CalculadoraNumerosComplejos {
         return a.getConjugado();
     }
 
-    public static NumeroComplejo redondearAXDecimalesUnaNumeroComplejo(NumeroComplejo M, int numeroDeDecimales){
+    public static NumeroComplejo redondearAXDecimalesUnaNumeroComplejo(NumeroComplejo M, int numeroDeDecimales) {
         String format = "#." + CalculadoraMatricesComplejas.generarCeros(numeroDeDecimales);
         DecimalFormat df = new DecimalFormat(format);
         M = new NumeroComplejo(Double.parseDouble(df.format(M.getParteReal())), Double.parseDouble(df.format(M.getParteImaginaria())));
         return M;
     }
-
-
 
 
 }

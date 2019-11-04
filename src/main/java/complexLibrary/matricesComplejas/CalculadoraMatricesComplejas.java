@@ -225,7 +225,7 @@ public class CalculadoraMatricesComplejas {
      * @param B Segunda matriz compleja
      * @return Matriz resultante del producto entre A y B
      * @throws ComplexException Si las dimensiones de las matrices A y B son
-     * incompatibles
+     *                          incompatibles
      */
     public static MatrizCompleja productoDeMatrices(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
         if (A.getN() != B.getM()) {
@@ -254,7 +254,7 @@ public class CalculadoraMatricesComplejas {
      * @param B Segunda matriz compleja
      * @return Matriz resultante del producto entre A y B
      * @throws ComplexException Si las dimensiones de las matrices A y B son
-     * incompatibles
+     *                          incompatibles
      */
     public static MatrizCompleja productoDeMatricesSinRedondear(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
         if (A.getN() != B.getM()) {
@@ -307,8 +307,8 @@ public class CalculadoraMatricesComplejas {
     /**
      * Calcula el producto interno entre dos vectores
      *
-     * @param A Primera matriz de complejos
-     * @param B Segunda matriz de complejos
+     * @param A                     Primera matriz de complejos
+     * @param B                     Segunda matriz de complejos
      * @param retornaNumeroComplejo Si retorna un número complejo
      * @return El producto interno
      * @throws ComplexException si el producto de matrices es incompatible
@@ -324,8 +324,8 @@ public class CalculadoraMatricesComplejas {
     /**
      * Calcula el producto interno entre dos vectores
      *
-     * @param A Primera matriz de complejos
-     * @param B Segunda matriz de complejos
+     * @param A           Primera matriz de complejos
+     * @param B           Segunda matriz de complejos
      * @param esMatriz1x1 Si es una matriz 1x1 (un numero real)
      * @return El producto interno
      * @throws ComplexException si el producto de matrices es incompatible
@@ -359,7 +359,7 @@ public class CalculadoraMatricesComplejas {
      * @param B Vector 2
      * @return Distancia entre A y B
      * @throws ComplexException Si la resta de los vectores no se puede
-     * realizar.
+     *                          realizar.
      */
     public static double distancia(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
         double distancia;
@@ -473,8 +473,7 @@ public class CalculadoraMatricesComplejas {
     }
 
 
-
-    public static MatrizCompleja redondearAXDecimalesUnaMatriz(MatrizCompleja M, int numeroDeDecimales){
+    public static MatrizCompleja redondearAXDecimalesUnaMatriz(MatrizCompleja M, int numeroDeDecimales) {
         String format = "#." + generarCeros(numeroDeDecimales);
         DecimalFormat df = new DecimalFormat(format);
         for (int i = 0; i < M.getM(); i++) {
@@ -486,9 +485,9 @@ public class CalculadoraMatricesComplejas {
         return M;
     }
 
-    public static String generarCeros(int numero){
+    public static String generarCeros(int numero) {
         String resp = "";
-        for (int i = 0; i<numero; i++){
+        for (int i = 0; i < numero; i++) {
             resp += "0";
         }
         return resp;

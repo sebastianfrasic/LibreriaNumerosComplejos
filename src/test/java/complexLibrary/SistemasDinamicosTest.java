@@ -14,7 +14,6 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 /**
- *
  * @author juans
  */
 public class SistemasDinamicosTest {

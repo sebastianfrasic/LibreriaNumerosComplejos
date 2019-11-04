@@ -14,18 +14,17 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
 /**
- *
  * @author 2145120
  */
 public class ExperimentoRendijas {
-    
+
     public static void main(String[] args) {
         int numeroRendijas = 2;
         int numeroBlancosPared = 5;
         MatrizCompleja vectorDeAmplitudes = new MatrizCompleja(11, 1);
         try {
-            double r = 1/(Math.sqrt(22));
-            
+            double r = 1 / (Math.sqrt(22));
+
             vectorDeAmplitudes.addComplex(0, 0, new NumeroComplejo(r, r));
             vectorDeAmplitudes.addComplex(1, 0, new NumeroComplejo(-r, -r));
             vectorDeAmplitudes.addComplex(2, 0, new NumeroComplejo(-r, r));
@@ -37,16 +36,16 @@ public class ExperimentoRendijas {
             vectorDeAmplitudes.addComplex(8, 0, new NumeroComplejo(r, -r));
             vectorDeAmplitudes.addComplex(9, 0, new NumeroComplejo(r, -r));
             vectorDeAmplitudes.addComplex(10, 0, new NumeroComplejo(-r, r));
-            
+
             Sistema s = Rendija.calcularExperimentoDeRendijas(TipoSistema.CUANTICO, numeroRendijas, numeroBlancosPared, vectorDeAmplitudes);
             MatrizCompleja vectorFinal = s.getVectorEstadoFinal();
             System.out.println(vectorFinal);
-            new Grafico(vectorFinal).setVisible(true);           
-            
-            
-        }catch(Exception e){
+            new Grafico(vectorFinal).setVisible(true);
+
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
 }

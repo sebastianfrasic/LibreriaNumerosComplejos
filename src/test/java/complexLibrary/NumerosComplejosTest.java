@@ -1,7 +1,9 @@
 package complexLibrary;
 
 import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
+
 import org.junit.Test;
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
@@ -176,7 +178,7 @@ public class NumerosComplejosTest {
     @Test
     public void deberiaCambiarDeCartesianoAPolar2() {
 
-        NumeroComplejo numero1 = new NumeroComplejo(Math.sqrt(3)/(2*Math.sqrt(2)), Math.sqrt(3)/(2*Math.sqrt(2)));
+        NumeroComplejo numero1 = new NumeroComplejo(Math.sqrt(3) / (2 * Math.sqrt(2)), Math.sqrt(3) / (2 * Math.sqrt(2)));
 
         System.out.println("Prueba de pasar de cartesiano a polar: ");
         System.out.println(numero1.cartesianoAPolar() + "\n");
@@ -187,7 +189,7 @@ public class NumerosComplejosTest {
     @Test
     public void deberiaCambiarDeCartesianoAPolar3() {
 
-        NumeroComplejo numero1 = new NumeroComplejo((double)-1/4, Math.sqrt(3)/4);
+        NumeroComplejo numero1 = new NumeroComplejo((double) -1 / 4, Math.sqrt(3) / 4);
 
 
         System.out.println("Prueba de pasar de cartesiano a polar: ");
