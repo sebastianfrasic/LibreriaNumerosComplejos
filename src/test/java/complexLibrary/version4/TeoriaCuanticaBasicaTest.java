@@ -46,7 +46,6 @@ public class TeoriaCuanticaBasicaTest {
 
             MatrizCompleja respuesta = CalculadoraCuantica.calcularProbabilidad(10, psi);
             respuesta = CalculadoraMatricesComplejas.redondearAXDecimalesUnaMatriz(respuesta, 4);
-
             assertEquals(respuestaEsperada, respuesta);
 
         } catch (Exception e) {
