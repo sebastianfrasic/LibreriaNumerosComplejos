@@ -195,6 +195,8 @@ public class MatrizCompleja {
         return esVectorPorColumnas;
     }
 
+
+
     /**
      * Indica si la matriz es de dinámica doblemente estocástica. Es decir, si
      * la suma tanto por filas como por columnas es igual a 1

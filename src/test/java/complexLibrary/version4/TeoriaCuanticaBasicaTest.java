@@ -8,6 +8,8 @@ import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class TeoriaCuanticaBasicaTest {
@@ -95,6 +97,38 @@ public class TeoriaCuanticaBasicaTest {
             assertEquals(valorEsperado, rtaValorEsperado, 0);
             assertEquals(varianza, rtaVarianza, 0);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void esferaDeBloch() {
+        double parametro1 = 29.0;
+        double parametro2 = 75.0;
+        try {
+            MatrizCompleja ket = new MatrizCompleja(2, 1);
+            ket.addComplex(0, 0, new NumeroComplejo(Math.sqrt(3) / (2 * Math.sqrt(2)), Math.sqrt(3) / (2 * Math.sqrt(2))));
+            ket.addComplex(1, 0, new NumeroComplejo((double) -1 / 4, Math.sqrt(3) / 4));
+
+            ArrayList<Double> respuesta = CalculadoraCuantica.esferaDeBloch(ket);
+            assertTrue(parametro1 == respuesta.get(0) && parametro2 == respuesta.get(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void esferaDeBloch2() {
+        double parametro1 = 29.0;
+        double parametro2 = 75.0;
+        try {
+            MatrizCompleja ket = new MatrizCompleja(1, 2);
+            ket.addComplex(0, 0, new NumeroComplejo(Math.sqrt(3) / (2 * Math.sqrt(2)), Math.sqrt(3) / (2 * Math.sqrt(2))));
+            ket.addComplex(0, 1, new NumeroComplejo((double) -1 / 4, Math.sqrt(3) / 4));
+
+            ArrayList<Double> respuesta = CalculadoraCuantica.esferaDeBloch(ket);
+            assertTrue(parametro1 == respuesta.get(0) && parametro2 == respuesta.get(1));
         } catch (Exception e) {
             e.printStackTrace();
         }

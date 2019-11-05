@@ -493,5 +493,19 @@ public class CalculadoraMatricesComplejas {
         return resp;
     }
 
+    public static MatrizCompleja pasarAVectorPorColumnas(MatrizCompleja vector) throws ComplexException {
+        if (vector.esVectorPorFilas()) {
+            vector = CalculadoraMatricesComplejas.matrizTranspuesta(vector);
+        }
+        return vector;
+    }
+
+    public static MatrizCompleja pasarAVectorPorFilas(MatrizCompleja vector) throws ComplexException {
+        if (vector.esVectorPorColumnas()) {
+            vector = CalculadoraMatricesComplejas.matrizTranspuesta(vector);
+        }
+        return vector;
+    }
+
 }
 
