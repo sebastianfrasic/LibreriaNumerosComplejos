@@ -207,6 +207,7 @@ public class MatrizCompleja {
         boolean esDoblementeEstocastica = true;
 
         NumeroComplejo uno = new NumeroComplejo(1, 0);
+        //noinspection UnusedAssignment
         NumeroComplejo suma = new NumeroComplejo(0, 0);
 
         if (!this.isVector()) {
@@ -240,7 +241,7 @@ public class MatrizCompleja {
         return esDoblementeEstocastica;
     }
 
-    public NumeroComplejo sumarElementosDeLaMatriz() {
+    private NumeroComplejo sumarElementosDeLaMatriz() {
         NumeroComplejo suma = new NumeroComplejo(0, 0);
         for (int i = 0; i < this.getM(); i++) {
             for (int j = 0; j < this.getN(); j++) {

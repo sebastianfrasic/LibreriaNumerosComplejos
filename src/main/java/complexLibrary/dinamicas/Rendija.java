@@ -7,7 +7,7 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 
 public class Rendija {
 
-    public static final int numeroDeClicks = 2;
+    private static final int numeroDeClicks = 2;
 
     public static Sistema calcularExperimentoDeRendijas(TipoSistema tipoDeSistema, int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja vectorDeProbabilidad) throws ComplexException {
         if (vectorDeProbabilidad.getMatriz().length == ((2 * numeroDeBlancosPared) + 1)) {
@@ -29,7 +29,7 @@ public class Rendija {
 
     }
 
-    public static MatrizCompleja crearVectorDeEstadoInicial(int size) throws ComplexException {
+    private static MatrizCompleja crearVectorDeEstadoInicial(int size) throws ComplexException {
         MatrizCompleja vectorDeEstadoInicial = new MatrizCompleja(size, 1);
         vectorDeEstadoInicial.addComplex(0, 0, new NumeroComplejo(1, 0));
         NumeroComplejo cero = new NumeroComplejo(0, 0);
@@ -42,7 +42,7 @@ public class Rendija {
 
     }
 
-    public static MatrizCompleja calcularMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja VP) {
+    private static MatrizCompleja calcularMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared, MatrizCompleja VP) {
 
         int size = calcularTamanoMatrizDelSistema(numeroDeRendijas, numeroDeBlancosPared);
         MatrizCompleja matrizDelSistema = new MatrizCompleja(size, size);
@@ -54,7 +54,7 @@ public class Rendija {
         return matrizDelSistema;
     }
 
-    public static int calcularTamanoMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
+    private static int calcularTamanoMatrizDelSistema(int numeroDeRendijas, int numeroDeBlancosPared) {
         int paredes = numeroDeRendijas + 1;
 
         int puntosNegros = 2 * numeroDeRendijas;
@@ -65,30 +65,27 @@ public class Rendija {
         return size;
     }
 
-    private static MatrizCompleja llenarMatrizDeCeros(MatrizCompleja M) {
+    private static void llenarMatrizDeCeros(MatrizCompleja M) {
         for (int i = 0; i < M.getM(); i++) {
             for (int j = 0; j < M.getN(); j++) {
                 M.getMatriz()[i][j] = new NumeroComplejo(0, 0);
             }
         }
-        return M;
     }
 
-    private static MatrizCompleja llenarColumna0(MatrizCompleja M, int numeroRendijas) {
+    private static void llenarColumna0(MatrizCompleja M, int numeroRendijas) {
         for (int i = 0; i < numeroRendijas; i++) {
             M.getMatriz()[i + 1][0] = new NumeroComplejo((double) 1 / (Math.sqrt(numeroRendijas)), 0);
         }
-        return M;
     }
 
-    private static MatrizCompleja llenarDe1s(MatrizCompleja M, int numeroRendijas) {
+    private static void llenarDe1s(MatrizCompleja M, int numeroRendijas) {
         for (int i = numeroRendijas + 1; i < M.getMatriz().length; i++) {
             M.getMatriz()[i][i] = new NumeroComplejo(1, 0);
         }
-        return M;
     }
 
-    private static MatrizCompleja llenarDeVP(MatrizCompleja M, MatrizCompleja VP, int numRendijas, int numeroBlancos) {
+    private static void llenarDeVP(MatrizCompleja M, MatrizCompleja VP, int numRendijas, int numeroBlancos) {
         int blankSpaces = VP.getMatriz().length - numeroBlancos;
         int inicio = numRendijas + 1;
         for (int j = 1; j < numRendijas + 1; j++) {
@@ -98,7 +95,6 @@ public class Rendija {
             inicio += blankSpaces;
         }
 
-        return M;
     }
 
     public static void main(String[] args) {

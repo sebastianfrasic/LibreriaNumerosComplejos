@@ -1,7 +1,6 @@
 package complexLibrary.version4;
 
 import complexLibrary.cuantica.CalculadoraCuantica;
-import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
@@ -45,7 +44,7 @@ public class TeoriaCuanticaBasicaTest {
             psi.addComplex(9, 0, new NumeroComplejo(-1, 1));
 
             MatrizCompleja respuesta = CalculadoraCuantica.calcularProbabilidad(10, psi);
-            respuesta = CalculadoraMatricesComplejas.redondearAXDecimalesUnaMatriz(respuesta, 4);
+            CalculadoraMatricesComplejas.redondearAXDecimalesUnaMatriz(respuesta, 4);
             assertEquals(respuestaEsperada, respuesta);
 
         } catch (Exception e) {
@@ -110,7 +109,7 @@ public class TeoriaCuanticaBasicaTest {
             ket.addComplex(0, 0, new NumeroComplejo(Math.sqrt(3) / (2 * Math.sqrt(2)), Math.sqrt(3) / (2 * Math.sqrt(2))));
             ket.addComplex(1, 0, new NumeroComplejo((double) -1 / 4, Math.sqrt(3) / 4));
 
-            ArrayList<Double> respuesta = CalculadoraCuantica.esferaDeBloch(ket);
+            ArrayList<Double> respuesta = CalculadoraCuantica.ketAEsferaDeBloch(ket);
             assertTrue(parametro1 == respuesta.get(0) && parametro2 == respuesta.get(1));
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,7 +125,7 @@ public class TeoriaCuanticaBasicaTest {
             ket.addComplex(0, 0, new NumeroComplejo(Math.sqrt(3) / (2 * Math.sqrt(2)), Math.sqrt(3) / (2 * Math.sqrt(2))));
             ket.addComplex(0, 1, new NumeroComplejo((double) -1 / 4, Math.sqrt(3) / 4));
 
-            ArrayList<Double> respuesta = CalculadoraCuantica.esferaDeBloch(ket);
+            ArrayList<Double> respuesta = CalculadoraCuantica.ketAEsferaDeBloch(ket);
             assertTrue(parametro1 == respuesta.get(0) && parametro2 == respuesta.get(1));
         } catch (Exception e) {
             e.printStackTrace();

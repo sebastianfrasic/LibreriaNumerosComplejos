@@ -211,6 +211,7 @@ public class CalculadoraMatricesComplejas {
      * @return La matriz adjunta (daga) de A
      */
     public static MatrizCompleja matrizAdjunta(MatrizCompleja A) {
+        //noinspection UnusedAssignment
         MatrizCompleja adjunta = new MatrizCompleja(A.getM(), A.getN());
 
         adjunta = matrizTranspuesta(matrizConjugada(A));
@@ -375,7 +376,7 @@ public class CalculadoraMatricesComplejas {
      * @throws ComplexException Si A no es cuadrada
      */
     public static MatrizCompleja crearIdentidad(MatrizCompleja A) throws ComplexException {
-        int dimension = 0;
+        int dimension;
         if (A.esCuadrada() || A.isVector()) {
             dimension = A.getM();
         } else {
@@ -493,14 +494,14 @@ public class CalculadoraMatricesComplejas {
         return resp;
     }
 
-    public static MatrizCompleja pasarAVectorPorColumnas(MatrizCompleja vector) throws ComplexException {
+    public static MatrizCompleja pasarAVectorPorColumnas(MatrizCompleja vector) {
         if (vector.esVectorPorFilas()) {
             vector = CalculadoraMatricesComplejas.matrizTranspuesta(vector);
         }
         return vector;
     }
 
-    public static MatrizCompleja pasarAVectorPorFilas(MatrizCompleja vector) throws ComplexException {
+    public static MatrizCompleja pasarAVectorPorFilas(MatrizCompleja vector) {
         if (vector.esVectorPorColumnas()) {
             vector = CalculadoraMatricesComplejas.matrizTranspuesta(vector);
         }

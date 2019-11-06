@@ -16,7 +16,7 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 public class Grafico extends JFrame {
 
     private JPanel panel;
-    private MatrizCompleja vectorFinal;
+    private final MatrizCompleja vectorFinal;
 
     public Grafico(MatrizCompleja vectorFinal) throws ComplexException {
         setTitle("Vector de estado final");
@@ -28,7 +28,7 @@ public class Grafico extends JFrame {
         init();
     }
 
-    private void init() throws ComplexException {
+    private void init() {
         panel = new JPanel();
         getContentPane().add(panel);
 

@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import complexLibrary.dinamicas.CalculadoraDinamica;
-import complexLibrary.dinamicas.Sistema;
 import complexLibrary.dinamicas.TipoSistema;
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;

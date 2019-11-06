@@ -5,7 +5,6 @@
  */
 package complexLibrary.version3;
 
-import complexLibrary.dinamicas.CalculadoraDinamica;
 import complexLibrary.dinamicas.Grafico;
 import complexLibrary.dinamicas.Rendija;
 import complexLibrary.dinamicas.Sistema;
@@ -16,7 +15,7 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 /**
  * @author 2145120
  */
-public class ExperimentoRendijas {
+class ExperimentoRendijas {
 
     public static void main(String[] args) {
         int numeroRendijas = 2;

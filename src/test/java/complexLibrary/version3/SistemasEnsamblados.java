@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  * @author 2145120
  */
-public class SistemasEnsamblados {
+class SistemasEnsamblados {
 
     public static void main(String[] args) {
 
@@ -30,23 +30,23 @@ public class SistemasEnsamblados {
             int clicks = 5;
 
             MA.addComplex(0, 0, new NumeroComplejo(0, 0));
-            MA.addComplex(0, 1, new NumeroComplejo((double) 0.2, 0));
-            MA.addComplex(0, 2, new NumeroComplejo((double) 0.3, 0));
-            MA.addComplex(0, 3, new NumeroComplejo((double) 0.5, 0));
+            MA.addComplex(0, 1, new NumeroComplejo(0.2, 0));
+            MA.addComplex(0, 2, new NumeroComplejo(0.3, 0));
+            MA.addComplex(0, 3, new NumeroComplejo(0.5, 0));
 
-            MA.addComplex(1, 0, new NumeroComplejo((double) 0.3, 0));
-            MA.addComplex(1, 1, new NumeroComplejo((double) 0.2, 0));
-            MA.addComplex(1, 2, new NumeroComplejo((double) 0.1, 0));
-            MA.addComplex(1, 3, new NumeroComplejo((double) 0.4, 0));
+            MA.addComplex(1, 0, new NumeroComplejo(0.3, 0));
+            MA.addComplex(1, 1, new NumeroComplejo(0.2, 0));
+            MA.addComplex(1, 2, new NumeroComplejo(0.1, 0));
+            MA.addComplex(1, 3, new NumeroComplejo(0.4, 0));
 
-            MA.addComplex(2, 0, new NumeroComplejo((double) 0.4, 0));
-            MA.addComplex(2, 1, new NumeroComplejo((double) 0.3, 0));
-            MA.addComplex(2, 2, new NumeroComplejo((double) 0.2, 0));
-            MA.addComplex(2, 3, new NumeroComplejo((double) 0.1, 0));
+            MA.addComplex(2, 0, new NumeroComplejo(0.4, 0));
+            MA.addComplex(2, 1, new NumeroComplejo(0.3, 0));
+            MA.addComplex(2, 2, new NumeroComplejo(0.2, 0));
+            MA.addComplex(2, 3, new NumeroComplejo(0.1, 0));
 
-            MA.addComplex(3, 0, new NumeroComplejo((double) 0.3, 0));
-            MA.addComplex(3, 1, new NumeroComplejo((double) 0.3, 0));
-            MA.addComplex(3, 2, new NumeroComplejo((double) 0.4, 0));
+            MA.addComplex(3, 0, new NumeroComplejo(0.3, 0));
+            MA.addComplex(3, 1, new NumeroComplejo(0.3, 0));
+            MA.addComplex(3, 2, new NumeroComplejo(0.4, 0));
             MA.addComplex(3, 3, new NumeroComplejo(0, 0));
 
 
@@ -64,13 +64,13 @@ public class SistemasEnsamblados {
 
 
             VA.addComplex(0, 0, new NumeroComplejo(0.2, 0));
-            VA.addComplex(1, 0, new NumeroComplejo((double) 0.1, 0));
-            VA.addComplex(2, 0, new NumeroComplejo((double) 0.6, 0));
-            VA.addComplex(3, 0, new NumeroComplejo((double) 0.1, 0));
+            VA.addComplex(1, 0, new NumeroComplejo(0.1, 0));
+            VA.addComplex(2, 0, new NumeroComplejo(0.6, 0));
+            VA.addComplex(3, 0, new NumeroComplejo(0.1, 0));
 
             VB.addComplex(0, 0, new NumeroComplejo(0.7, 0));
-            VB.addComplex(1, 0, new NumeroComplejo((double) 0.15, 0));
-            VB.addComplex(2, 0, new NumeroComplejo((double) 0.15, 0));
+            VB.addComplex(1, 0, new NumeroComplejo(0.15, 0));
+            VB.addComplex(2, 0, new NumeroComplejo(0.15, 0));
 
             MatrizCompleja vectorFinal = CalculadoraDinamica.calcularDinamicaConEnsamble(TipoSistema.ESTOCASTICO, MA, VA, MB, VB, clicks);
             new Grafico(vectorFinal).setVisible(true);

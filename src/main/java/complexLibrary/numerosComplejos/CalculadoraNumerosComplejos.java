@@ -2,7 +2,6 @@ package complexLibrary.numerosComplejos;
 
 import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
-import complexLibrary.matricesComplejas.MatrizCompleja;
 
 import java.text.DecimalFormat;
 

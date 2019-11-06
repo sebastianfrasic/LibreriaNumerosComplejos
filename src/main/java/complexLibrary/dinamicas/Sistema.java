@@ -12,7 +12,7 @@ public class Sistema {
     private MatrizCompleja vectorEstadoFinal;
     private MatrizCompleja matrizDelSistema;
 
-    private boolean imprimirValidez;
+    private final boolean imprimirValidez;
 
     public Sistema(boolean esValido, MatrizCompleja matrizPotencia, MatrizCompleja vectorEstadoFinal) {
         this.esValido = esValido;
@@ -63,7 +63,7 @@ public class Sistema {
 
     @Override
     public String toString() {
-        String respuesta = "";
+        String respuesta;
         if (imprimirValidez) {
             respuesta = "Dinamica del sistema:" + "\n �El sistema es v�lido? = " + esValido + "\n"
                     + "\n Matriz elevada al n�mero de clicks = \n" + matrizPotencia

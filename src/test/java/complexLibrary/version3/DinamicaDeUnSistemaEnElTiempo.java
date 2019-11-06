@@ -15,7 +15,7 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 /**
  * @author 2145120
  */
-public class DinamicaDeUnSistemaEnElTiempo {
+class DinamicaDeUnSistemaEnElTiempo {
 
     public static void main(String[] args) {
         MatrizCompleja matriz = new MatrizCompleja(13, 13);

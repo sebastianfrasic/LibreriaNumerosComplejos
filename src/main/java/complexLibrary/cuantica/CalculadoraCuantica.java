@@ -6,7 +6,6 @@ import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.CalculadoraNumerosComplejos;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -57,7 +56,7 @@ public class CalculadoraCuantica {
         }
     }
 
-    public static MatrizCompleja normalizarVector(MatrizCompleja ket) throws ComplexException {
+    private static MatrizCompleja normalizarVector(MatrizCompleja ket) throws ComplexException {
         if (!ket.isVector()) {
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
         } else {
@@ -107,8 +106,13 @@ public class CalculadoraCuantica {
         return Math.sqrt(calcularVarianza(omega, psi).getParteReal());
     }
 
-
-    public static ArrayList<Double> esferaDeBloch(MatrizCompleja ket) throws ComplexException {
+    /**
+     * Dado un ket calcula sus coordenadas esféricas
+     * @param ket
+     * @return Una lista de doubles con las coordenadas esfericas del vector. El primer elemento es la latitud(theta), el segundo elemento es la longitud(phi)
+     * @throws ComplexException
+     */
+    public static ArrayList<Double> ketAEsferaDeBloch(MatrizCompleja ket) throws ComplexException {
         if(!ket.isVector()){
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
         }else{
