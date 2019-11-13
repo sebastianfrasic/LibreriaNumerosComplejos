@@ -78,8 +78,7 @@ public class NumeroComplejo {
      * @return Conjugado (parte imaginaria * -1)
      */
     public NumeroComplejo getConjugado() {
-        NumeroComplejo conjugado = new NumeroComplejo(parteReal, parteImaginaria * (-1));
-        return conjugado;
+        return new NumeroComplejo(parteReal, parteImaginaria * (-1));
     }
 
     /**
@@ -109,13 +108,11 @@ public class NumeroComplejo {
     }
 
     private double cambiarParteReal() {
-        double real = Math.round((modulo * Math.cos(Math.toRadians(fase))));
-        return real;
+        return (double) Math.round((modulo * Math.cos(Math.toRadians(fase))));
     }
 
     private double cambiarParteImaginaria() {
-        double i = Math.round((modulo * Math.sin(Math.toRadians(fase))));
-        return i;
+        return (double) Math.round((modulo * Math.sin(Math.toRadians(fase))));
     }
 
     /**
@@ -163,10 +160,7 @@ public class NumeroComplejo {
         if (parteImaginaria != other.parteImaginaria) {
             return false;
         }
-        if (parteReal != other.parteReal) {
-            return false;
-        }
-        return true;
+        return parteReal == other.parteReal;
     }
 
     @Override

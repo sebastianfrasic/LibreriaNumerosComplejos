@@ -137,6 +137,7 @@ public class MatrizCompleja {
      *
      * @return
      */
+    @SuppressWarnings("JavaDoc")
     public boolean esCuadrada() {
         boolean esCuadrada;
         esCuadrada = this.getM() == this.getN();
@@ -175,8 +176,7 @@ public class MatrizCompleja {
     }
 
     public String dimension() {
-        String dimension = this.getM() + " x " + this.getN();
-        return dimension;
+        return this.getM() + " x " + this.getN();
     }
 
     public boolean esVectorPorFilas() {
@@ -277,14 +277,14 @@ public class MatrizCompleja {
 
     @Override
     public String toString() {
-        String matriz = "";
+        StringBuilder matriz = new StringBuilder();
         for (int i = 0; i < this.m; i++) {
             for (int j = 0; j < this.n; j++) {
-                matriz += "Fila: " + i + ", Columna: " + j + " ---> " + this.matriz[i][j] + "    ";
+                matriz.append("Fila: ").append(i).append(", Columna: ").append(j).append(" ---> ").append(this.matriz[i][j]).append("    ");
             }
-            matriz += "\n";
+            matriz.append("\n");
         }
-        return matriz;
+        return matriz.toString();
     }
 
     @Override
@@ -315,10 +315,7 @@ public class MatrizCompleja {
         if (!Arrays.deepEquals(matriz, other.matriz)) {
             return false;
         }
-        if (n != other.n) {
-            return false;
-        }
-        return true;
+        return n == other.n;
     }
 
 }

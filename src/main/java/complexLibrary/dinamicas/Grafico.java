@@ -10,26 +10,35 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-import complexLibrary.excepciones.ComplexException;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 
 public class Grafico extends JFrame {
 
-    private JPanel panel;
     private final MatrizCompleja vectorFinal;
 
-    public Grafico(MatrizCompleja vectorFinal) throws ComplexException {
+    public Grafico(MatrizCompleja vectorFinal) {
         setTitle("Vector de estado final");
         setSize(1500, 1000);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         this.vectorFinal = vectorFinal;
-        init();
+        init("R");
     }
 
-    private void init() {
-        panel = new JPanel();
+    public Grafico(MatrizCompleja vectorFinal, boolean algoritmoDeDeutsch) {
+        setTitle("Algoritmo de Deutsch");
+        setSize(1500, 1000);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        this.vectorFinal = vectorFinal;
+        init("D");
+    }
+
+    private void init(String x) {
+        String titulo = "";
+        JPanel panel = new JPanel();
         getContentPane().add(panel);
 
         // Fuente de Datos
@@ -37,6 +46,8 @@ public class Grafico extends JFrame {
 
         for (int i = 0; i < vectorFinal.getMatriz().length; i++) {
             String estado = Integer.toString(i);
+
+
 
             DecimalFormat df = new DecimalFormat("#.00");
             double valor = vectorFinal.getMatriz()[i][0].getParteReal();
@@ -48,12 +59,27 @@ public class Grafico extends JFrame {
                 a = df.format(vectorFinal.getMatriz()[i][0].getParteReal());
             }
 
-            estado = "Estado " + estado + " = " + a + "%";
+            if(x.equals("D")){
+                //String[] qubits = {"00", "01", "10", "11"};
+                String estadoEnBinario = Integer.toBinaryString(Integer.parseInt(estado));
+                if(estadoEnBinario.length() == 1){
+                    estadoEnBinario = "0" + estadoEnBinario;
+                }
+                estado = estadoEnBinario + " = " + a + "%";
+
+                //estado = qubits[i] + " = " + a + "%";
+                titulo = "Algoritmo de Deutsch:";
+            }else if(x.equals("R")){
+                estado = "Estado " + estado + " = " + a + "%";
+                titulo = "Vector de estado final:";
+            }
+
+
             data.setValue(estado, vectorFinal.getMatriz()[i][0].getParteReal() * 100);
         }
 
         // Creando el Grafico
-        JFreeChart chart = ChartFactory.createPieChart("Vector de estado final:", data, true, true, false);
+        JFreeChart chart = ChartFactory.createPieChart(titulo, data, true, true, false);
 
         // Crear el Panel del Grafico con ChartPanel
         ChartPanel chartPanel = new ChartPanel(chart);

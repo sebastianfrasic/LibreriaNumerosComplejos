@@ -60,9 +60,7 @@ public class Rendija {
         int puntosNegros = 2 * numeroDeRendijas;
         int puntosRojos = paredes * numeroDeBlancosPared;
 
-        int size = 1 + puntosNegros + puntosRojos;
-
-        return size;
+        return 1 + puntosNegros + puntosRojos;
     }
 
     private static void llenarMatrizDeCeros(MatrizCompleja M) {

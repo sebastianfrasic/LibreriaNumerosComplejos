@@ -164,8 +164,7 @@ public class CalculadoraDinamica {
             if (vectorEstadoInicial.getMatriz().length != matrizDeLaDinamica.getMatriz().length) {
                 throw new ComplexException(ComplexException.NO_SE_PUDO_CALCULAR);
             } else {
-                int numeroDeClicks = t;
-                for (int i = 0; i < numeroDeClicks; i++) {
+                for (int i = 0; i < t; i++) {
                     vectorEstadoInicial = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(matrizDeLaDinamica, vectorEstadoInicial);
                 }
                 if (tipo == TipoSistema.CUANTICO && matrizDeLaDinamica.matrizDeDinamicaCuantica() && vectorEstadoInicial.vectorDeDinamicaCuantica()) {

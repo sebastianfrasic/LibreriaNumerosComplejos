@@ -85,16 +85,14 @@ public class CalculadoraCuantica {
     private static NumeroComplejo calcular(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
         psi = normalizarVector(psi);
         MatrizCompleja omegaXpsi = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(omega, psi);
-        NumeroComplejo respuesta = CalculadoraMatricesComplejas.productoInterno(true, omegaXpsi, psi);
 
-        return respuesta;
+        return CalculadoraMatricesComplejas.productoInterno(true, omegaXpsi, psi);
     }
 
     public static MatrizCompleja calcularOperadorDelta(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
         MatrizCompleja matrizIdentidad = CalculadoraMatricesComplejas.crearIdentidad(omega);
         NumeroComplejo valorEsperado = calcularValorEsperado(omega, psi);
-        MatrizCompleja respuesta = CalculadoraMatricesComplejas.restaDeMatrices(omega, CalculadoraMatricesComplejas.productoPorEscalar(matrizIdentidad, valorEsperado));
-        return respuesta;
+        return CalculadoraMatricesComplejas.restaDeMatrices(omega, CalculadoraMatricesComplejas.productoPorEscalar(matrizIdentidad, valorEsperado));
     }
 
     public static NumeroComplejo calcularVarianza(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {

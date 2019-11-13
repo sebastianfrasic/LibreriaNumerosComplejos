@@ -301,8 +301,7 @@ public class CalculadoraMatricesComplejas {
      * @throws ComplexException si el producto de matrices es incompatible
      */
     public static MatrizCompleja productoInterno(MatrizCompleja A, MatrizCompleja B) throws ComplexException {
-        MatrizCompleja productoInterno = productoDeMatricesSinRedondear(matrizAdjunta(A), B);
-        return productoInterno;
+        return productoDeMatricesSinRedondear(matrizAdjunta(A), B);
     }
 
     /**
@@ -316,9 +315,8 @@ public class CalculadoraMatricesComplejas {
      */
     public static NumeroComplejo productoInterno(boolean retornaNumeroComplejo, MatrizCompleja A, MatrizCompleja B) throws ComplexException {
         MatrizCompleja productoInterno = productoDeMatrices(matrizAdjunta(A), B);
-        NumeroComplejo numero = productoInterno.getNumeroComplejo(0, 0);
 
-        return numero;
+        return productoInterno.getNumeroComplejo(0, 0);
 
     }
 
@@ -349,8 +347,7 @@ public class CalculadoraMatricesComplejas {
      * @throws ComplexException si el producto de matrices es incompatible
      */
     public static double norma(MatrizCompleja A) throws ComplexException {
-        double norma = Math.sqrt(productoInterno(A, A, true));
-        return norma;
+        return Math.sqrt(productoInterno(A, A, true));
     }
 
     /**
@@ -474,7 +471,7 @@ public class CalculadoraMatricesComplejas {
     }
 
 
-    public static MatrizCompleja redondearAXDecimalesUnaMatriz(MatrizCompleja M, int numeroDeDecimales) {
+    public static void redondearAXDecimalesUnaMatriz(MatrizCompleja M, int numeroDeDecimales) {
         String format = "#." + generarCeros(numeroDeDecimales);
         DecimalFormat df = new DecimalFormat(format);
         for (int i = 0; i < M.getM(); i++) {
@@ -483,15 +480,14 @@ public class CalculadoraMatricesComplejas {
             }
 
         }
-        return M;
     }
 
     public static String generarCeros(int numero) {
-        String resp = "";
+        StringBuilder resp = new StringBuilder();
         for (int i = 0; i < numero; i++) {
-            resp += "0";
+            resp.append("0");
         }
-        return resp;
+        return resp.toString();
     }
 
     public static MatrizCompleja pasarAVectorPorColumnas(MatrizCompleja vector) {
