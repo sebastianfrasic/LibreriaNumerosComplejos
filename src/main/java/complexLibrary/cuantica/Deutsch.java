@@ -6,10 +6,12 @@ import complexLibrary.matricesComplejas.CalculadoraMatricesComplejas;
 import complexLibrary.matricesComplejas.MatrizCompleja;
 import complexLibrary.numerosComplejos.NumeroComplejo;
 
+import static complexLibrary.matricesComplejas.CalculadoraMatricesComplejas.*;
+
 class Deutsch {
 
 
-    private static MatrizCompleja crearHadamard() throws ComplexException {
+    public static MatrizCompleja crearHadamard() throws ComplexException {
         MatrizCompleja hadamard = new MatrizCompleja(2, 2);
         hadamard.addComplex(0, 0, new NumeroComplejo(1 / Math.sqrt(2), 0));
         hadamard.addComplex(0, 1, new NumeroComplejo(1 / Math.sqrt(2), 0));
@@ -118,14 +120,14 @@ class Deutsch {
         return Uc;
     }
 
-    private static MatrizCompleja crearKet0() throws ComplexException {
+    public static MatrizCompleja crearKet0() throws ComplexException {
         MatrizCompleja ket0 = new MatrizCompleja(2, 1);
         ket0.addComplex(0, 0, new NumeroComplejo(1, 0));
         ket0.addComplex(1, 0, new NumeroComplejo(0, 0));
         return  ket0;
     }
 
-    private static MatrizCompleja crearKet1() throws ComplexException {
+    public static MatrizCompleja crearKet1() throws ComplexException {
         MatrizCompleja ket1 = new MatrizCompleja(2, 1);
         ket1.addComplex(0, 0, new NumeroComplejo(0, 0));
         ket1.addComplex(1, 0, new NumeroComplejo(1, 0));
@@ -139,14 +141,15 @@ class Deutsch {
 
 
     private static void simulacionAlgoritmoDeDeutsch() throws ComplexException {
-        MatrizCompleja phi_0 = CalculadoraMatricesComplejas.productoTensor(crearKet0(), crearKet1());
-        MatrizCompleja HH = CalculadoraMatricesComplejas.productoTensor(crearHadamard(), crearHadamard());
-        MatrizCompleja HI = CalculadoraMatricesComplejas.productoTensor(crearHadamard(), crearIdentidadDimension2());
-        MatrizCompleja phi_1 = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(HH, phi_0);
-        MatrizCompleja phi_2 = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(crearUi(), phi_1);
-        MatrizCompleja phi_3 = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(HI, phi_2);
+        MatrizCompleja phi_0 = productoTensor(crearKet0(), crearKet1());
 
-        MatrizCompleja respuesta = CalculadoraMatricesComplejas.matrizModuloAlCuadrado(phi_3);
+        MatrizCompleja HH = productoTensor(crearHadamard(), crearHadamard());
+        MatrizCompleja HI = productoTensor(crearHadamard(), crearIdentidad(2));
+        MatrizCompleja phi_1 = productoDeMatricesSinRedondear(HH, phi_0);
+        MatrizCompleja phi_2 = productoDeMatricesSinRedondear(crearUi(), phi_1);
+        MatrizCompleja phi_3 = productoDeMatricesSinRedondear(HI, phi_2);
+
+        MatrizCompleja respuesta = matrizModuloAlCuadrado(phi_3);
         new Grafico(respuesta, true).setVisible(true);
         System.out.println(respuesta);
 
@@ -156,6 +159,5 @@ class Deutsch {
 
     public static void main(String[] args) throws ComplexException {
         simulacionAlgoritmoDeDeutsch();
-        //
     }
 }

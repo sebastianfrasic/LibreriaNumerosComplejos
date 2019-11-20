@@ -1,1 +1,5 @@
-Documentar todo.
+Esfera de Bloch (ultima actividad)
+Corregir grafico para Deutsch-Jozsa
+
+
+Actualizar read.me

@@ -398,6 +398,28 @@ public class CalculadoraMatricesComplejas {
     }
 
     /**
+     * Crea y retorna la matriz identidad de una dimensión dada
+     */
+    public static MatrizCompleja crearIdentidad(int dimension) throws ComplexException {
+
+        MatrizCompleja matrizIdentidad = new MatrizCompleja(dimension, dimension);
+
+        for (int i = 0; i < matrizIdentidad.getM(); i++) {
+            for (int j = 0; j < matrizIdentidad.getN(); j++) {
+                if (i == j) {
+                    matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(1, 0);
+
+                } else {
+                    matrizIdentidad.getMatriz()[i][j] = new NumeroComplejo(0, 0);
+                }
+            }
+        }
+
+        return matrizIdentidad;
+
+    }
+
+    /**
      * Dice si una matriz dada es unitaria o no (Si el producto de la matriz por
      * su adjunta es igual a la matriz identidad).
      *
@@ -441,6 +463,20 @@ public class CalculadoraMatricesComplejas {
             }
         }
         return productoTensor;
+    }
+
+    /**
+     * Calcula el producto tensor de una matriz consigo misma n veces
+     * @param A Matriz compleja
+     * @param exponente Sería el valor de n veces
+     * @return retorna el producto tensor de una matriz consigo misma n veces
+     */
+    public static MatrizCompleja potenciaTensor(MatrizCompleja A, int exponente){
+        MatrizCompleja resp = A;
+        for (int i = 1; i < exponente ; i++) {
+            resp = productoTensor(resp, A);
+        }
+        return resp;
     }
 
     public static MatrizCompleja matrizEstocasticaAsociada(MatrizCompleja A) throws ComplexException {
