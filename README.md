@@ -136,9 +136,7 @@ Todos los requerimientos se encuentran ![aquí](https://github.com/sergio-tello/
 
 La mitad de las funciones están en:
 
-Y la otra mitad en el siguiente Jupyter Notebook:
-
-![jupiter](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/src/main/python/Esfera%20de%20Bloch.ipynb)
+Y la otra mitad en el siguiente ![Jupyter Notebook:](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/src/main/python/Esfera%20de%20Bloch.ipynb)
 
 Las transformaciones de los kets con las matrices son las siguientes:
 
