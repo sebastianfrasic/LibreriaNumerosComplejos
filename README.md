@@ -135,6 +135,7 @@ Las pruebas de estas funciones se encuentran en ```\src\test\java\complexLibrary
 Todos los requerimientos se encuentran ![aquí](https://github.com/sergio-tello/actividad-Bloch)
 
 La mitad de las funciones están en:
+```src/main/java/complexLibrary/cuantica/CalculadoraCuantica.java```
 
 Y la otra mitad en el siguiente ![Jupyter Notebook:](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/src/main/python/Esfera%20de%20Bloch.ipynb)
 
