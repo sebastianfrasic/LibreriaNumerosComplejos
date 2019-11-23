@@ -8,7 +8,7 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 
 import static complexLibrary.matricesComplejas.CalculadoraMatricesComplejas.*;
 
-class Deutsch {
+public class Deutsch {
 
 
     public static MatrizCompleja crearHadamard() throws ComplexException {

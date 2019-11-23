@@ -8,6 +8,9 @@ import complexLibrary.numerosComplejos.NumeroComplejo;
 
 import java.util.ArrayList;
 
+import static complexLibrary.matricesComplejas.CalculadoraMatricesComplejas.*;
+import static complexLibrary.matricesComplejas.CalculadoraMatricesComplejas.productoPorEscalar;
+
 /**
  * @author 2145120
  */
@@ -21,7 +24,7 @@ public class CalculadoraCuantica {
             MatrizCompleja respuesta = new MatrizCompleja(ket.getM(), ket.getN());
 
             for (int i = 0; i < ket.getM(); i++) {
-                respuesta.getMatriz()[i][0] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(ket.getMatriz()[i][0]) / CalculadoraMatricesComplejas.norma(ket), 0);
+                respuesta.getMatriz()[i][0] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(ket.getMatriz()[i][0]) / norma(ket), 0);
             }
 
             return respuesta;
@@ -40,7 +43,7 @@ public class CalculadoraCuantica {
             MatrizCompleja respuesta = new MatrizCompleja(ket.getM(), ket.getN());
 
             for (int i = 0; i < ket.getM(); i++) {
-                respuesta.getMatriz()[i][0] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(ket.getMatriz()[i][0]) / CalculadoraMatricesComplejas.norma(ket), 0);
+                respuesta.getMatriz()[i][0] = new NumeroComplejo(CalculadoraNumerosComplejos.moduloElevadoAlCuadrado(ket.getMatriz()[i][0]) / norma(ket), 0);
             }
 
             return respuesta;
@@ -52,7 +55,7 @@ public class CalculadoraCuantica {
         if (!ket.isVector()) {
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
         } else {
-            return CalculadoraMatricesComplejas.matrizAdjunta(ket);
+            return matrizAdjunta(ket);
         }
     }
 
@@ -60,7 +63,7 @@ public class CalculadoraCuantica {
         if (!ket.isVector()) {
             throw new ComplexException(ComplexException.NO_ES_VECTOR);
         } else {
-            return CalculadoraMatricesComplejas.productoPorEscalarDeUnVector(ket, new NumeroComplejo((double) 1 / CalculadoraMatricesComplejas.norma(ket), 0));
+            return productoPorEscalarDeUnVector(ket, new NumeroComplejo((double) 1 / norma(ket), 0));
 
         }
     }
@@ -68,11 +71,11 @@ public class CalculadoraCuantica {
     public static NumeroComplejo calcularAmplitudDeTransicion(MatrizCompleja psi, MatrizCompleja phi) throws ComplexException {
         psi = normalizarVector(psi);
         phi = normalizarVector(phi);
-        return CalculadoraMatricesComplejas.productoInterno(true, phi, psi);
+        return productoInterno(true, phi, psi);
     }
 
     public static NumeroComplejo calcularValorEsperado(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
-        if (!CalculadoraMatricesComplejas.esHermitiana(omega)) {
+        if (!esHermitiana(omega)) {
             throw new ComplexException(ComplexException.NO_ES_HERMITIANA);
         }
         if (!psi.isVector()) {
@@ -84,20 +87,20 @@ public class CalculadoraCuantica {
 
     private static NumeroComplejo calcular(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
         psi = normalizarVector(psi);
-        MatrizCompleja omegaXpsi = CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(omega, psi);
+        MatrizCompleja omegaXpsi = productoDeMatricesSinRedondear(omega, psi);
 
-        return CalculadoraMatricesComplejas.productoInterno(true, omegaXpsi, psi);
+        return productoInterno(true, omegaXpsi, psi);
     }
 
     public static MatrizCompleja calcularOperadorDelta(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
-        MatrizCompleja matrizIdentidad = CalculadoraMatricesComplejas.crearIdentidad(omega);
+        MatrizCompleja matrizIdentidad = crearIdentidad(omega);
         NumeroComplejo valorEsperado = calcularValorEsperado(omega, psi);
-        return CalculadoraMatricesComplejas.restaDeMatrices(omega, CalculadoraMatricesComplejas.productoPorEscalar(matrizIdentidad, valorEsperado));
+        return restaDeMatrices(omega, productoPorEscalar(matrizIdentidad, valorEsperado));
     }
 
     public static NumeroComplejo calcularVarianza(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
         MatrizCompleja operadorDelta = calcularOperadorDelta(omega, psi);
-        return calcular(CalculadoraMatricesComplejas.productoDeMatricesSinRedondear(operadorDelta, operadorDelta), psi);
+        return calcular(productoDeMatricesSinRedondear(operadorDelta, operadorDelta), psi);
     }
 
     public static double calcularDesviacionEstandar(MatrizCompleja omega, MatrizCompleja psi) throws ComplexException {
@@ -118,7 +121,7 @@ public class CalculadoraCuantica {
 
             ArrayList<Double> respuesta = new ArrayList<>();
 
-            ket = CalculadoraMatricesComplejas.pasarAVectorPorColumnas(ket);
+            ket = pasarAVectorPorColumnas(ket);
             ket = CalculadoraCuantica.normalizarVector(ket);
 
             ArrayList<Double> numero1 = ket.getNumeroComplejo(0, 0).cartesianoAPolar();
@@ -136,6 +139,94 @@ public class CalculadoraCuantica {
         }
     }
 
+    public static MatrizCompleja crearMatrizX() throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(1, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(1, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(0, 0));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizY() throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, -1));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 1));
+        matriz.addComplex(1, 1, new NumeroComplejo(0, 0));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizZ() throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(1, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(-1, 0));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizS() throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(1, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(0, 1));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizT() throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(1, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(Math.cos((Math.PI)/4), Math.sin((Math.PI)/4)));
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizR(double theta) throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(1, 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(Math.pow(Math.E, theta), 0));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizRx(double theta) throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(Math.cos(theta/2), 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, -Math.sin(theta/2)));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, -Math.sin(theta/2)));
+        matriz.addComplex(1, 1, new NumeroComplejo(Math.cos(theta/2), 0));
+
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizRy(double theta) throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(Math.cos(theta/2), 0));
+        matriz.addComplex(0, 1, new NumeroComplejo(-Math.sin(theta/2), 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(-Math.sin(theta/2), 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(Math.cos(theta/2), 0));
+        //System.out.println(matriz);
+        return matriz;
+    }
+
+    public static MatrizCompleja crearMatrizRz(double theta) throws ComplexException {
+        MatrizCompleja matriz = new MatrizCompleja(2, 2);
+        matriz.addComplex(0, 0, new NumeroComplejo(Math.cos(theta/2), -Math.sin(theta/2)));
+        matriz.addComplex(0, 1, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(0, 0));
+        matriz.addComplex(1, 1, new NumeroComplejo(Math.cos(theta/2), Math.sin(theta/2)));
+
+        return matriz;
+    }
 
 
 }
