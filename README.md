@@ -130,6 +130,53 @@ Las pruebas de estas funciones se encuentran en ```\src\test\java\complexLibrary
 * Esta función se hizo en Python, y se encuentra en ```src\main\python``` en el archivo ```valoresyvectorespropios.py``` 
 
 
+### Versión N° 5: Esfera de Bloch
+
+Todos los requerimientos se encuentran ![aquí](https://github.com/sergio-tello/actividad-Bloch)
+
+La mitad de las funciones están en:
+
+Y la otra mitad en el siguiente Jupyter Notebook:
+
+![jupiter](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/src/main/python/Esfera%20de%20Bloch.ipynb)
+
+Las transformaciones de los kets con las matrices son las siguientes:
+
+#### Matriz X:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/X.PNG)  
+
+#### Matriz Y:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/Y.PNG) 
+
+#### Matriz Z:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/Z.PNG) 
+
+#### Matriz S:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/S.PNG) 
+
+#### Matriz T:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/T.PNG) 
+
+#### Matriz H:
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/H.PNG) 
+
+#### Matriz R(pi/4):
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/R.PNG) 
+
+#### Matriz Rx(pi/4):
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/Rx.PNG) 
+
+#### Matriz Ry(pi/4):
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/Ry.PNG) 
+
+#### Matriz Rz(pi/4):
+![foto](https://github.com/sebastianfrasic/LibreriaNumerosComplejos/blob/master/recursos/Esfera%20de%20Bloch/Esferas%20transformadas/Rz.PNG) 
+
+
+
+
+
+
 ## ¿Cómo usar la librería?
 
 ### Pasos de descarga y uso de pruebas
