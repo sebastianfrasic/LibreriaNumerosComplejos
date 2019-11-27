@@ -28,6 +28,7 @@ public class TransformacionesConR {
             ket.addComplex(0, 0, new NumeroComplejo(1, 0));
             ket.addComplex(1, 0, new NumeroComplejo(0, 0));
             ket = productoDeMatricesSinRedondear(crearMatrizR(angulo), ket);
+            System.out.println(crearMatrizR(angulo));
             //System.out.println(ket);
             ArrayList<Double> respuesta = ketAEsferaDeBloch(ket);
             System.out.println("Ket up: ");

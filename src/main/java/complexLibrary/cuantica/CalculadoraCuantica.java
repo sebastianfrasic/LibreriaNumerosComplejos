@@ -130,7 +130,6 @@ public class CalculadoraCuantica {
             double retorno1 = (double)Math.round(Math.toDegrees(Math.acos(numero1.get(0))) * 1d) / 1d;
             double retorno2 = numero2.get(1) - numero1.get(1);
 
-
             respuesta.add(retorno1);
             respuesta.add(retorno2);
 
@@ -212,7 +211,7 @@ public class CalculadoraCuantica {
         MatrizCompleja matriz = new MatrizCompleja(2, 2);
         matriz.addComplex(0, 0, new NumeroComplejo(Math.cos(theta/2), 0));
         matriz.addComplex(0, 1, new NumeroComplejo(-Math.sin(theta/2), 0));
-        matriz.addComplex(1, 0, new NumeroComplejo(-Math.sin(theta/2), 0));
+        matriz.addComplex(1, 0, new NumeroComplejo(Math.sin(theta/2), 0));
         matriz.addComplex(1, 1, new NumeroComplejo(Math.cos(theta/2), 0));
         //System.out.println(matriz);
         return matriz;
